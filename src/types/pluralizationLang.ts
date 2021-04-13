@@ -1,0 +1,1 @@
+export type PluralizationLang = "en" | "de" | "no" | "es" | "pl" | "zh";

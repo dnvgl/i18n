@@ -1,0 +1,1 @@
+export type TimeFormatPrecision = "minutes" | "m" | "seconds" | "s";

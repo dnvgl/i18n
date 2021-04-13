@@ -1,0 +1,1 @@
+export type DateFormatPrecision = "years" | "y" | "months" | "M" | "days" | "d" | "minutes" | "m" | "seconds" | "s";

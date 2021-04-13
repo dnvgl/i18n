@@ -1,0 +1,1 @@
+export type SortOrder = "asc" | "ascend" | "desc" | "descend";

@@ -1,0 +1,34 @@
+{
+  "name": "@dnvgl/i18n",
+  "version": "0.1.0",
+  "description": "Set of functions to support multiple languages/cultures in a browser",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf lib && tsc -p tsconfig.build.json",
+    "compile": "tsc --noEmit --skipLibCheck"
+  },
+  "keywords": [
+    "internationalization",
+    "i18n"
+  ],
+  "homepage": "https://github.com/dnvgl/i18n",
+  "bugs": {
+    "url": "https://github.com/dnvgl/i18n/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dnvgl/i18n.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.21",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.4",
+    "typescript": "^4.2.3"
+  }
+}

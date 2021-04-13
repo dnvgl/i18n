@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "strict": true,
+    "module": "ES6",
+    "outDir": "./lib",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "noImplicitReturns": true,
+    "declaration": true,
+    "removeComments": true,
+    "stripInternal": true
+  },
+  "exclude": [
+    "lib",
+    "node_modules"
+  ]
+}
