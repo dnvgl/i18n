@@ -24,7 +24,7 @@ yarn add @dnvgl/i18n
 ## 3. Usage
 
 Import functions or types from `@dnvgl/i18n`, example:
-```javascript
+```typescript
 import { sort, formatNumber } from '@dnvgl/i18n';
 
 const sortedItems = sort(["Z", "a", "A", "z", "ś"], 'asc', 'pl-PL'); // returns ["a", "A", "ś", "z", "Z"]

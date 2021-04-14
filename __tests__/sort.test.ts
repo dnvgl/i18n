@@ -62,12 +62,12 @@ describe('sort', () => {
   test.each([
     [["b", "ą", "a"], "asc", "pl", ["a", "ą", "b"]],
     [["a", "ą", "b"], "desc", "pl", ["b", "ą", "a"]],
-    [['己', '孔', '乙'], "asc", "en", ['乙', '孔', '己']], // correct English sorting, but broken from a Chinese point of view
-    [['己', '孔', '乙'], "asc", "de", ['乙', '孔', '己']], // correct German sorting, but broken from a Chinese point of view
-    [['己', '孔', '乙'], "asc", "zh", ['己', '孔', '乙']], // Chinese -> Chinese (Simplified)
-    [['己', '孔', '乙'], "asc", "zh-CN", ['己', '孔', '乙']], // Chinese (Simplified)
-    [['己', '孔', '乙'], "asc", "zh-TW", ['乙', '己', '孔']], // Chinese (Traditional, Taiwan)
-    [['己', '孔', '乙'], "asc", "zh-HK", ['乙', '己', '孔']], // Chinese (Traditional)
+    [['己', '孔', '乙'], "asc", "en", ['乙', '孔', '己']], // HINT: correct English sorting, but broken from a Chinese point of view
+    [['己', '孔', '乙'], "asc", "de", ['乙', '孔', '己']], // HINT: correct German sorting, but broken from a Chinese point of view
+    [['己', '孔', '乙'], "asc", "zh", ['己', '孔', '乙']], // HINT: Chinese -> Chinese (Simplified)
+    [['己', '孔', '乙'], "asc", "zh-CN", ['己', '孔', '乙']], // HINT: Chinese (Simplified)
+    [['己', '孔', '乙'], "asc", "zh-TW", ['乙', '己', '孔']], // HINT: Chinese (Traditional, Taiwan)
+    [['己', '孔', '乙'], "asc", "zh-HK", ['乙', '己', '孔']], // HINT: Chinese (Traditional)
   ])('sorts string %p using %p order and %p locale', (value, order, locale, expected) => {
     const result = sort(value, order as SortOrder, locale);
     expect(result).toEqual(expected);
