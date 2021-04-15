@@ -6,15 +6,15 @@ import { LocaleOrCollator } from "./types/locale";
 import { SortSelector } from "./types/sortSelector";
 import { SortOrder } from "./types/sortOrder";
 
-export function sortByInplace<T>(source: T[], selector: SortSelector<T>, order?: SortOrder, locale?: LocaleOrCollator): T[];
-export function sortByInplace<T>(source: T[], selector: SortSelector<T>[], order?: SortOrder[], locale?: LocaleOrCollator): T[];
+export function sortByInplace<T>(source: T[], selector: SortSelector<T>, order?: SortOrder, locale?: LocaleOrCollator): T[]
+export function sortByInplace<T>(source: T[], selectors: SortSelector<T>[], order?: SortOrder | SortOrder[], locale?: LocaleOrCollator): T[]
 export function sortByInplace<T>(source: T[], selectors: SortSelector<T> | SortSelector<T>[], orders?: SortOrder | SortOrder[], locale?: LocaleOrCollator): T[] {
   const valueSelectors = Array.isArray(selectors) 
     ? selectors 
     : [selectors];
 
   const sortOrders = (orders !== undefined && !Array.isArray(orders))
-    ? [orders]
+    ? Array(valueSelectors.length).fill(orders)
     : orders;
 
   const collator = resolveCollatorLocale(locale);

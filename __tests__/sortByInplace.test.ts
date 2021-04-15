@@ -1,17 +1,57 @@
 import { sortByInplace } from "../src";
 
-describe('sortByInplace', () => {
-  it('complex', () => {
+describe("sortByInplace", () => {
+  describe("given an array of people", () => {
     const users = [
-      { id: 1, name: 'fred',   age: 48 },
-      { id: 2, name: 'barney', age: 34 },
-      { id: 3, name: 'fred',   age: 40 },
-      { id: 4, name: 'barney', age: 36 }
+      { id: 1, name: "fred", age: 48 },
+      { id: 2, name: "barney", age: 34 },
+      { id: 3, name: "fred", age: 40 },
+      { id: 4, name: "barney", age: 36 },
     ];
 
-    const result = sortByInplace(users, [x => x.name, x => x.age], ["asc", "desc"], "en");
+    describe("when sorted", () => {
+      it("returns same array", () => {
+        const result = sortByInplace(users, [(x) => x.name]);
+        expect(users === result).toBeTruthy();
+      });
+    });
 
-    expect(users === result).toBeTruthy();
-    expect(result.map(x => x.id)).toEqual([4, 2, 1, 3]);
-  })
+    describe("when sorted without selectors", () => {
+      it("is not sorted", () => {
+        const input = users.map((x) => x.id);
+        const result = sortByInplace(users, [], 'desc');
+        expect(result.map((x) => x.id)).toEqual(input);
+      });
+    });
+
+    describe("when sorted by name ascending and age descending", () => {
+      it("is sorted first by name ascending and then by age descending", () => {
+        const result = sortByInplace(users, [(x) => x.name, (x) => x.age], ["asc", "desc"], "en");
+        expect(result.map((x) => x.id)).toEqual([4, 2, 1, 3]);
+      });
+    });
+
+    describe("when sorted by name descending and age without order", () => {
+      it("is sorted first by name ascending and then by age using default ascending order", () => {
+        const result = sortByInplace(users, [(x) => x.name, (x) => x.age], ["desc"], "en");
+        expect(result.map((x) => x.id)).toEqual([3, 1, 2, 4]);
+      });
+    });
+
+    describe("when sorted by name and age with descending order", () => {
+      it("is sorted first by name and then by age using the descending order for both selectors", () => {
+        const result = sortByInplace(users, [(x) => x.name, (x) => x.age], "desc", "en");
+        expect(result.map((x) => x.id)).toEqual([1, 3, 4, 2]);
+      });
+    });
+  });
+
+  describe("given invalid parameters", () => {
+    it("fails to compile", () => {
+      // @ts-expect-error
+      () => sortByInplace();
+      // @ts-expect-error
+      () => sortByInplace([1, 2], x => x, ['desc']);
+    });
+  });
 });
