@@ -39,7 +39,7 @@ Most of the functions accepts `locale` parameter which allow us to choose the co
 #### Module system
 Library supports `esm` modules tree shaking by default.
 
-### Testing
+#### Testing
 [Jest](https://jestjs.io/) does not support `esm` modules, and `@dnvgl/i18n` uses them. In order to test your application with Jest you have to add the following to your `package.json`:
 ```json
 "jest": {
