@@ -15,6 +15,7 @@ import { capitalizeFirstLetter } from '@dnvgl/i18n';
 capitalizeFirstLetter("abc"); // returns "Abc"
 capitalizeFirstLetter("abC"); // returns "abC"
 capitalizeFirstLetter("ABC"); // returns "ABC"
+capitalizeFirstLetter("italya", "tr"); // returns "İtalya"
 ```
 
 ### compareBooleans()

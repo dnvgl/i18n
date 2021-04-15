@@ -37,13 +37,26 @@ Most of the functions accepts `locale` parameter which allow us to choose the co
 - more info: [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
 #### Module system
-Library supports ES modules tree shaking by default.
+Library supports `esm` modules tree shaking by default.
+
+### Testing
+[Jest](https://jestjs.io/) does not support `esm` modules, and `@dnvgl/i18n` uses them. In order to test your application with Jest you have to add the following to your `package.json`:
+```json
+"jest": {
+  "transformIgnorePatterns": [
+    "/node_modules/(?!@dnvgl/i18n)"
+  ]
+}
+```
 
 #### TypeScript
 Library provides a built-in ts definition.
 
 ## 4. Contributing
-See the `CONTRIBUTING.md` file for contribution information.
+See the `CONTRIBUTING.md` file.
 
 ## 5. Documentation
-See the `DOCUMENTATION.md` file for documentation information.
+See the `DOCUMENTATION.md` file.
+
+## 6. Changelog
+See the `CHANGELOG.md` file.
