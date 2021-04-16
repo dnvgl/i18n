@@ -27,3 +27,14 @@ describe('compareDates', () => {
     expect(compareDates(a, b)).toEqual(expected);
   });
 });
+
+// HINT: type tests below
+
+// @ts-expect-error
+compareDates(new Date("2018-05-05"), "2018-05-10"); // HINT: mixed types
+// @ts-expect-error
+compareDates("2018-05-10", new Date("2018-05-05")); // HINT: mixed types
+// @ts-expect-error
+compareDates(); // HINT: missing arguments
+// @ts-expect-error
+compareDates(5, 10); // HINT: invalid types

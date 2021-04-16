@@ -45,3 +45,10 @@ describe('plural', () => {
     expect(plural(["cat"], 0, "en")).toEqual("cat");
   });
 });
+
+// HINT: type tests below
+
+// @ts-expect-error
+plural(["cat", "cats"], "en", 0, "|"); // HINT: last argument is not acceptable when pattern is an array
+// @ts-expect-error
+plural(["cat", "cats"], "en"); // HINT: missing arguments
