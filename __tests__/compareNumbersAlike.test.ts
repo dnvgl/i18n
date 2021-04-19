@@ -66,17 +66,17 @@ describe('compareNumbersAlike', () => {
   ])('compares boolean types %p and %p', (a, b, expected) => {
     expect(compareNumbersAlike(a, b)).toEqual(expected);
   });
+
+  test("fails to compile", () => {
+    // @ts-expect-error
+    compareNumbersAlike(new Date("2018-05-05"), true); // HINT: mixed types
+    // @ts-expect-error
+    compareNumbersAlike(false, 5); // HINT: mixed types
+    // @ts-expect-error
+    compareNumbersAlike(new Date("2018-05-05"), 5); // HINT: mixed types
+    // @ts-expect-error
+    compareNumbersAlike(); // HINT: missing arguments
+    // @ts-expect-error
+    compareNumbersAlike(5, "10"); // HINT: invalid types
+  });
 });
-
-// HINT: type tests below
-
-// @ts-expect-error
-compareNumbersAlike(new Date("2018-05-05"), true); // HINT: mixed types
-// @ts-expect-error
-compareNumbersAlike(false, 5); // HINT: mixed types
-// @ts-expect-error
-compareNumbersAlike(new Date("2018-05-05"), 5); // HINT: mixed types
-// @ts-expect-error
-compareNumbersAlike(); // HINT: missing arguments
-// @ts-expect-error
-compareNumbersAlike(5, "10"); // HINT: invalid types

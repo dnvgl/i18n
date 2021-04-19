@@ -34,15 +34,15 @@ describe('formatTime', () => {
     const result = formatTime(values, format, locale);
     expect(result).toBe(expected);
   });
+
+  test("fails to compile", () => {
+    // @ts-expect-error
+    formatTime([1,1,1,1], "minutes", "pl-PL"); // HINT: incorrect array length
+    // @ts-expect-error
+    formatTime([1,1], "minutes", "pl-PL"); // HINT: incorrect array length
+    // @ts-expect-error
+    formatTime([1,1,null], "minutes", "pl-PL"); // HINT: invalid type
+    // @ts-expect-error
+    formatTime(); // HINT: missing arguments
+  });
 });
-
-// HINT: type tests below
-
-// @ts-expect-error
-formatTime([1,1,1,1], "minutes", "pl-PL"); // HINT: incorrect array length
-// @ts-expect-error
-formatTime([1,1], "minutes", "pl-PL"); // HINT: incorrect array length
-// @ts-expect-error
-formatTime([1,1,null], "minutes", "pl-PL"); // HINT: invalid type
-// @ts-expect-error
-formatTime(); // HINT: missing arguments

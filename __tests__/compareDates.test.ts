@@ -26,15 +26,15 @@ describe('compareDates', () => {
   ])('compares date types %p and %p', (a, b, expected) => {
     expect(compareDates(a, b)).toEqual(expected);
   });
+
+  test("fails to compile", () => {
+    // @ts-expect-error
+    compareDates(new Date("2018-05-05"), "2018-05-10"); // HINT: mixed types
+    // @ts-expect-error
+    compareDates("2018-05-10", new Date("2018-05-05")); // HINT: mixed types
+    // @ts-expect-error
+    compareDates(); // HINT: missing arguments
+    // @ts-expect-error
+    compareDates(5, 10); // HINT: invalid types
+  });
 });
-
-// HINT: type tests below
-
-// @ts-expect-error
-compareDates(new Date("2018-05-05"), "2018-05-10"); // HINT: mixed types
-// @ts-expect-error
-compareDates("2018-05-10", new Date("2018-05-05")); // HINT: mixed types
-// @ts-expect-error
-compareDates(); // HINT: missing arguments
-// @ts-expect-error
-compareDates(5, 10); // HINT: invalid types
