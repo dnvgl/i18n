@@ -3,9 +3,11 @@ import { createDateFormat } from "./internal/createDateFormat";
 import { Locale } from "./types/locale";
 import { DateFormatPrecision } from "./types/dateFormatPrecision";
 
+const dateForParts = new Date(2020, 5, 5, 5, 5, 5); // HINT: carefully selected date (segments smaller than 10)
+
 export function getMomentFormat(precision: DateFormatPrecision = "days", locale?: Locale): string {
   const intlFormat = createDateFormat(locale, resolveDateTimeFormatOptions(precision)),
-    parts = intlFormat.formatToParts(new Date(2020, 5, 5, 5, 5, 5)), // HINT: carefully selected date (segments smaller than 10)
+    parts = intlFormat.formatToParts(dateForParts),
     hasDayPeriod = parts.some(x => x.type === "dayPeriod");
 
   return parts

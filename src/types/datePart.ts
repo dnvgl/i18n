@@ -1,0 +1,1 @@
+export type DatePart = "year" | "y" | "month" | "M" | "day" | "d" | "hour" | "h" | "minute" | "m" | "second" | "s";

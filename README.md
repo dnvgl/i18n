@@ -54,8 +54,8 @@ See the `CONTRIBUTING.md` file.
 ## 5. Documentation
 See full details in the `DOCUMENTATION.md` file.
 
-#### Number formatting/parsing
-`formatInteger()`, `formatMoney()`, `formatNumber()`, `formatNumberToFixed()`, `parseNumber()`, `transformToInputNumericString()`
+#### Number formatting/parsing/utils
+`formatInteger()`, `formatMoney()`, `formatNumber()`, `formatNumberToFixed()`, `parseNumber()`, `transformToInputNumericString()`, `roundUsingBankersMethod()`
 
 #### Datetime formatting
 `formatDate()`, `formatDateToISO()`, `formatRelativeTime()`, `formatTime()`, `getDateFnsFormat()`, `getMomentFormat()`
@@ -67,7 +67,7 @@ See full details in the `DOCUMENTATION.md` file.
 `capitalizeFirstLetter()`, `formatString()`, `lowercaseFirstLetter()`, `normalizeForSearching()`, `plural()`
 
 #### Others
-`formatIban()`, `getDecimalSeparator()`, `getMinusSign()`, `getSystemLocaleName()`, `getThousandsSeparator()`, `roundUsingBankersMethod()`
+`formatIban()`, `getDecimalSeparator()`, `getMinusSign()`, `getSystemLocaleName()`, `getThousandsSeparator()`
 
 ## 6. Changelog
 See the `CHANGELOG.md` file.

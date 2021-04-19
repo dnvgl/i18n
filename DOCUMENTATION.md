@@ -97,6 +97,16 @@ formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/202
 formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
 ```
 
+### formatDatePart() - not yet available (next release)
+```typescript
+import { formatDatePart } from '@dnvgl/i18n';
+
+formatDatePart(new Date("2018-07-08"), "year", "en-US"); // returns "2018"
+formatDatePart("2020-03-30T14:46:27+02:00", "month", "en-GB"); // returns "3"
+formatDatePart("2018-07-08 14:15:24", "day", "en-US"); // returns "8"
+formatDatePart("2018-07-08 14:15:24", "hour", "en-US"); // returns "2 PM"
+```
+
 ### formatDateToISO()
 arguments:
 - value (`Date` or `string` ISO format only)
