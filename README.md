@@ -27,19 +27,15 @@ Import functions or types from `@dnvgl/i18n`, example:
 ```typescript
 import { sort, formatNumber } from '@dnvgl/i18n';
 
-const sortedItems = sort(["Z", "a", "A", "z", "ś"], 'asc', 'pl-PL'); // returns ["a", "A", "ś", "z", "Z"]
-const formattedNumber = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns '12.486,45'
+const sortedItems = sort(["Z", "a", "A", "z", "ś"], "asc", "pl-PL"); // returns ["a", "A", "ś", "z", "Z"]
+const formattedNumber = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
+const localformattedNumber = formatNumber(12486.4529); // returns "12 486,4529" using local brower culture (in this case 'pl-PL'); any culture can be supported out of the box
 ```
-
-Most of the functions accepts `locale` parameter which allow us to choose the correct locale for our needs:
-- provided: uses specific locale (examples: `'en'`, `'en-GB'`)
-- `undefined` (or omitted): uses local browser locale
-- more info: [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
 #### Module system
 Library supports `esm` modules tree shaking by default.
 
-#### Testing
+#### Testing in Jest
 [Jest](https://jestjs.io/) does not support `esm` modules, and `@dnvgl/i18n` uses them. In order to test your application with Jest you have to add the following to your `package.json`:
 ```json
 "jest": {
@@ -56,7 +52,22 @@ Library provides a built-in ts definition.
 See the `CONTRIBUTING.md` file.
 
 ## 5. Documentation
-See the `DOCUMENTATION.md` file.
+See full details in the `DOCUMENTATION.md` file.
+
+#### Number formatting/parsing
+`formatInteger()`, `formatMoney()`, `formatNumber()`, `formatNumberToFixed()`, `parseNumber()`, `transformToInputNumericString()`
+
+#### Datetime formatting
+`formatDate()`, `formatDateToISO()`, `formatRelativeTime()`, `formatTime()`, `getDateFnsFormat()`, `getMomentFormat()`
+
+#### Sorting/comaprison
+`compareBooleans()`, `compareDates()`, `compareNumbers()`, `compareNumbersAlike()`, `compareStrings()`, `compareStringsFactory()`, `sort()`, `sortBy()`, `sortByInplace()`, `sortInplace()`
+
+#### String formating/utils
+`capitalizeFirstLetter()`, `formatString()`, `lowercaseFirstLetter()`, `normalizeForSearching()`, `plural()`
+
+#### Others
+`formatIban()`, `getDecimalSeparator()`, `getMinusSign()`, `getSystemLocaleName()`, `getThousandsSeparator()`, `roundUsingBankersMethod()`
 
 ## 6. Changelog
 See the `CHANGELOG.md` file.

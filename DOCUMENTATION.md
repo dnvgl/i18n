@@ -6,6 +6,13 @@ Follow TypeScript definitions. Check out examples in unit tests (`__tests__` fol
 ### 1.1. Supported modules
 Only functions, types etc. that are directly included in `@dnvgl/i18n` module are officially supported. For example, `@dnvgl/i18n/internal` may change in the future without any release notes.
 
+### 1.2. Locale
+
+Most of the functions accepts `locale` parameter which allow us to choose the correct locale for our needs:
+- provided: uses specific locale (examples: `'en'`, `'en-GB'`)
+- `undefined` (or omitted): uses local browser locale
+- more info: [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
+
 ## 2. More detailed documentaion
 
 ### capitalizeFirstLetter()
