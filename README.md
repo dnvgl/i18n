@@ -58,7 +58,7 @@ See full details in the `DOCUMENTATION.md` file.
 `formatInteger()`, `formatMoney()`, `formatNumber()`, `formatNumberToFixed()`, `parseNumber()`, `transformToInputNumericString()`, `roundUsingBankersMethod()`
 
 #### Datetime formatting
-`formatDate()`, `formatDateToISO()`, `formatRelativeTime()`, `formatTime()`, `getDateFnsFormat()`, `getMomentFormat()`
+`formatDate()`, `formatDatePart()`, `formatDateToISO()`, `formatRelativeTime()`, `formatTime()`, `getDateFnsFormat()`, `getMomentFormat()`
 
 #### Sorting/comaprison
 `compareBooleans()`, `compareDates()`, `compareNumbers()`, `compareNumbersAlike()`, `compareStrings()`, `compareStringsFactory()`, `sort()`, `sortBy()`, `sortByInplace()`, `sortInplace()`

@@ -97,7 +97,7 @@ formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/202
 formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
 ```
 
-### formatDatePart() - not yet available (next release)
+### formatDatePart()
 ```typescript
 import { formatDatePart } from '@dnvgl/i18n';
 
@@ -253,6 +253,10 @@ lowercaseFirstLetter("ABC"); // returns "aBC"
 import { normalizeForSearching } from '@dnvgl/i18n';
 
 normalizeForSearching("   Gdańsk  123 ", "en"); // returns "gdansk 123"
+
+const words = ["Congrès", "congres", "Assemblée", "poisson"];
+const s = "congres";
+words.filter(w => normalizeForSearching(w, "fr").includes(s)); // returns ["Congrès", "congres"]
 ```
 
 ### parseNumber()

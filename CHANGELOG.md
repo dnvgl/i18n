@@ -1,15 +1,18 @@
-# Future
-`To be released`\
+# v0.2.0
+`2021-04-20`\
 \
-Features:
+:rocket: Features:
 - formatDatePart()
+
+:bulb: Enhancements:
+- sortBy(), sortByInplace() - allow sorting by with same order for all selectors
 
 # v0.1.0
 `2021-04-13`\
 \
 Initial public release.
 
-Features:
+:rocket: Features:
 - capitalizeFirstLetter()
 - compareBooleans()
 - compareDates()
