@@ -2,6 +2,8 @@
 
 `@dnvgl/i18n` is a set of functions to support multiple languages/cultures in a browser. There is no dependency on other libraries (exception: TypeScript when using definitions). It's built on the browsers native solutions like for example `Intl` API.
 
+The purpose of this library is to provide all needed functionalities to support multiple languages/cultures in the web application. All functions have been designed to be simple and easy to use, that is why some native API are wrapped. This library was in use two years (commercial use by DNV company) before its open-source release ([`2021-04-13`](CHANGELOG.md#v010)).
+
 ## 1. Supported browsers
 
 - Chrome (+ mobile): last 2 versions
@@ -49,25 +51,25 @@ Library supports `esm` modules tree shaking by default.
 Library provides a built-in ts definition.
 
 ## 4. Contributing
-See the `CONTRIBUTING.md` file.
+See the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
 
 ## 5. Documentation
-See full details in the `DOCUMENTATION.md` file.
+See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 
 #### Number formatting/parsing/utils
-`formatInteger()`, `formatMoney()`, `formatNumber()`, `formatNumberToFixed()`, `parseNumber()`, `transformToInputNumericString()`, `roundUsingBankersMethod()`
+[`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod)
 
 #### Datetime formatting
-`formatDate()`, `formatDatePart()`, `formatDateToISO()`, `formatRelativeTime()`, `formatTime()`, `getDateFnsFormat()`, `getMomentFormat()`
+[`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO), [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime), [`formatTime()`](DOCUMENTATION.md#formatTime), [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat)
 
 #### Sorting/comaprison
-`compareBooleans()`, `compareDates()`, `compareNumbers()`, `compareNumbersAlike()`, `compareStrings()`, `compareStringsFactory()`, `sort()`, `sortBy()`, `sortByInplace()`, `sortInplace()`
+[`compareBooleans()`](DOCUMENTATION.md#compareBooleans), [`compareDates()`](DOCUMENTATION.md#compareDates), [`compareNumbers()`](DOCUMENTATION.md#compareNumbers), [`compareNumbersAlike()`](DOCUMENTATION.md#compareNumbersAlike), [`compareStrings()`](DOCUMENTATION.md#compareStrings), [`compareStringsFactory()`](DOCUMENTATION.md#compareStringsFactory), [`sort()`](DOCUMENTATION.md#sort), [`sortBy()`](DOCUMENTATION.md#sortBy), [`sortByInplace()`](DOCUMENTATION.md#sortByInplace), [`sortInplace()`](DOCUMENTATION.md#sortInplace)
 
 #### String formating/utils
-`capitalizeFirstLetter()`, `formatString()`, `lowercaseFirstLetter()`, `normalizeForSearching()`, `plural()`
+[`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Others
-`formatIban()`, `getDecimalSeparator()`, `getMinusSign()`, `getSystemLocaleName()`, `getThousandsSeparator()`
+[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator)
 
 ## 6. Changelog
-See the `CHANGELOG.md` file.
+See the [`CHANGELOG.md`](CHANGELOG.md) file.
