@@ -1,6 +1,6 @@
 # Documentation
 
-## 1. Basic documentaion
+## 1. Basic documentation
 Follow TypeScript definitions. Check out examples in unit tests (`__tests__` folder).
 
 ### 1.1. Supported modules
