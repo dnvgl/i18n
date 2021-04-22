@@ -171,7 +171,7 @@ formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```typescript
 import { formatRelativeTime } from '@dnvgl/i18n';
 
-formatRelativeTime([5, "day", { style: "narrow" }, "en"); // returns "in 5 days"
+formatRelativeTime(5, "day", { style: "narrow" }, "en"); // returns "in 5 days"
 formatRelativeTime(-1, "day", { style: "long" }, "en"); // returns "1 day ago"
 formatRelativeTime(-1, "day", { style: "short", numeric: "auto" }, "en"); // returns "yesterday"
 ```
@@ -358,7 +358,7 @@ common mistakes:
 - lodash `_.orderBy()`: doesnt't support internationalization
 
 ### transformToInputNumericString()
-Useful when implementing custom input component which doesn't allow to type invalid characters.
+Useful when implementing custom input component which doesn't allow to type invalid characters (transformation can be done during onChange event).
 ```typescript
 import { transformToInputNumericString } from '@dnvgl/i18n';
 
