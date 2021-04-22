@@ -31,7 +31,7 @@ import { sort, formatNumber } from '@dnvgl/i18n';
 
 const sortedItems = sort(["Z", "a", "A", "z", "ś"], "asc", "pl-PL"); // returns ["a", "A", "ś", "z", "Z"]
 const formattedNumber = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
-const localformattedNumber = formatNumber(12486.4529); // returns "12 486,4529" using local brower culture (in this case 'pl-PL'); any culture can be supported out of the box
+const localformattedNumber = formatNumber(12486.4529); // returns "12 486,4529" using local browser culture (in this case 'pl-PL'); any culture can be supported out of the box
 ```
 
 #### Module system
