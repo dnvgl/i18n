@@ -1,3 +1,9 @@
+# Comming release
+`TODO`\
+\
+:rocket: Features:
+- isBrowserCompatible()
+
 # v0.2.0
 `2021-04-20`\
 \

@@ -11,6 +11,8 @@ The purpose of this library is to provide all needed functionalities to support 
 - Safari (+ mobile): v14 or newer
 - Edge: last 2 versions
 
+There is a build-in function to check it: [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible).
+
 ## 2. Installation
 
 Using npm:
@@ -69,7 +71,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Others
-[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator)
+[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible) [`Comming release`]
 
 ## 6. Changelog
 See the [`CHANGELOG.md`](CHANGELOG.md) file.

@@ -23,6 +23,7 @@ export { getMinusSign } from './getMinusSign';
 export { getMomentFormat } from './getMomentFormat';
 export { getSystemLocaleName } from './getSystemLocaleName';
 export { getThousandsSeparator } from './getThousandsSeparator';
+export { isBrowserCompatible } from './isBrowserCompatible';
 export { lowercaseFirstLetter } from './lowercaseFirstLetter';
 export { normalizeForSearching } from './normalizeForSearching';
 export { parseNumber } from './parseNumber';
