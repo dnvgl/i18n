@@ -193,10 +193,17 @@ formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
 ```
 
 ### getDateFnsFormat()
+Converts to [`date-fns`](https://date-fns.org/) format.
 ```typescript
 import { getDateFnsFormat } from '@dnvgl/i18n';
 
 getDateFnsFormat("en-GB", "seconds"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
+```
+Example integration with AntDesign calendar (when [integrated](https://ant.design/docs/react/replace-moment) with `date-fns`):
+```tsx
+import { DatePicker } from 'antd';
+
+<DatePicker format={getDateFnsFormat("days")} />
 ```
 
 ### getDecimalSeparator()
@@ -217,10 +224,17 @@ getMinusSign("en-GB"); // returns "-"
 ```
 
 ### getMomentFormat()
+Converts to [`moment.js`](https://momentjs.com/) format.
 ```typescript
 import { getMomentFormat } from '@dnvgl/i18n';
 
 getMomentFormat("en-GB", "seconds"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
+```
+Example integration with AntDesign calendar:
+```tsx
+import { DatePicker } from 'antd';
+
+<DatePicker format={getMomentFormat("days")} />
 ```
 
 ### getSystemLocaleName()
