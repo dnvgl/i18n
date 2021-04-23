@@ -199,9 +199,9 @@ import { getDateFnsFormat } from '@dnvgl/i18n';
 
 getDateFnsFormat("en-GB", "seconds"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
 ```
-Example integration with AntDesign calendar (when [integrated](https://ant.design/docs/react/replace-moment) with `date-fns`):
+Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/replace-moment) with `date-fns`):
 ```tsx
-import { DatePicker } from 'antd';
+import { DatePicker } from 'your_module_with_custom_date_picker';
 
 <DatePicker format={getDateFnsFormat("days")} />
 ```
@@ -230,7 +230,7 @@ import { getMomentFormat } from '@dnvgl/i18n';
 
 getMomentFormat("en-GB", "seconds"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
-Example integration with AntDesign calendar:
+Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/):
 ```tsx
 import { DatePicker } from 'antd';
 
