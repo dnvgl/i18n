@@ -17,7 +17,7 @@ There is a build-in function to check it: [`isBrowserCompatible()`](DOCUMENTATIO
 
 Using npm:
 ```bash
-npm install @dnvgl/i18n --save
+npm install @dnvgl/i18n
 ```
 
 Using yarn:

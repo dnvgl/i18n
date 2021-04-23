@@ -241,7 +241,7 @@ getThousandsSeparator("de"); // returns "."
 
 ### isBrowserCompatible()
 [`Comming release`]\
-Checks whether browser supports all necessary features. Based on browser features, not `userAgent`. In practice it returns `false` for all Internet Explorer versions, old Edge browser (12-18), Safari 13. Example: https://caniuse.com/?search=Intl.RelativeTimeFormat
+Checks whether browser supports all necessary features. Based on browser features, not `userAgent`. In practice it returns `false` for all Internet Explorer versions, old Edge browser (12-18), Safari 13 and other old browsers. Example: https://caniuse.com/?search=Intl.RelativeTimeFormat
 
 ```typescript
 import { isBrowserCompatible } from '@dnvgl/i18n';
