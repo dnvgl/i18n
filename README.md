@@ -8,7 +8,7 @@ The purpose of this library is to provide all needed functionalities to support 
 
 - Chrome (+ mobile): last 2 versions
 - Firefox (+ mobile): last 2 versions
-- Safari (+ mobile): v14 or newer (exception: [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime) is not supported)
+- Safari (+ mobile): v14 or newer
 - Edge: last 2 versions
 
 There is a build-in function to check it: [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible).

@@ -168,8 +168,6 @@ formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```
 
 ### formatRelativeTime()
-Not supported in Safari browser (v14 desktop, v14.5 iOS).
-
 ```typescript
 import { formatRelativeTime } from '@dnvgl/i18n';
 
