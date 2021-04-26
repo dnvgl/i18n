@@ -168,6 +168,8 @@ formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```
 
 ### formatRelativeTime()
+Not supported in Safari browser (v14 desktop, v14.5 iOS).
+
 ```typescript
 import { formatRelativeTime } from '@dnvgl/i18n';
 
@@ -254,7 +256,6 @@ getThousandsSeparator("de"); // returns "."
 ```
 
 ### isBrowserCompatible()
-[`Comming release`]\
 Checks whether browser supports all necessary features. Based on browser features, not `userAgent`. In practice it returns `false` for all Internet Explorer versions, old Edge browser (12-18), Safari 13 and other old browsers. Example: https://caniuse.com/?search=Intl.RelativeTimeFormat
 
 ```typescript

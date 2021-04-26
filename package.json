@@ -1,6 +1,6 @@
 {
   "name": "@dnvgl/i18n",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Set of functions to support multiple languages/cultures in a browser",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",

@@ -1,5 +1,5 @@
-# Comming release
-`TODO`\
+# v0.3.0
+`2021-04-26`\
 \
 :rocket: Features:
 - isBrowserCompatible()

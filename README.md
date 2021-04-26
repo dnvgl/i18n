@@ -8,7 +8,7 @@ The purpose of this library is to provide all needed functionalities to support 
 
 - Chrome (+ mobile): last 2 versions
 - Firefox (+ mobile): last 2 versions
-- Safari (+ mobile): v14 or newer
+- Safari (+ mobile): v14 or newer (exception: [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime) is not supported)
 - Edge: last 2 versions
 
 There is a build-in function to check it: [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible).
@@ -71,7 +71,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Others
-[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible) [`Comming release`]
+[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)
 
 ## 6. Changelog
 See the [`CHANGELOG.md`](CHANGELOG.md) file.
