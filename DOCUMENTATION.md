@@ -7,7 +7,6 @@ Follow TypeScript definitions. Check out examples in unit tests (`__tests__` fol
 Only functions, types etc. that are directly included in `@dnvgl/i18n` module are officially supported. For example, `@dnvgl/i18n/internal` may change in the future without any release notes.
 
 ### 1.2. Locale
-
 Most of the functions accepts `locale` parameter which allow us to choose the correct locale for our needs:
 - provided: uses specific locale (examples: `'en'`, `'en-GB'`)
 - `undefined` (or omitted): uses local browser locale
@@ -86,6 +85,18 @@ import { compareStringsFactory } from '@dnvgl/i18n';
 const compare = compareStringsFactory("pl-PL");
 compare("A", "a"); // returns 1
 compare("Ą", "z"); // returns -1
+```
+
+### findIso3166Country()
+[`Upcoming release`]
+```typescript
+import { findIso3166Country } from '@dnvgl/i18n';
+
+findIso3166Country("PL"); // returns { countryName: "Poland", officialStateName: "The Republic of Poland", alpha2Code: "PL", alpha3Code: "POL", numericCode: 616 }
+findIso3166Country("POL"); // returns { countryName: "Poland"... }
+findIso3166Country(616); // returns { countryName: "Poland"... }
+findIso3166Country("pl"); // returns undefined
+findIso3166Country("XX"); // returns undefined
 ```
 
 ### formatDate()
@@ -215,6 +226,15 @@ getDecimalSeparator("en-GB"); // returns "."
 getDecimalSeparator("de"); // returns ","
 ```
 
+### getIso3166Countries()
+[`Upcoming release`]
+[`ISO 3166 countries`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+```typescript
+import { getIso3166Countries } from '@dnvgl/i18n';
+
+getIso3166Countries(); // returns [{ countryName: "Afghanistan", officialStateName: "The Islamic Republic of Afghanistan", alpha2Code: "AF", alpha3Code: "AFG", numericCode: 4 }, { countryName..}]
+```
+
 ### getMinusSign()
 ```typescript
 import { getMinusSign } from '@dnvgl/i18n';
@@ -261,6 +281,32 @@ import { isBrowserCompatible } from '@dnvgl/i18n';
 
 isBrowserCompatible(); // returns true, newest Chrome browser
 isBrowserCompatible(); // returns false, Internet Explorer 11
+```
+
+### isEuropeanUnionMember()
+[`Upcoming release`]
+```typescript
+import { isEuropeanUnionMember } from '@dnvgl/i18n';
+
+isEuropeanUnionMember("PL"); // returns true
+isEuropeanUnionMember("POL"); // returns true
+isEuropeanUnionMember(616); // returns true
+isEuropeanUnionMember("pl"); // returns false
+isEuropeanUnionMember("USA"); // returns false
+```
+
+### isValidIso3166Code()
+[`Upcoming release`]
+Checks whether code has valid length and country exists.
+```typescript
+import { isValidIso3166Code } from '@dnvgl/i18n';
+
+isValidIso3166Code("PL"); // returns true
+isValidIso3166Code("POL"); // returns true
+isValidIso3166Code(616); // returns true
+isValidIso3166Code("pl"); // returns false
+isValidIso3166Code("XX"); // returns false
+isValidIso3166Code(1000); // returns false
 ```
 
 ### lowercaseFirstLetter()

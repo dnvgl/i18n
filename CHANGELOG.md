@@ -1,3 +1,12 @@
+# Upcoming release
+`TODO`\
+\
+:rocket: Features:
+- findIso3166Country()
+- getIso3166Countries()
+- isEuropeanUnionMember()
+- isValidIso3166Code()
+
 # v0.3.0
 `2021-04-26`\
 \

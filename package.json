@@ -14,7 +14,12 @@
   },
   "keywords": [
     "internationalization",
-    "i18n"
+    "i18n",
+    "l10n",
+    "ISO",
+    "ISO 3166",
+    "ISO 3166-1",
+    "format"
   ],
   "homepage": "https://github.com/dnvgl/i18n",
   "bugs": {
