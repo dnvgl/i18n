@@ -227,7 +227,7 @@ getDecimalSeparator("de"); // returns ","
 ```
 
 ### getIso3166Countries()
-[`Upcoming release`]
+[`Upcoming release`]\
 [`ISO 3166 countries`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
 ```typescript
 import { getIso3166Countries } from '@dnvgl/i18n';
@@ -296,7 +296,7 @@ isEuropeanUnionMember("USA"); // returns false
 ```
 
 ### isValidIso3166Code()
-[`Upcoming release`]
+[`Upcoming release`]\
 Checks whether code has valid length and country exists.
 ```typescript
 import { isValidIso3166Code } from '@dnvgl/i18n';
