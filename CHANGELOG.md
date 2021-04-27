@@ -1,5 +1,8 @@
-# Upcoming release
-`TODO`\
+# Changelog
+Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/).
+
+## v0.4.0
+`2021-04-27`\
 \
 :rocket: Features:
 - findIso3166Country()
@@ -7,13 +10,13 @@
 - isEuropeanUnionMember()
 - isValidIso3166Code()
 
-# v0.3.0
+## v0.3.0
 `2021-04-26`\
 \
 :rocket: Features:
 - isBrowserCompatible()
 
-# v0.2.0
+## v0.2.0
 `2021-04-20`\
 \
 :rocket: Features:
@@ -22,7 +25,7 @@
 :bulb: Enhancements:
 - sortBy(), sortByInplace() - allow sorting by with same order for all selectors
 
-# v0.1.0
+## v0.1.0
 `2021-04-13`\
 \
 Initial public release.
