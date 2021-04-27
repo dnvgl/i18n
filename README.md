@@ -70,7 +70,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 #### String formating/utils
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
-#### Countries
+#### Country utils
 [`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
 #### Others
