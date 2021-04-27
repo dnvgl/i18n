@@ -4,7 +4,7 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/).
 ## v1.0.0
 `2021-04-27`\
 \
-Exactly the same as `v0.4.0` but major verion was set to `1`. The reason is to follow [Semantic Versioning 2.0.0.](https://semver.org/) for public, stable API.
+Exactly the same as `v0.4.0` but major version was set to `1`. The reason is to follow [Semantic Versioning 2.0.0.](https://semver.org/) for public, stable API.
 
 ## v0.4.0
 `2021-04-27`\
