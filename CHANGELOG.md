@@ -1,5 +1,5 @@
 # Changelog
-Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/).
+Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
 ## v1.0.0
 `2021-04-27`\
