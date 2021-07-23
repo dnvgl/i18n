@@ -20,9 +20,9 @@ describe('getMomentFormat', () => {
     ["zh-HK", "days", "D[/]M[/]YYYY"],
     ["zh-HK", "seconds", "D[/]M[/]YYYY[ ]Ah[:]mm[:]ss"],
     ["zh-HK", "minutes", "D[/]M[/]YYYY[ ]Ah[:]mm"],
-    ["fr-CA", "seconds", "YYYY[-]MM[-]DD[ ]HH[ h ]mm[ min ]ss[ s]"],
+    ["fr-CA", "seconds", "YYYY[-]MM[-]DD[, ]HH[ h ]mm[ min ]ss[ s]"],
     ["en-AU", "seconds", "DD[/]MM[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
-    ["ar-sa", "seconds", "DD[‏/]MM[‏/]YYYY[ ]h[:]mm[:]ss[ ]A"]
+    ["ar-sa", "seconds", "DD[‏/]MM[‏/]YYYY[ ][ في ]h[:]mm[:]ss[ ]A"]
   ];
 
   test.each(cases)('returns format for %p locale when time is included: %p', (locale, precision, expected) => {
