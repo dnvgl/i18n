@@ -246,7 +246,7 @@ Converts to [`moment.js`](https://momentjs.com/) format.
 ```typescript
 import { getMomentFormat } from '@dnvgl/i18n';
 
-getMomentFormat("en-GB", "seconds"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
+getMomentFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
 Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/):
 ```tsx
