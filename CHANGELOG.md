@@ -1,6 +1,12 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.1.0
+`2021-11-19`\
+\
+:rocket: Features:
+- getStatesOfUsa()
+
 ## v1.0.0
 `2021-04-27`\
 \

@@ -71,7 +71,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Country utils
-[`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
+[`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
 #### Others
 [`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)

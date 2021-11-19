@@ -255,6 +255,14 @@ import { DatePicker } from 'antd';
 <DatePicker format={getMomentFormat("days")} />
 ```
 
+### getStatesOfUsa()
+[`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)
+```typescript
+import { getStatesOfUsa } from '@dnvgl/i18n';
+
+getStatesOfUsa(); // returns [ { name: "Alabama", alpha2Code: "AL" }, { name: "Alaska", alpha2Code: "AK" }, { na...]
+```
+
 ### getSystemLocaleName()
 ```typescript
 import { getSystemLocaleName } from '@dnvgl/i18n';

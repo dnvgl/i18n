@@ -6,8 +6,8 @@ Check tools and rules discribed below.
 
 ### Node.js - build runtime environment
 - how to: visit site https://nodejs.org/en and install (msi installer, default options)
-- version: newest `14.xx`
-- verification: run `node -v` in cmd, expected example: `v14.16.1`
+- version: newest `16.xx`
+- verification: run `node -v` in cmd, expected example: `v16.13.0`
 
 ### npm - package manager
 - how to: `npm install -g npm@latest`
@@ -29,7 +29,7 @@ Check tools and rules discribed below.
 
 ### Visual Studio Code + TypeScript
 - Press ctrl+shift+p in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
-- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.2.4`
+- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.5.2`
 
 ## 3. Project configuration/installation
 
@@ -68,6 +68,7 @@ Interactive console option to upgrade packages in the project.
 - common types should be placed under `./types` folder
 - tests should import types from `'../src'` to double check that everything is included in `index.ts`
 - internal code (`src`) should import from specific file
+- set package.json version before deployment
 
 ## 6. Contribution
 
