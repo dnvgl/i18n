@@ -7,6 +7,7 @@ export { compareNumbersAlike } from './compareNumbersAlike';
 export { compareStrings } from './compareStrings';
 export { compareStringsFactory } from './compareStringsFactory';
 export { findIso3166Country } from './findIso3166Country';
+export { formatCountry } from './formatCountry';
 export { formatDate } from './formatDate';
 export { formatDatePart } from './formatDatePart';
 export { formatDateToISO } from './formatDateToISO';

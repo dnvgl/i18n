@@ -1,6 +1,15 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.2.0
+`2021-11-22`\
+\
+:rocket: Features:
+- formatCountry()
+
+:wrench: Internal:
+- deprecated function substr() has been replaced by substring()
+
 ## v1.1.0
 `2021-11-19`\
 \

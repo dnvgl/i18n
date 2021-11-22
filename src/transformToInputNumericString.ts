@@ -31,7 +31,7 @@ export function transformToInputNumericString(text: string, options?: Transforma
     fractionalPart = options?.fractionalPart !== undefined
       ? options.fractionalPart === 0
         ? ''
-        : tailString.substr(0, options.fractionalPart)
+        : tailString.substring(0, options.fractionalPart)
       : tailString;
   }
   else {
@@ -63,7 +63,7 @@ export function transformToInputNumericString(text: string, options?: Transforma
   }
 
   if (options?.fractionalPart !== undefined) {
-    fractionalPart = fractionalPart.substr(0, options.fractionalPart);
+    fractionalPart = fractionalPart.substring(0, options.fractionalPart);
 
     if (options.fractionalPart === 0) {
       separatorPart = '';
@@ -72,7 +72,7 @@ export function transformToInputNumericString(text: string, options?: Transforma
       if (fractionalPart.length === 1) {
         fractionalPart = '';
       }
-      else if (fractionalPart.length > 1 && parseInt(fractionalPart.substr(1, fractionalPart.length - 1)) !== 0) {
+      else if (fractionalPart.length > 1 && parseInt(fractionalPart.substring(1, fractionalPart.length)) !== 0) {
         fractionalPart = fractionalPart[0] === '5' ? '5' : '';
       }
     }

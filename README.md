@@ -4,6 +4,8 @@
 
 The purpose of this library is to provide all needed functionalities to support multiple languages/cultures in the web application. All functions have been designed to be simple and easy to use, that is why some native API are wrapped. This library was in use two years (commercial use by DNV company) before its open-source release ([`2021-04-13`](CHANGELOG.md#v010)).
 
+The biggest advantage about the library is that it supports any language, using the culture of the browser.
+
 ## 1. Supported browsers
 
 - Chrome (+ mobile): last 2 versions
@@ -71,7 +73,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Country utils
-[`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
+[`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`formatCountry()`](DOCUMENTATION.md#formatCountry), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
 #### Others
 [`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)

@@ -98,11 +98,25 @@ findIso3166Country("pl"); // returns undefined
 findIso3166Country("XX"); // returns undefined
 ```
 
+### formatCountry()
+Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns the translated english ISO country name instead.
+
+```typescript
+import { formatCountry } from '@dnvgl/i18n';
+
+formatCountry("PL", "en"); // returns "Poland"
+formatCountry("POL", "en"); // returns "Poland"
+formatCountry("DE", "pl"); // returns "Niemcy"
+formatCountry("DE"); // returns "Niemcy", current locale: pl-PL
+formatCountry("DE"); // returns "Germany", current locale: en-GB
+formatCountry("xx"); // returns "xx", invalid country code
+```
+
 ### formatDate()
 ```typescript
 import { formatDate } from '@dnvgl/i18n';
 
-formatDate(new Date("2018-07-08"), "days", "en-US"); // returns  "7/8/2018"
+formatDate(new Date("2018-07-08"), "days", "en-US"); // returns "7/8/2018"
 formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/2020"
 formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
 ```
@@ -297,6 +311,7 @@ isEuropeanUnionMember("PL"); // returns true
 isEuropeanUnionMember("POL"); // returns true
 isEuropeanUnionMember(616); // returns true
 isEuropeanUnionMember("pl"); // returns false
+isEuropeanUnionMember("GB"); // returns false
 isEuropeanUnionMember("USA"); // returns false
 ```
 
