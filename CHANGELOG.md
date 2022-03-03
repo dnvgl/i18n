@@ -1,11 +1,26 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.3.0
+`2022-03-03`\
+\
+:rocket: Features:
+- formatNumberToFixed() has simpler overload that accepts precision as number argument:
+```typescript
+formatNumberToFixed(value: number, precision?: number, locale?: Locale): string
+```
+
+:wrench: Internal:
+- TypeScript upgrade `4.5.2` -> `4.6.2`
+
 ## v1.2.0
 `2021-11-22`\
 \
 :rocket: Features:
 - formatCountry()
+```typescript
+formatCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode, locale?: Locale): string
+```
 
 :wrench: Internal:
 - deprecated function substr() has been replaced by substring()
@@ -15,6 +30,9 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 \
 :rocket: Features:
 - getStatesOfUsa()
+```typescript
+getStatesOfUsa(): StateOfUsa[]
+```
 
 ## v1.0.0
 `2021-04-27`\

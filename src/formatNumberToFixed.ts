@@ -8,18 +8,24 @@ const defaultOptions: Partial<NumberFormat> = {
   maxPrecision: 2
 }
 
-export function formatNumberToFixed(value: number, options?: Partial<NumberFormatFixed>, locale?: Locale): string {
-  const fixedPrecision = options?.precision ?? defaultOptions.minPrecision;
+export function formatNumberToFixed(value: number, precision?: number, locale?: Locale): string
+export function formatNumberToFixed(value: number, options?: Partial<NumberFormatFixed>, locale?: Locale): string
+export function formatNumberToFixed(value: number, options?: Partial<NumberFormatFixed> | number, locale?: Locale): string {
+  const isNumberArg = options !== undefined && typeof options === "number",
+    fixedPrecision = isNumberArg ? options : options?.precision ?? defaultOptions.minPrecision,
+    thousandsSeparator = isNumberArg ? undefined : options?.thousandsSeparator,
+    useBankersRounding = isNumberArg ? undefined : options?.useBankersRounding;
+
   // HINT: micro optimization to don't allocate memory when not needed
   const formatOptions = (fixedPrecision === defaultOptions.minPrecision 
-    && options?.thousandsSeparator === undefined 
-    && options?.useBankersRounding === undefined)
+    && thousandsSeparator === undefined 
+    && useBankersRounding === undefined)
       ? defaultOptions 
       : { 
       minPrecision: fixedPrecision,
       maxPrecision: fixedPrecision,
-      thousandsSeparator: options?.thousandsSeparator,
-      useBankersRounding: options?.useBankersRounding
+      thousandsSeparator: thousandsSeparator,
+      useBankersRounding: useBankersRounding
     };
 
   return formatNumber(value, formatOptions, locale);

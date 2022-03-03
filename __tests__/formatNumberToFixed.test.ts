@@ -21,7 +21,17 @@ describe('formatNumberToFixed', () => {
     [4.0001, 0, "4"],
     [4.123, undefined, "4.12"]
   ])('formats %p with fixed precision (%p)', (value, precision, expected) => {
-    const result = formatNumberToFixed(value, { precision: precision }, "en-US");
+    const resultUsingObjectArg = formatNumberToFixed(value, { precision: precision }, "en-US");
+    const resultUsingNumberArg = formatNumberToFixed(value, precision, "en-US");
+    expect(resultUsingObjectArg).toBe(expected);
+    expect(resultUsingNumberArg).toBe(expected);
+  });
+
+  test.each([
+    [12345.123, 2, false, "12345.12"],
+    [12345.123, 2, true, "12,345.12"]
+  ])('formats %p with fixed precision (%p) and group separator (%p)', (value, precision, thousandsSeparator, expected) => {
+    const result = formatNumberToFixed(value, { precision: precision, thousandsSeparator: thousandsSeparator}, "en-US");
     expect(result).toBe(expected);
   });
 });

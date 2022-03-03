@@ -24,9 +24,9 @@ export function formatCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | I
     cachedLocale = locale;
   }
 
-  return intlDisplayNamesCache.of(countryAlpha2Code);
+  return intlDisplayNamesCache.of(countryAlpha2Code)!;
 }
 
-function returnUnsupportedCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode) {
+function returnUnsupportedCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode): string {
   return typeof country === "string" ? country : "";
 }
