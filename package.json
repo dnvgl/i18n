@@ -1,6 +1,6 @@
 {
   "name": "@dnvgl/i18n",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Set of functions to support multiple languages/cultures in a browser",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -31,10 +31,10 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^26.0.21",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.5.4",
-    "ts-node": "^9.1.1",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
     "typescript": "^4.2.3"
   }
 }

@@ -1,6 +1,16 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.4.0
+`2022-04-25`\
+\
+:rocket: Features:
+- formatMonth()
+```typescript
+formatMonth(month: number, monthFormat: MonthFormat, locale?: Locale): string
+formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat, locale?: Locale): string
+```
+
 ## v1.3.0
 `2022-03-03`\
 \

@@ -172,6 +172,19 @@ formatMoney(1.25, 1, "en"); // returns "1.2"
 formatMoney(1.535, 2, "en"); // returns "1.54"
 ```
 
+### formatMonth()
+```typescript
+import { formatMonth } from '@dnvgl/i18n';
+
+formatMonth("2022-01-20", "2-digit", "en"); // returns "01"
+formatMonth("2022-01-20", "short", "en"); // returns "Jan"
+formatMonth(0, "short", "en"); // returns "Jan"
+formatMonth("2022-01-20", "long", "pl-PL"); // returns "styczeń"
+formatMonth("2022-01-20", "numeric", "pl-PL"); // returns "1"
+formatMonth("2022-01-20", "narrow", "pl-PL"); // returns "S"
+formatMonth(11, "narrow", "en"); // returns "D"
+```
+
 ### formatNumber()
 ```typescript
 import { formatNumber } from '@dnvgl/i18n';
