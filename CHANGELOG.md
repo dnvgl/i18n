@@ -13,7 +13,7 @@ roundUsingHalfAwayFromZero(value: number, precision: number): number
 ```typescript
 formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0" instead of "-0"
 ```
-- [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - allow to use `Infinity` precision (returns the same number)
+- [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - allow to use `Infinity` precision (returns the same number passed as the argument)
 
 :bulb: Enhancements:
 - [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - improved `precision` argument validation (`RangeError` is thrown for `precision < 0` or equal to `NaN`)

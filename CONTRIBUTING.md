@@ -28,8 +28,8 @@ Check tools and rules discribed below.
 ## 2. Prerequisites, step: configure tools
 
 ### Visual Studio Code + TypeScript
-- Press ctrl+shift+p in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
-- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.5.2`
+- Press `ctrl+shift+p` in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
+- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.6.4`
 
 ## 3. Project configuration/installation
 
