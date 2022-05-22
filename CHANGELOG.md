@@ -1,11 +1,29 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.5.0
+`2022-05-22`\
+\
+:rocket: Features:
+- [`roundUsingHalfAwayFromZero()`](DOCUMENTATION.md#roundUsingHalfAwayFromZero)
+```typescript
+roundUsingHalfAwayFromZero(value: number, precision: number): number
+```
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed) - `negativeZero` (`boolean`) option
+```typescript
+formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0" instead of "-0"
+```
+- [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - allow to use `Infinity` precision (returns the same number)
+
+:bulb: Enhancements:
+- [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - improved `precision` argument validation (`RangeError` is thrown for `precision < 0` or equal to `NaN`)
+- [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - `precision` value is converted using `Math.trunc` to ensure that the value is an integer (without throwing an error)
+
 ## v1.4.0
 `2022-04-25`\
 \
 :rocket: Features:
-- formatMonth()
+- [`formatMonth()`](DOCUMENTATION.md#formatMonth)
 ```typescript
 formatMonth(month: number, monthFormat: MonthFormat, locale?: Locale): string
 formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat, locale?: Locale): string
@@ -15,7 +33,7 @@ formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat, locale?: Local
 `2022-03-03`\
 \
 :rocket: Features:
-- formatNumberToFixed() has simpler overload that accepts precision as number argument:
+- [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed) has simpler overload that accepts precision as number argument:
 ```typescript
 formatNumberToFixed(value: number, precision?: number, locale?: Locale): string
 ```
@@ -27,19 +45,19 @@ formatNumberToFixed(value: number, precision?: number, locale?: Locale): string
 `2021-11-22`\
 \
 :rocket: Features:
-- formatCountry()
+- [`formatCountry()`](DOCUMENTATION.md#formatCountry)
 ```typescript
 formatCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode, locale?: Locale): string
 ```
 
 :wrench: Internal:
-- deprecated function substr() has been replaced by substring()
+- deprecated function `substr()` has been replaced by `substring()`
 
 ## v1.1.0
 `2021-11-19`\
 \
 :rocket: Features:
-- getStatesOfUsa()
+- [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa)
 ```typescript
 getStatesOfUsa(): StateOfUsa[]
 ```
@@ -53,25 +71,25 @@ Exactly the same as `v0.4.0` but major version was set to `1`. The reason is to 
 `2021-04-27`\
 \
 :rocket: Features:
-- findIso3166Country()
-- getIso3166Countries()
-- isEuropeanUnionMember()
-- isValidIso3166Code()
+- [`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country)
+- [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries)
+- [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember)
+- [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
 ## v0.3.0
 `2021-04-26`\
 \
 :rocket: Features:
-- isBrowserCompatible()
+- [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)
 
 ## v0.2.0
 `2021-04-20`\
 \
 :rocket: Features:
-- formatDatePart()
+- [`formatDatePart()`](DOCUMENTATION.md#formatDatePart)
 
 :bulb: Enhancements:
-- sortBy(), sortByInplace() - allow sorting by with same order for all selectors
+- [`sortBy()`](DOCUMENTATION.md#sortBy), [`sortByInplace()`](DOCUMENTATION.md#sortByInplace) - allow sorting by with same order for all selectors
 
 ## v0.1.0
 `2021-04-13`\

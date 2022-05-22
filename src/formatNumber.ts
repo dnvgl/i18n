@@ -7,8 +7,17 @@ export function formatNumber(value: number, options?: Partial<NumberFormat>
   if (options?.useBankersRounding && options?.maxPrecision !== undefined) {
     value = roundUsingBankersMethod(value, options.maxPrecision);
   }
-  
-  return createNumberFormat(locale, createFormatterOptions(options)).format(value);
+
+  const formatter = createNumberFormat(locale, createFormatterOptions(options)),
+    formattedValue = formatter.format(value);
+
+  if (options?.negativeZero === false && value <= 0) {
+    return formatter.format(-0) === formattedValue 
+      ? formatter.format(0) 
+      : formattedValue;
+  }
+
+  return formattedValue;
 }
 
 function createFormatterOptions(opts?: Partial<NumberFormat>): Intl.NumberFormatOptions {

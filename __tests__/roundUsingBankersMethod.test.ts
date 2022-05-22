@@ -18,8 +18,20 @@ describe('roundUsingBankersMethod', () => {
     [24.5, 0, 24],
     [-23.5, 0, -24],
     [-24.5, 0, -24],
-    [1.5254, 2, 1.53]
+    [1.5254, 2, 1.53],
+    [1.5254, 2.1, 1.53],
+    [1.5254, 2.9, 1.53],
+    [1.5254, Infinity, 1.5254],
+    [1.123456789, Infinity, 1.123456789],
   ])('rounds %p using precision %p', (value, precision, expected) => {
     expect(roundUsingBankersMethod(value, precision)).toEqual(expected);
+  });
+
+  test.each([
+    [1.049, -Infinity],
+    [1.049, Number.NaN],
+  ])('throws error on invalid arguments (rounds %p using precision %p)', (value, precision) => {
+    expect(() => roundUsingBankersMethod(value, precision))
+      .toThrowError(new RangeError("precision value is out of range."));
   });
 });

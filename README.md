@@ -34,8 +34,8 @@ Import functions or types from `@dnvgl/i18n`, example:
 import { sort, formatNumber } from '@dnvgl/i18n';
 
 const sortedItems = sort(["Z", "a", "A", "z", "ś"], "asc", "pl-PL"); // returns ["a", "A", "ś", "z", "Z"]
-const formattedNumber = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
-const localformattedNumber = formatNumber(12486.4529); // returns "12 486,4529" using local browser culture (in this case 'pl-PL'); any culture can be supported out of the box
+const numberFormattedInSpecificCulture = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
+const numberFormattedInLocalCulture = formatNumber(12486.4529); // returns "12 486,4529" using local browser culture (in this case 'pl-PL'); any culture can be supported out of the box
 ```
 
 #### Module system
@@ -61,7 +61,7 @@ See the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
 See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 
 #### Number formatting/parsing/utils
-[`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod)
+[`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod), [`roundUsingHalfAwayFromZero()`](DOCUMENTATION.md#roundUsingHalfAwayFromZero)
 
 #### Datetime formatting
 [`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO), [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime), [`formatMonth()`](DOCUMENTATION.md#formatMonth), [`formatTime()`](DOCUMENTATION.md#formatTime), [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat)

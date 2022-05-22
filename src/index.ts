@@ -35,6 +35,7 @@ export { lowercaseFirstLetter } from './lowercaseFirstLetter';
 export { normalizeForSearching } from './normalizeForSearching';
 export { parseNumber } from './parseNumber';
 export { plural } from './plural';
+export { roundUsingHalfAwayFromZero } from './roundUsingHalfAwayFromZero';
 export { roundUsingBankersMethod } from './roundUsingBankersMethod';
 export { sort } from './sort';
 export { sortBy } from './sortBy';

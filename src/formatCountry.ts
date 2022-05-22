@@ -16,7 +16,7 @@ export function formatCountry(country: Iso3166Alpha2Code | Iso3166Alpha3Code | I
 
   if (intlDisplayNamesCache === null || locale !== cachedLocale) {
     if (typeof Intl.DisplayNames === "undefined") {
-      // HINT: Safari 14.0
+      // HINT: Safari 14.0 (v14.1 is fine)
       return findIso3166Country(country)?.countryName ?? returnUnsupportedCountry(country);
     }
 

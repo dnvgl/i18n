@@ -60,6 +60,9 @@ compareNumbers(-Infinity, 1); // returns -1
 ```
 
 ### compareNumbersAlike()
+
+Compares two values for the following types: `number`, `boolean`, `Date`.
+
 ```typescript
 import { compareNumbersAlike } from '@dnvgl/i18n';
 
@@ -77,7 +80,7 @@ compareStrings("Ą", "z", "pl-PL"); // returns -1
 ```
 
 ### compareStringsFactory()
-Use this function over `compareStrings()` when comparison is called multiple times (better performance)
+Use this function over `compareStrings()` when comparison is called multiple times (better performance).
 
 ```typescript
 import { compareStringsFactory } from '@dnvgl/i18n';
@@ -161,7 +164,7 @@ formatInteger(1000000, "pl-PL"); // returns "1 000 000"
 ```
 
 ### formatMoney()
-Simplifed `formatNumber()` function, rounds number using banker's algorithm
+Simplifed [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`) and number rounding using [`banker's algorithm`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) (`useBankersRounding = true`).
 
 ```typescript
 import { formatMoney } from '@dnvgl/i18n';
@@ -186,15 +189,28 @@ formatMonth(11, "narrow", "en"); // returns "D"
 ```
 
 ### formatNumber()
+
+arguments:
+- value: number
+- options (optional):
+  - minPrecision (number): default `undefined`
+  - maxPrecision:(number): default `10`
+  - thousandsSeparator: (boolean): default `true`
+  - useBankersRounding: (boolean): default `false` (Intl default: [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm)
+  - negativeZero: (boolean): default `true` (current Intl default behaviour)
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
+
 ```typescript
 import { formatNumber } from '@dnvgl/i18n';
 
 formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
 formatNumber(12486.4529, { thousandsSeparator: false }, "de-DE"); // returns "12486,4529"
+formatNumber(-0.001, { maxPrecision: 2 }, "en-US"); // returns "-0"
+formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0"
 ```
 
 ### formatNumberToFixed()
-Simplifed `formatNumber()` function
+Simplifed [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`).
 
 ```typescript
 import { formatNumberToFixed } from '@dnvgl/i18n';
@@ -247,7 +263,7 @@ import { DatePicker } from 'your_module_with_custom_date_picker';
 ```typescript
 import { getDecimalSeparator } from '@dnvgl/i18n';
 
-getDecimalSeparator(); // returns ",", current locale: pl-PL
+getDecimalSeparator(); // returns ",", current locale: pl-PL (depends on client's machine)
 getDecimalSeparator("en-GB"); // returns "."
 getDecimalSeparator("de"); // returns ","
 ```
@@ -264,7 +280,7 @@ getIso3166Countries(); // returns [{ countryName: "Afghanistan", officialStateNa
 ```typescript
 import { getMinusSign } from '@dnvgl/i18n';
 
-getMinusSign(); // returns "-", current locale: pl-PL
+getMinusSign(); // returns "-", current locale: pl-PL (depends on client's machine)
 getMinusSign("en-GB"); // returns "-"
 ```
 
@@ -294,14 +310,14 @@ getStatesOfUsa(); // returns [ { name: "Alabama", alpha2Code: "AL" }, { name: "A
 ```typescript
 import { getSystemLocaleName } from '@dnvgl/i18n';
 
-getSystemLocaleName(); // returns "pl-PL", current locale: pl-PL
+getSystemLocaleName(); // returns "pl-PL", current locale: pl-PL (depends on client's machine)
 ```
 
 ### getThousandsSeparator()
 ```typescript
 import { getThousandsSeparator } from '@dnvgl/i18n';
 
-getThousandsSeparator(); // returns " ", current locale: pl-PL
+getThousandsSeparator(); // returns " ", current locale: pl-PL (depends on client's machine)
 getThousandsSeparator("en-GB"); // returns ","
 getThousandsSeparator("de"); // returns "."
 ```
@@ -385,7 +401,26 @@ plural(["cat", "cats"], "en", 10); // returns "cats"
 plural("pies|psy|psów", "pl", 10); // returns "psów"
 ```
 
+### roundUsingHalfAwayFromZero()
+
+[`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm. The same algorithm is used by Intl default rounding implementation.
+
+```typescript
+import { roundUsingHalfAwayFromZero } from '@dnvgl/i18n';
+
+roundUsingHalfAwayFromZero(1.35, 1); // returns 1.4
+roundUsingHalfAwayFromZero(1.449, 1); // returns 1.4
+roundUsingHalfAwayFromZero(1.45, 1); // returns 1.5
+roundUsingHalfAwayFromZero(1.46, 1); // returns 1.5
+roundUsingHalfAwayFromZero(1.55, 1); // returns 1.6
+roundUsingHalfAwayFromZero(10.075, 2); // returns 10.08
+roundUsingHalfAwayFromZero(-23.5, 1); // returns -24
+```
+
 ### roundUsingBankersMethod()
+
+[`Round half to even`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) algorithm, also called bankers' rounding. Part of [`formatNumber()`](DOCUMENTATION.md#formatNumber) function when using `useBankersRounding` option.
+
 ```typescript
 import { roundUsingBankersMethod } from '@dnvgl/i18n';
 

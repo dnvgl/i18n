@@ -14,18 +14,21 @@ export function formatNumberToFixed(value: number, options?: Partial<NumberForma
   const isNumberArg = options !== undefined && typeof options === "number",
     fixedPrecision = isNumberArg ? options : options?.precision ?? defaultOptions.minPrecision,
     thousandsSeparator = isNumberArg ? undefined : options?.thousandsSeparator,
-    useBankersRounding = isNumberArg ? undefined : options?.useBankersRounding;
+    useBankersRounding = isNumberArg ? undefined : options?.useBankersRounding,
+    negativeZero = isNumberArg ? undefined : options?.negativeZero;
 
   // HINT: micro optimization to don't allocate memory when not needed
   const formatOptions = (fixedPrecision === defaultOptions.minPrecision 
     && thousandsSeparator === undefined 
-    && useBankersRounding === undefined)
+    && useBankersRounding === undefined
+    && negativeZero === undefined)
       ? defaultOptions 
       : { 
       minPrecision: fixedPrecision,
       maxPrecision: fixedPrecision,
       thousandsSeparator: thousandsSeparator,
-      useBankersRounding: useBankersRounding
+      useBankersRounding: useBankersRounding,
+      negativeZero: negativeZero
     };
 
   return formatNumber(value, formatOptions, locale);

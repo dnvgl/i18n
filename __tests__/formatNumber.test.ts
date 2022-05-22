@@ -81,4 +81,20 @@ describe('formatNumber', () => {
     const result = formatNumber(value, undefined, locale);
     expect(result).toBe(expected);
   });
+
+  test.each([
+    [-0.2, undefined, 2, true, "-0.2"],
+    [-0.2, undefined, 2, false, "-0.2"],
+    [0.002, 2, 2, true, "0.00"],
+    [0.002, 2, 2, false, "0.00"],
+    [-0.002, 2, 2, true, "-0.00"],
+    [-0.002, 2, 2, false, "0.00"],
+    [-0.002, undefined, 2, true, "-0"],
+    [-0.002, undefined, 2, false, "0"],
+    [-0, undefined, 2, true, "-0"],
+    [-0, undefined, 2, false, "0"],
+  ])('formats %p with min precision (%p) and max precision (%p) with negative zero (%p)', (value, minPrecision, maxPrecision, negativeZero, expected) => {
+    const result = formatNumber(value, { minPrecision: minPrecision, maxPrecision: maxPrecision, negativeZero: negativeZero}, "en-US");
+    expect(result).toBe(expected);
+  });
 });
