@@ -14,6 +14,9 @@ getCountryCodeFromBic(bic: string): Iso3166Alpha2Code | "XK" | undefined
 getCountryCodeFromIban(iban: string): Iso3166Alpha2Code | "XK" | undefined
 ```
 
+:wrench: Internal:
+- TypeScript upgrade `4.6.4` -> `4.7.2`
+
 ## v1.5.0
 `2022-05-22`\
 \
