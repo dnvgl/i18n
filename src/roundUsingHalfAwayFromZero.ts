@@ -3,7 +3,7 @@ export function roundUsingHalfAwayFromZero(value: number, precision: number): nu
     return value;
   }
 
-  if (precision < 0 || precision >= 16 || isNaN(precision) || precision === -Number.NEGATIVE_INFINITY) {
+  if (precision < 0 || precision >= 16 || isNaN(precision)) {
     throw new RangeError("precision value is out of range.");
   }
 

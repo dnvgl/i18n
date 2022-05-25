@@ -1,6 +1,19 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.6.0
+`2022-05-25`\
+\
+:rocket: Features:
+- [`getCountryCodeFromBic()`](DOCUMENTATION.md#getCountryCodeFromBic)
+```typescript
+getCountryCodeFromBic(bic: string): Iso3166Alpha2Code | "XK" | undefined
+```
+- [`getCountryCodeFromIban()`](DOCUMENTATION.md#getCountryCodeFromIban)
+```typescript
+getCountryCodeFromIban(iban: string): Iso3166Alpha2Code | "XK" | undefined
+```
+
 ## v1.5.0
 `2022-05-22`\
 \

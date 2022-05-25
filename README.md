@@ -61,7 +61,7 @@ See the [`CONTRIBUTING.md`](CONTRIBUTING.md) file.
 See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 
 #### Number formatting/parsing/utils
-[`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod), [`roundUsingHalfAwayFromZero()`](DOCUMENTATION.md#roundUsingHalfAwayFromZero)
+[`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingHalfAwayFromZero()`](DOCUMENTATION.md#roundUsingHalfAwayFromZero), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator)
 
 #### Datetime formatting
 [`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO), [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime), [`formatMonth()`](DOCUMENTATION.md#formatMonth), [`formatTime()`](DOCUMENTATION.md#formatTime), [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat)
@@ -75,8 +75,11 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 #### Country utils
 [`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`formatCountry()`](DOCUMENTATION.md#formatCountry), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
+#### Financial utils
+[`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatIban()`](DOCUMENTATION.md#formatIban), [`getCountryCodeFromBic()`](DOCUMENTATION.md#getCountryCodeFromBic), [`getCountryCodeFromIban()`](DOCUMENTATION.md#getCountryCodeFromIban), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod)
+
 #### Others
-[`formatIban()`](DOCUMENTATION.md#formatIban), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)
+[`getSystemLocaleName()`](DOCUMENTATION.md#getSystemLocaleName), [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible)
 
 ## 6. Changelog
 See the [`CHANGELOG.md`](CHANGELOG.md) file.

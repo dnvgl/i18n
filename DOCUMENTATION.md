@@ -75,7 +75,7 @@ compareNumbersAlike(true, true); // returns 0
 ```typescript
 import { compareStrings } from '@dnvgl/i18n';
 
-compareStrings("A", "a"); // returns 1
+compareStrings("A", "a"); // returns 1 (locale depends on client's machine)
 compareStrings("Ą", "z", "pl-PL"); // returns -1
 ```
 
@@ -102,7 +102,7 @@ findIso3166Country("XX"); // returns undefined
 ```
 
 ### formatCountry()
-Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns the translated english ISO country name instead.
+Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.
 
 ```typescript
 import { formatCountry } from '@dnvgl/i18n';
@@ -238,6 +238,44 @@ formatString("some test {0}, ok?", "abc"); // returns "some test abc, ok?"
 formatString("some test {0} a {0} {1} {3} {2}", 1, "test", 5, 100); // returns "some test 1 a 1 test 100 5"
 ```
 
+### getCountryCodeFromBic()
+Returns valid `Iso3166Alpha2Code` (can be used in [`Country utils`](README.md#country-utils)) or `"XK"` ([`Wikipedia`](https://en.wikipedia.org/wiki/ISO_9362): *"SWIFT has assigned the code XK to Republic of Kosovo, which does not have an ISO 3166-1 country code"*) only when [`BIC structure (simplified rules)`](https://en.wikipedia.org/wiki/ISO_9362#Structure) is valid.
+
+```typescript
+import { getCountryCodeFromBic } from '@dnvgl/i18n';
+
+getCountryCodeFromBic("BNPAFRPP"); // returns "FR"
+getCountryCodeFromBic("BNPAFRP"); // returns undefined (invalid BIC length)
+getCountryCodeFromBic("BNPAXXPP"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
+getCountryCodeFromBic("BNPAFrPP"); // returns undefined (country code is not uppercase)
+getCountryCodeFromBic("1234FRPP"); // returns undefined (invalid structure, institution or bank code cannot contains digits)
+getCountryCodeFromBic("  BNPAFRPP"); // returns undefined (invalid BIC structure)
+getCountryCodeFromBic("BNPAFR"); // returns undefined (BIC is too short)
+```
+
+### getCountryCodeFromIban()
+Returns valid `Iso3166Alpha2Code` (can be used in [`Country utils`](README.md#country-utils)) or `"XK"` (XK = Republic of Kosovo, which does not have an ISO 3166-1 country code) only when [`IBAN structure (simplified rules)`](https://en.wikipedia.org/wiki/International_Bank_Account_Number#Structure) is valid. Country specific rules are not checked, only characters (letters/digits) and length (range of 15-34) in general. IBAN structure validation can be ignored using options.\
+\
+arguments:
+- value (`string`)
+- options (`object`, optional):
+  - removeWhitespaces (boolean): default `false`
+  - validateStructure (boolean): default `true`
+
+```typescript
+import { getCountryCodeFromIban } from '@dnvgl/i18n';
+
+getCountryCodeFromIban("BE71096123456769"); // returns "BE"
+getCountryCodeFromIban("BE71 0961 2345 6769"); // returns undefined (whitespace is not allowed)
+getCountryCodeFromIban("BE71 0961 2345 6769", { removeWhitespaces: true }); // returns "BE"
+getCountryCodeFromIban("be71096123456769"); // returns undefined (country code is not uppercase)
+getCountryCodeFromIban("XX71096123456769"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
+getCountryCodeFromIban("  BE71096123456769"); // returns returns undefined ("  " is not a valid country code)
+getCountryCodeFromIban("  BE71096123456769", { removeWhitespaces: true }); // returns "BE"
+getCountryCodeFromIban("BE", { validateStructure: false }); // returns "BE"
+getCountryCodeFromIban("BE...", { validateStructure: false }); // returns "BE"
+```
+
 ### formatTime()
 ```typescript
 import { formatTime } from '@dnvgl/i18n';
@@ -339,6 +377,7 @@ import { isEuropeanUnionMember } from '@dnvgl/i18n';
 isEuropeanUnionMember("PL"); // returns true
 isEuropeanUnionMember("POL"); // returns true
 isEuropeanUnionMember(616); // returns true
+isEuropeanUnionMember("IT"); // returns true
 isEuropeanUnionMember("pl"); // returns false
 isEuropeanUnionMember("GB"); // returns false
 isEuropeanUnionMember("USA"); // returns false
@@ -402,8 +441,8 @@ plural("pies|psy|psów", "pl", 10); // returns "psów"
 ```
 
 ### roundUsingHalfAwayFromZero()
-
-[`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm. The same algorithm is used by Intl default rounding implementation.
+[`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm. The same algorithm is used by Intl default rounding implementation.\
+Allowed `precision`: value from 0 to 15 or `Infinity` (otherwise `RangeError` will be thrown). Decimal `precision` will be converted to integer (using `Math.trunc`).
 
 ```typescript
 import { roundUsingHalfAwayFromZero } from '@dnvgl/i18n';
@@ -419,7 +458,8 @@ roundUsingHalfAwayFromZero(-23.5, 1); // returns -24
 
 ### roundUsingBankersMethod()
 
-[`Round half to even`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) algorithm, also called bankers' rounding. Part of [`formatNumber()`](DOCUMENTATION.md#formatNumber) function when using `useBankersRounding` option.
+[`Round half to even`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) algorithm, also called bankers' rounding. Part of [`formatNumber()`](DOCUMENTATION.md#formatNumber) function when using `useBankersRounding` option.\
+Allowed `precision`: value >= 0 or `Infinity` (otherwise `RangeError` will be thrown). Decimal `precision` will be converted to integer (using `Math.trunc`).
 
 ```typescript
 import { roundUsingBankersMethod } from '@dnvgl/i18n';

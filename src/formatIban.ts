@@ -1,5 +1,7 @@
+import { removeWhitespaces } from "./internal/removeWhitespaces";
+
 export function formatIban(iban: string, separator: string = " "): string {
-  const withoutEmptyCharacters = iban.replace(/\s/g, "");
+  const withoutEmptyCharacters = removeWhitespaces(iban);
 
   if (!withoutEmptyCharacters) {
     return "";
