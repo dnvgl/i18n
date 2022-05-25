@@ -147,10 +147,16 @@ formatDateToISO("2020-06-10T10:15:07.000Z", false); // returns "2020-06-10"
 ```
 
 ### formatIban()
+arguments:
+- value (`string`)
+- separator (`string`, optional, default: `" "`)
+
 ```typescript
 import { formatIban } from '@dnvgl/i18n';
 
 formatIban("SE3550000000054910000003"); // returns "SE35 5000 0000 0549 1000 0003"
+formatIban("SE35 5000 0000 0549 1000 0003", ""); // returns "SE3550000000054910000003"
+formatIban("  SE35 5000 0000 0549 1000 0003  ", ""); // returns "SE3550000000054910000003"
 ```
 
 ### formatInteger()
