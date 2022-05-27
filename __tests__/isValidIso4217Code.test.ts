@@ -10,6 +10,10 @@ describe('isValidIso4217Code', () => {
     [0, false],
     [1000, false],
     ["", false],
+    ["_", false],
+    ["__", false],
+    ["___", false],
+    ["____", false],
     ["ABCD", false],
   ])('validates %p code', (code, expected) => {
     expect(isValidIso4217Code(code)).toBe(expected);

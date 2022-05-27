@@ -11,6 +11,10 @@ describe('isValidIso3166Code', () => {
     [0, false],
     [1000, false],
     ["", false],
+    ["_", false],
+    ["__", false],
+    ["___", false],
+    ["____", false],
     ["ABCD", false],
   ])('validates %p code', (code, expected) => {
     expect(isValidIso3166Code(code)).toBe(expected);
