@@ -12,7 +12,7 @@ Most of the functions accepts `locale` parameter which allow us to choose the co
 - `undefined` (or omitted): uses local browser locale
 - more info: [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
 
-## 2. More detailed documentaion
+## 2. More detailed documentation (alphabetically)
 
 ### capitalizeFirstLetter()
 ```typescript
@@ -101,18 +101,53 @@ findIso3166Country("pl"); // returns undefined
 findIso3166Country("XX"); // returns undefined
 ```
 
+### findIso4217Currency()
+```typescript
+import { findIso4217Currency } from '@dnvgl/i18n';
+
+findIso4217Currency("PLN"); // returns { alpha3Code: "PLN", currencyName: "Zloty", numericCode: 985, minorUnit: 2 }
+findIso4217Currency(985); // returns { alpha3Code: "PLN"... }
+findIso4217Currency("USN"); // returns { alpha3Code: "USN", currencyName: "US Dollar (Next day)", numericCode: 997, minorUnit: 2, isFund: true }
+findIso4217Currency("pl"); // returns undefined
+findIso4217Currency("XX"); // returns undefined
+```
+
 ### formatCountry()
-Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.
+Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.\
+When the country code is invalid then the same `string` is returned (for invalid numeric code empty string is returned).
 
 ```typescript
 import { formatCountry } from '@dnvgl/i18n';
 
 formatCountry("PL", "en"); // returns "Poland"
 formatCountry("POL", "en"); // returns "Poland"
+formatCountry(616, "en"); // returns "Poland"
 formatCountry("DE", "pl"); // returns "Niemcy"
 formatCountry("DE"); // returns "Niemcy", current locale: pl-PL
 formatCountry("DE"); // returns "Germany", current locale: en-GB
 formatCountry("xx"); // returns "xx", invalid country code
+formatCountry("__"); // returns "__", invalid country code
+formatCountry(1000); // returns "", invalid country code
+formatCountry(""); // returns "", invalid country code
+```
+
+### formatCurrency()
+Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO currency name (in english) instead.\
+When the currency code is invalid then the same `string` is returned (for invalid numeric code empty string is returned).
+
+```typescript
+import { formatCurrency } from '@dnvgl/i18n';
+
+formatCurrency("PLN", "pl"); // returns "złoty polski"
+formatCurrency("PLN", "en"); // returns "Polish Zloty"
+formatCurrency(985, "en"); // returns "Polish Zloty"
+formatCurrency("USD", "pl"); // returns "dolar amerykański"
+formatCurrency("USD", "en"); // returns "US Dollar"
+formatCurrency("USD"); // returns "US-Dollar", example when current locale: de
+formatCurrency("xx"); // returns "xx", invalid currency code
+formatCurrency("__"); // returns "__", invalid currency code
+formatCurrency(1000); // returns "", invalid currency code
+formatCurrency(""); // returns "", invalid currency code
 ```
 
 ### formatDate()
@@ -167,6 +202,7 @@ import { formatInteger } from '@dnvgl/i18n';
 
 formatInteger(12486.4529, "de-DE"); // returns "12.486"
 formatInteger(1000000, "pl-PL"); // returns "1 000 000"
+formatInteger(1000000, "en-GB"); // returns "1,000,000"
 ```
 
 ### formatMoney()
@@ -313,11 +349,20 @@ getDecimalSeparator("de"); // returns ","
 ```
 
 ### getIso3166Countries()
-[`ISO 3166 countries`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+Source: [`ISO 3166 countries (timestamp: 2018-09-18)`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
 ```typescript
 import { getIso3166Countries } from '@dnvgl/i18n';
 
-getIso3166Countries(); // returns [{ countryName: "Afghanistan", officialStateName: "The Islamic Republic of Afghanistan", alpha2Code: "AF", alpha3Code: "AFG", numericCode: 4 }, { countryName..}]
+getIso3166Countries(); // returns [{ countryName: "Afghanistan", officialStateName: "The Islamic Republic of Afghanistan", alpha2Code: "AF", alpha3Code: "AFG", numericCode: 4 }, { countryName...}]
+```
+
+### getIso4217Currencies()
+Sources: [`ISO 4217 countries (timestamp: 2021-10-01)`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database (timestamp: 2022-04-01)`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)
+
+```typescript
+import { getIso4217Currencies } from '@dnvgl/i18n';
+
+getIso4217Currencies(); // returns [{ alpha3Code: "AED", currencyName: "UAE Dirham", numericCode: 784, minorUnit: 2 }, { alpha3Code: "AFN",...}]
 ```
 
 ### getMinusSign()
@@ -343,11 +388,11 @@ import { DatePicker } from 'antd';
 ```
 
 ### getStatesOfUsa()
-[`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)
+Source: [`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)
 ```typescript
 import { getStatesOfUsa } from '@dnvgl/i18n';
 
-getStatesOfUsa(); // returns [ { name: "Alabama", alpha2Code: "AL" }, { name: "Alaska", alpha2Code: "AK" }, { na...]
+getStatesOfUsa(); // returns [{ name: "Alabama", alpha2Code: "AL" }, { name: "Alaska", alpha2Code: "AK" }, { na...]
 ```
 
 ### getSystemLocaleName()
@@ -390,7 +435,7 @@ isEuropeanUnionMember("USA"); // returns false
 ```
 
 ### isValidIso3166Code()
-Checks whether code has valid length and country exists.
+Checks whether code has valid length and country exists (active code only).
 ```typescript
 import { isValidIso3166Code } from '@dnvgl/i18n';
 
@@ -400,6 +445,19 @@ isValidIso3166Code(616); // returns true
 isValidIso3166Code("pl"); // returns false
 isValidIso3166Code("XX"); // returns false
 isValidIso3166Code(1000); // returns false
+```
+
+### isValidIso4217Code()
+Checks whether code has valid length and currency exists (active code only).
+```typescript
+import { isValidIso4217Code } from '@dnvgl/i18n';
+
+isValidIso4217Code("PLN"); // returns true
+isValidIso4217Code("USD"); // returns true
+isValidIso4217Code(985); // returns true
+isValidIso4217Code("pl"); // returns false
+isValidIso4217Code("XX"); // returns false
+isValidIso4217Code(1000); // returns false
 ```
 
 ### lowercaseFirstLetter()

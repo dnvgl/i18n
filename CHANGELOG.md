@@ -1,6 +1,30 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.7.0
+`2022-05-27`\
+\
+:rocket: Features:
+- [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies)
+```typescript
+getIso4217Currencies(): Iso4217Currency[]
+```
+- [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency)
+```typescript
+findIso4217Currency(code: Iso4217Alpha3Code | Iso4217NumericCode): Iso4217Currency | undefined
+```
+- [`isValidIso4217Code()`](DOCUMENTATION.md#isValidIso4217Code)
+```typescript
+isValidIso4217Code(code: Iso4217Alpha3Code | Iso4217NumericCode): boolean
+```
+- [`formatCurrency()`](DOCUMENTATION.md#formatCurrency)
+```typescript
+formatCurrency(currency: Iso4217Alpha3Code | Iso4217NumericCode, locale?: Locale): string
+```
+
+:bulb: Enhancements:
+- [`formatCountry()`](DOCUMENTATION.md#formatCountry) - ensured that invalid country code is handled without throwing an error (this case was previously undocumented); for invalid string code the same string is returned, but for invalid numeric code empty string is returned
+
 ## v1.6.0
 `2022-05-25`\
 \

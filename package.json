@@ -1,6 +1,6 @@
 {
   "name": "@dnvgl/i18n",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Set of functions to support multiple languages/cultures in a browser",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
@@ -14,11 +14,13 @@
   },
   "keywords": [
     "internationalization",
+    "globalization",
     "i18n",
     "l10n",
     "ISO",
     "ISO 3166",
     "ISO 3166-1",
+    "ISO 4217",
     "format"
   ],
   "homepage": "https://github.com/dnvgl/i18n",
