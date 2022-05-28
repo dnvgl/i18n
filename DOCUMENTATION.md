@@ -91,6 +91,8 @@ compare("Ą", "z"); // returns -1
 ```
 
 ### findIso3166Country()
+Returns specific country information. Please check [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries) to learn more about the country list.
+
 ```typescript
 import { findIso3166Country } from '@dnvgl/i18n';
 
@@ -102,6 +104,8 @@ findIso3166Country("XX"); // returns undefined
 ```
 
 ### findIso4217Currency()
+Returns specific currency information. Please check [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) to learn more about the list of currencies.
+
 ```typescript
 import { findIso4217Currency } from '@dnvgl/i18n';
 
@@ -113,6 +117,7 @@ findIso4217Currency("XX"); // returns undefined
 ```
 
 ### formatCountry()
+Function returns translated currency name by `Iso3166Alpha2Code` (e.g. `"PL"`) or `Iso4217Alpha3Code` (e.g. `"POL"`) or `Iso4217NumericCode` (e.g. `616`) argument value.\
 Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.\
 When the country code is invalid then the same `string` is returned (for invalid numeric code empty string is returned).
 
@@ -132,6 +137,7 @@ formatCountry(""); // returns "", invalid country code
 ```
 
 ### formatCurrency()
+Function returns translated currency name by `Iso4217Alpha3Code` (e.g. `"PLN"`) or `Iso4217NumericCode` (e.g. `985`) argument value.\
 Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO currency name (in english) instead.\
 When the currency code is invalid then the same `string` is returned (for invalid numeric code empty string is returned).
 
@@ -349,20 +355,35 @@ getDecimalSeparator("de"); // returns ","
 ```
 
 ### getIso3166Countries()
-Source: [`ISO 3166 countries (timestamp: 2018-09-18)`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+Source: [`ISO 3166 countries (timestamp: 2018-09-18)`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)\
+To get `countryName` in your local culture please use [`formatCountry()`](DOCUMENTATION.md#formatCountry).
+
 ```typescript
 import { getIso3166Countries } from '@dnvgl/i18n';
 
 getIso3166Countries(); // returns [{ countryName: "Afghanistan", officialStateName: "The Islamic Republic of Afghanistan", alpha2Code: "AF", alpha3Code: "AFG", numericCode: 4 }, { countryName...}]
 ```
+Example integration with [`formatCountry()`](DOCUMENTATION.md#formatCountry):
+```typescript
+import { formatCountry, getIso3166Countries } from '@dnvgl/i18n';
+
+getIso3166Countries().map(x => ({ ...x, translatedCountryName: formatCountry(x.alpha2Code) }));
+```
 
 ### getIso4217Currencies()
-Sources: [`ISO 4217 countries (timestamp: 2021-10-01)`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database (timestamp: 2022-04-01)`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)
+Sources: [`ISO 4217 countries (timestamp: 2021-10-01)`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database (timestamp: 2022-04-01)`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)\
+To get `currencyName` in your local culture please use [`formatCurrency()`](DOCUMENTATION.md#formatCurrency).
 
 ```typescript
 import { getIso4217Currencies } from '@dnvgl/i18n';
 
 getIso4217Currencies(); // returns [{ alpha3Code: "AED", currencyName: "UAE Dirham", numericCode: 784, minorUnit: 2 }, { alpha3Code: "AFN",...}]
+```
+Example integration with [`formatCurrency()`](DOCUMENTATION.md#formatCurrency):
+```typescript
+import { formatCurrency, getIso4217Currencies } from '@dnvgl/i18n';
+
+getIso4217Currencies().map(x => ({ ...x, translatedCurrencyName: formatCurrency(x.alpha3Code) }));
 ```
 
 ### getMinusSign()
@@ -516,8 +537,21 @@ roundUsingHalfAwayFromZero(1.449, 1); // returns 1.4
 roundUsingHalfAwayFromZero(1.45, 1); // returns 1.5
 roundUsingHalfAwayFromZero(1.46, 1); // returns 1.5
 roundUsingHalfAwayFromZero(1.55, 1); // returns 1.6
+roundUsingHalfAwayFromZero(1.005, 2); // returns 1.01
 roundUsingHalfAwayFromZero(10.075, 2); // returns 10.08
 roundUsingHalfAwayFromZero(-23.5, 1); // returns -24
+roundUsingHalfAwayFromZero(-1.005, 2); // returns -1.01
+```
+
+Common mistakes/algorithms (let's take the rounding to 2 decimal places as an example):
+```typescript
+Math.round(1.005 * 100) / 100; // (actual: 1, expected: 1.01)
+Math.round((519.805 + Number.EPSILON) * 100) / 100; // (actual: 519.8, expected: 519.81)
+parseFloat(1.005.toFixed(2)); // (actual: 1, expected: 1.01)
+Number(1.005.toFixed(2)); // (actual: 1, expected: 1.01)
++1.005.toFixed(2); // (actual: 1, expected: 1.01)
+_.round(-1.005, 2); // lodash library uses "Round half up" algorithm that rounds negative numbers differently (result: -1)
++(Math.round(1.19e-7 + "e+2")  + "e-2"); // (actual: NaN, expected: 0), also uses "Round half up" algorithm that rounds negative numbers differently
 ```
 
 ### roundUsingBankersMethod()
@@ -558,7 +592,7 @@ additional information:
 - descending order: reverted ascending order
 
 common mistakes:
-- native `Array.prototype.sort()`: doesnt't support internationalization; undefined goes always to the end (both ascending and descending order); mutates the array
+- native `Array.prototype.sort()`: doesnt't support internationalization; `undefined` goes always to the end (both ascending and descending order); mutates the array
 - native `Array.prototype.sort()` + `String.prototype.localeCompare()`: poor performance
 
 ### sortBy(), sortByInplace()
