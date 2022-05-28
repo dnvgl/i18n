@@ -1,13 +1,14 @@
 # General information
 
-`@dnvgl/i18n` is a set of functions to support multiple languages/cultures in a browser. There is no dependency on other libraries (exception: TypeScript when using definitions). It's built on the browsers native solutions like for example `Intl` API.
+`@dnvgl/i18n` is a set of functions to support multiple languages/cultures in a browser or Node.js. There is no dependency on other libraries (exception: TypeScript when using definitions). It's built on the ECMAScript native solutions like for example `Intl` API.
 
 The purpose of this library is to provide all needed functionalities to support multiple languages/cultures in the web application. All functions have been designed to be simple and easy to use, that is why some native API are wrapped. This library was in use two years (commercial use by DNV company) before its open-source release ([`2021-04-13`](CHANGELOG.md#v010)).
 
 The biggest advantage about the library is that it supports any language, using the culture of the browser.
 
-## 1. Supported browsers
+## 1. Supported environments
 
+### Browsers:
 - Chrome (+ mobile): last 2 versions
 - Firefox (+ mobile): last 2 versions
 - Safari (+ mobile): v14* or newer
@@ -16,6 +17,9 @@ The biggest advantage about the library is that it supports any language, using 
 There is a build-in function to check it: [`isBrowserCompatible()`](DOCUMENTATION.md#isBrowserCompatible).
 
 \* - [`formatCountry()`](DOCUMENTATION.md#formatCountry) and [`formatCurrency()`](DOCUMENTATION.md#formatCurrency) require Safari 14.1 (desktop) or 14.5 (mobile)
+
+### Node.js:
+- v14 or newer
 
 ## 2. Installation
 

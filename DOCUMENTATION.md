@@ -429,9 +429,9 @@ isEuropeanUnionMember("PL"); // returns true
 isEuropeanUnionMember("POL"); // returns true
 isEuropeanUnionMember(616); // returns true
 isEuropeanUnionMember("IT"); // returns true
-isEuropeanUnionMember("pl"); // returns false
-isEuropeanUnionMember("GB"); // returns false
-isEuropeanUnionMember("USA"); // returns false
+isEuropeanUnionMember("pl"); // returns false (invalid country code)
+isEuropeanUnionMember("GB"); // returns false (not a member of EU)
+isEuropeanUnionMember("USA"); // returns false (not a member of EU)
 ```
 
 ### isValidIso3166Code()

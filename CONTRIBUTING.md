@@ -18,7 +18,7 @@ Check tools and rules discribed below.
 - how to: `npm install -g yarn` (that's it!)
 - more info: https://classic.yarnpkg.com/en/docs/install
 - version: newest `1.x`
-- verification: run `yarn --version`, expected example: `1.22.10`
+- verification: run `yarn --version`, expected example: `1.22.11`
 
 ### Visual Studio Code - editor
 - how to: visit https://code.visualstudio.com/download and install (exe installer, default options)
