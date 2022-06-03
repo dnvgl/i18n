@@ -19,7 +19,7 @@ Most of the functions accepts `locale` parameter which allow us to choose the co
 import { capitalizeFirstLetter } from '@dnvgl/i18n';
 
 capitalizeFirstLetter("abc"); // returns "Abc"
-capitalizeFirstLetter("abC"); // returns "abC"
+capitalizeFirstLetter("abC"); // returns "AbC"
 capitalizeFirstLetter("ABC"); // returns "ABC"
 capitalizeFirstLetter("italya", "tr"); // returns "İtalya"
 ```
