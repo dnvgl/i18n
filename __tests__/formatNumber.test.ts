@@ -51,6 +51,7 @@ describe('formatNumber', () => {
     [1234.78, "de", false, "1234,78"],
     [1234.78, "de", true, "1.234,78"],
     [1234567.78, "de", true, "1.234.567,78"],
+    [0.000000003, "en", false, "0.000000003"], // HINT: should not be 3e-9
     [1234567.78, "pl", true, `1${IntlWhitespace}234${IntlWhitespace}567,78`],
   ])('formats %p with proper locale (%p) when thousands separator option is %p', (value, locale, thousandsSeparator, expected) => {
     const result = formatNumber(value, { thousandsSeparator: thousandsSeparator }, locale);

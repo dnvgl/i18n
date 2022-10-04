@@ -82,7 +82,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`formatCountry()`](DOCUMENTATION.md#formatCountry), [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa), [`isEuropeanUnionMember()`](DOCUMENTATION.md#isEuropeanUnionMember), [`isValidIso3166Code()`](DOCUMENTATION.md#isValidIso3166Code)
 
 #### Currency utils
-[`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`formatCurrency()`](DOCUMENTATION.md#formatCurrency), [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies), [`isValidIso4217Code()`](DOCUMENTATION.md#isValidIso4217Code)
+[`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`formatCurrency()`](DOCUMENTATION.md#formatCurrency), [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies), [`getCurrencySymbol()`](DOCUMENTATION.md#getCurrencySymbol), [`isValidIso4217Code()`](DOCUMENTATION.md#isValidIso4217Code)
 
 #### Financial utils
 [`formatMoney()`](DOCUMENTATION.md#formatMoney), [`formatIban()`](DOCUMENTATION.md#formatIban), [`getCountryCodeFromBic()`](DOCUMENTATION.md#getCountryCodeFromBic), [`getCountryCodeFromIban()`](DOCUMENTATION.md#getCountryCodeFromIban), [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod)

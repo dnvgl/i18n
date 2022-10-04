@@ -29,7 +29,7 @@ Check tools and rules discribed below.
 
 ### Visual Studio Code + TypeScript
 - Press `ctrl+shift+p` in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
-- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.7.2`
+- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.8.4`
 
 ## 3. Project configuration/installation
 

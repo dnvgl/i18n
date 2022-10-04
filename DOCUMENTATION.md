@@ -324,6 +324,14 @@ getCountryCodeFromIban("BE", { validateStructure: false }); // returns "BE"
 getCountryCodeFromIban("BE...", { validateStructure: false }); // returns "BE"
 ```
 
+### getCurrencySymbol()
+```typescript
+import { getCurrencySymbol } from '@dnvgl/i18n';
+
+getCurrencySymbol("USD", "en-US"); // returns "$"
+getCurrencySymbol(840, "en-US"); // returns "$" (where 840 is the USD numeric code)
+```
+
 ### formatTime()
 ```typescript
 import { formatTime } from '@dnvgl/i18n';

@@ -19,7 +19,7 @@ export function parseNumber(value: string, strictMode: boolean = false, locale?:
   if (strictMode && isEmptyOrWhiteSpace(preParsedValue)) return undefined;
   const parsedNumber = (strictMode ? Number : parseFloat)(preParsedValue);
   
-  return (Number.isNaN(parsedNumber) || !Number.isFinite(parsedNumber)) 
+  return !Number.isFinite(parsedNumber)
     ? undefined 
     : (parsedNumber || 0 /* HINT: -0 case */);
 }

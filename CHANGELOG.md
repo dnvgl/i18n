@@ -1,6 +1,21 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.8.0
+`2022-10-04`\
+\
+:rocket: Features:
+- [`getCurrencySymbol()`](DOCUMENTATION.md#getCurrencySymbol)
+```typescript
+getCurrencySymbol(): string
+```
+
+:bulb: Enhancements: 
+- [`parseNumber()`](DOCUMENTATION.md#parseNumber) - internal optimization
+
+:wrench: Internal:
+- TypeScript upgrade `4.7.2` -> `4.8.4`
+
 ## v1.7.0
 `2022-05-27`\
 \

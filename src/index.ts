@@ -24,6 +24,7 @@ export { formatString } from './formatString';
 export { formatTime } from './formatTime';
 export { getCountryCodeFromBic } from './getCountryCodeFromBic';
 export { getCountryCodeFromIban } from './getCountryCodeFromIban';
+export { getCurrencySymbol } from './getCurrencySymbol';
 export { getDateFnsFormat } from './getDateFnsFormat';
 export { getDecimalSeparator } from './getDecimalSeparator';
 export { getIso3166Countries } from './getIso3166Countries';
