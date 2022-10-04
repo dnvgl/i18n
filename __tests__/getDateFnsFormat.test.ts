@@ -20,7 +20,7 @@ describe('getDateFnsFormat', () => {
     ["zh-HK", "days", "d'/'M'/'yyyy"],
     ["zh-HK", "seconds", "d'/'M'/'yyyy' 'Ah':'mm':'ss"],
     ["zh-HK", "minutes", "d'/'M'/'yyyy' 'Ah':'mm"],
-    ["fr-CA", "seconds", "yyyy'-'MM'-'dd', 'HH' h 'mm' min 'ss' s'"],
+    ["fr-CA", "seconds", "yyyy'-'MM'-'dd' 'HH' h 'mm' min 'ss' s'"],
     ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'A"],
     ["ar-sa", "seconds", "dd'‏/'MM'‏/'yyyy' 'G' في 'h':'mm':'ss' 'A"]
   ];
