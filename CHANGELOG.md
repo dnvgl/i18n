@@ -11,7 +11,7 @@ getCurrencySymbol(): string
 ```
 
 :bulb: Enhancements: 
-- [`parseNumber()`](DOCUMENTATION.md#parseNumber) - internal optimization
+- [`parseNumber()`](DOCUMENTATION.md#parseNumber) - optimization (redundant NaN check)
 
 :wrench: Internal:
 - TypeScript upgrade `4.7.2` -> `4.8.4`
