@@ -24,6 +24,7 @@ describe('formatMoney', () => {
   });
 
   test("using partial options", () => {
+    expect(formatMoney(1.53588, { }, "en")).toEqual("1.54");
     expect(formatMoney(1.53588, { precision: 3 }, "en")).toEqual("1.536");
     expect(formatMoney(1.53588, { currency: "USD" }, "en")).toEqual("$1.54");
     expect(formatMoney(1.53588, { currency: "USD", currencyDisplay: "code" }, "en")).toEqual(`USD${IntlWhitespace}1.54`);
