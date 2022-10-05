@@ -1,0 +1,1 @@
+export type IntlCurrencyDisplay = "symbol" | "narrowSymbol" | "code" | "name";

@@ -62,6 +62,8 @@ export { MonthFormat } from './types/monthFormat';
 export { NumberFormat } from './types/numberFormat';
 export { NumberFormatBase } from './types/numberFormatBase';
 export { NumberFormatFixed } from './types/numberFormatFixed';
+export { NumberFormatMoney } from './types/numberFormatMoney';
+export { IntlCurrencyDisplay } from './types/intlCurrencyDisplay';
 export { TransformationOptions } from './types/transformationOptions';
 export { TimeFormatPrecision } from './types/timeFormatPrecision';
 export { Locale, LocaleOrCollator } from './types/locale';

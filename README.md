@@ -75,7 +75,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 #### Sorting/comparison
 [`compareBooleans()`](DOCUMENTATION.md#compareBooleans), [`compareDates()`](DOCUMENTATION.md#compareDates), [`compareNumbers()`](DOCUMENTATION.md#compareNumbers), [`compareNumbersAlike()`](DOCUMENTATION.md#compareNumbersAlike), [`compareStrings()`](DOCUMENTATION.md#compareStrings), [`compareStringsFactory()`](DOCUMENTATION.md#compareStringsFactory), [`sort()`](DOCUMENTATION.md#sort-sortinplace), [`sortBy()`](DOCUMENTATION.md#sortby-sortbyinplace), [`sortByInplace()`](DOCUMENTATION.md#sortby-sortbyinplace), [`sortInplace()`](DOCUMENTATION.md#sort-sortinplace)
 
-#### String formating/utils
+#### String formatting/utils
 [`capitalizeFirstLetter()`](DOCUMENTATION.md#capitalizeFirstLetter), [`formatString()`](DOCUMENTATION.md#formatString), [`lowercaseFirstLetter()`](DOCUMENTATION.md#lowercaseFirstLetter), [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching), [`plural()`](DOCUMENTATION.md#plural)
 
 #### Country utils

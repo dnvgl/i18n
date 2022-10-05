@@ -25,8 +25,8 @@ capitalizeFirstLetter("italya", "tr"); // returns "İtalya"
 ```
 
 ### compareBooleans()
-Simplifed `compareNumbersAlike()` function.\
-Order (pseudocode): `undefined` < `null` < `false` < `true`
+Simplified `compareNumbersAlike()` function.\
+Order (pseudo code): `undefined` < `null` < `false` < `true`
 
 ```typescript
 import { compareBooleans } from '@dnvgl/i18n';
@@ -37,7 +37,7 @@ compareBooleans(false, true); // returns -1
 ```
 
 ### compareDates()
-Order (pseudocode): `undefined` < `null` < `Invalid Date` < `new Date("2018-05-05")` < `new Date("2018-05-10")`
+Order (pseudo code): `undefined` < `null` < `Invalid Date` < `new Date("2018-05-05")` < `new Date("2018-05-10")`
 
 ```typescript
 import { compareDates } from '@dnvgl/i18n';
@@ -49,8 +49,8 @@ compareDates(new Date("2018-05-10"), null); // returns 1
 ```
 
 ### compareNumbers()
-Simplifed `compareNumbersAlike()` function.\
-Order (pseudocode): `undefined` < `null` < `NaN` < `-Infinity` < `1` < `100` < `Infinity`
+Simplified `compareNumbersAlike()` function.\
+Order (pseudo code): `undefined` < `null` < `NaN` < `-Infinity` < `1` < `100` < `Infinity`
 
 ```typescript
 import { compareNumbers } from '@dnvgl/i18n';
@@ -201,7 +201,7 @@ formatIban("  SE35 5000 0000 0549 1000 0003  ", ""); // returns "SE3550000000054
 ```
 
 ### formatInteger()
-Simplifed `formatNumber()` function
+Simplified `formatNumber()` function
 
 ```typescript
 import { formatInteger } from '@dnvgl/i18n';
@@ -212,7 +212,7 @@ formatInteger(1000000, "en-GB"); // returns "1,000,000"
 ```
 
 ### formatMoney()
-Simplifed [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`) and number rounding using [`banker's algorithm`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) (`useBankersRounding = true`).
+Simplified [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`) and number rounding using [`banker's algorithm`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) (`useBankersRounding = true`).
 
 ```typescript
 import { formatMoney } from '@dnvgl/i18n';
@@ -221,6 +221,10 @@ formatMoney(1.05, 1, "en"); // returns "1.0"
 formatMoney(1.15, 1, "en"); // returns "1.2"
 formatMoney(1.25, 1, "en"); // returns "1.2"
 formatMoney(1.535, 2, "en"); // returns "1.54"
+formatMoney(1.53588, { precision: 3, currency: "USD" }, "en"); // returns "$1.536"
+formatMoney(1.53588, { precision: 3, currency: "USD", currencyDisplay: "code" }, "en"); // returns "USD 1.536"
+formatMoney(1.532, { precision: 2, currency: "PLN" }, "pl-PL"); // returns "1,53 zł"
+formatMoney(1.532, { precision: 2, currency: "USD" }, "pl-PL"); // returns "1,53 USD"
 ```
 
 ### formatMonth()
@@ -242,10 +246,12 @@ arguments:
 - value: number
 - options (optional):
   - minPrecision (number): default `undefined`
-  - maxPrecision:(number): default `10`
-  - thousandsSeparator: (boolean): default `true`
-  - useBankersRounding: (boolean): default `false` (Intl default: [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm)
-  - negativeZero: (boolean): default `true` (current Intl default behaviour)
+  - maxPrecision (number): default `10`
+  - thousandsSeparator (boolean): default `true`
+  - useBankersRounding (boolean): default `false` (Intl default: [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm)
+  - negativeZero (boolean): default `true` (current Intl default behavior)
+  - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
+  - currencyDisplay (string): `"symbol" | "narrowSymbol" | "code" | "name"`; default `"symbol"` when `currency` is provided; see more info in the `Intl` documentation
 - locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
 
 ```typescript
@@ -258,7 +264,7 @@ formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // ret
 ```
 
 ### formatNumberToFixed()
-Simplifed [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`).
+Simplified [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`).
 
 ```typescript
 import { formatNumberToFixed } from '@dnvgl/i18n';
@@ -278,7 +284,7 @@ formatRelativeTime(-1, "day", { style: "short", numeric: "auto" }, "en"); // ret
 ```
 
 ### formatString()
-Replaces placeholders (string pattern) by provied values.
+Replaces placeholders (string pattern) by provided values.
 ```typescript
 import { formatString } from '@dnvgl/i18n';
 
@@ -600,7 +606,7 @@ additional information:
 - descending order: reverted ascending order
 
 common mistakes:
-- native `Array.prototype.sort()`: doesnt't support internationalization; `undefined` goes always to the end (both ascending and descending order); mutates the array
+- native `Array.prototype.sort()`: doesn't support internationalization; `undefined` goes always to the end (both ascending and descending order); mutates the array
 - native `Array.prototype.sort()` + `String.prototype.localeCompare()`: poor performance
 
 ### sortBy(), sortByInplace()
@@ -638,7 +644,7 @@ additional information:
 
 common mistakes:
 - see `sort()`/`sortInplace()` section
-- lodash `_.orderBy()`: doesnt't support internationalization
+- lodash `_.orderBy()`: doesn't support internationalization
 
 ### transformToInputNumericString()
 Useful when implementing custom input component which doesn't allow to type invalid characters (transformation can be done during onChange event).

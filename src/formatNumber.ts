@@ -21,14 +21,18 @@ export function formatNumber(value: number, options?: Partial<NumberFormat>
 }
 
 function createFormatterOptions(opts?: Partial<NumberFormat>): Intl.NumberFormatOptions {
-  const minimumFractionDigits = opts?.minPrecision,
-    maximumFractionDigits = opts?.maxPrecision ?? 10,
-    useGrouping = opts?.thousandsSeparator === false ? false : true;
+  const minimumFractionDigits = opts?.minPrecision,
+    maximumFractionDigits = opts?.maxPrecision ?? 10,
+    style = opts?.currency ? "currency" : "decimal";
 
   return {
-    style: "decimal",
+    style: style,
+    currency: opts?.currency,
+    currencyDisplay: style === "currency" 
+      ? opts?.currencyDisplay ?? "symbol" 
+      : undefined,
     minimumFractionDigits: minimumFractionDigits,
     maximumFractionDigits: maximumFractionDigits,
-    useGrouping: useGrouping
+    useGrouping:opts?.thousandsSeparator === false ? false : true
   };
 }
