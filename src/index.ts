@@ -64,6 +64,7 @@ export { NumberFormatBase } from './types/numberFormatBase';
 export { NumberFormatFixed } from './types/numberFormatFixed';
 export { NumberFormatMoney } from './types/numberFormatMoney';
 export { IntlCurrencyDisplay } from './types/intlCurrencyDisplay';
+export { IntlCurrencySign } from './types/intlCurrencySign';
 export { TransformationOptions } from './types/transformationOptions';
 export { TimeFormatPrecision } from './types/timeFormatPrecision';
 export { Locale, LocaleOrCollator } from './types/locale';
@@ -72,3 +73,4 @@ export { Iso3166Country, Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCod
 export { StateOfUsa, StateAlpha2Code } from './types/stateOfUsa';
 export { IbanParseOptions } from './types/ibanParseOptions';
 export { Iso4217Currency, Iso4217Alpha3Code, Iso4217NumericCode } from './types/iso4217';
+export { CurrencySymbolOptions } from './types/currencySymbolOptions';

@@ -18,7 +18,8 @@ export function formatMoney(value: number, options?: number | Partial<NumberForm
         useBankersRounding: defaultOptions.useBankersRounding, 
         precision: options.precision ?? defaultOptions.precision, 
         currency: options.currency,
-        currencyDisplay: options.currencyDisplay
+        currencyDisplay: options.currencyDisplay,
+        currencySign: options.currencySign
       }
       : defaultOptions
 

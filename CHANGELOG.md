@@ -1,6 +1,23 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.10.0
+`2022-10-06`\
+\
+:rocket: Features:
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`formatMoney()`](DOCUMENTATION.md#formatMoney) - accepts `currency` as numeric representation (e.g. `USD = 840`).
+```typescript
+formatMoney(1.532, { precision: 2, currency: 840 }, "pl-PL")
+```
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`formatMoney()`](DOCUMENTATION.md#formatMoney) - accepts new option `currencySign` (Safari >= `14.1`). Defaults: `currencySign: "standard"` when `currency` value is provided.
+```typescript
+formatMoney(-1.532, { precision: 2, currency: 840, currencySign: "accounting" })
+```
+- [`getCurrencySymbol()`](DOCUMENTATION.md#getCurrencySymbol) - accepts new option `currencyDisplay` (Safari >= `14.1`)
+```typescript
+getCurrencySymbol({ currency: "CAD", currencyDisplay: "narrowSymbol" }, "en")
+```
+
 ## v1.9.0
 `2022-10-05`\
 \

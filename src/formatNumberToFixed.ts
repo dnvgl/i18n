@@ -17,6 +17,7 @@ export function formatNumberToFixed(value: number, options?: Partial<NumberForma
     negativeZero: isNumberArg ? undefined : options?.negativeZero,
     currency: isNumberArg ? undefined : options?.currency,
     currencyDisplay: isNumberArg ? undefined : options?.currencyDisplay,
+    currencySign: isNumberArg ? undefined : options?.currencySign
   };
   
   return formatNumber(value, formatOptions, locale);

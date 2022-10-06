@@ -1,3 +1,4 @@
+import { findIso4217Currency } from "./findIso4217Currency";
 import { createNumberFormat } from "./internal/createNumberFormat";
 import { roundUsingBankersMethod } from "./roundUsingBankersMethod";
 import { Locale } from "./types/locale";
@@ -23,14 +24,20 @@ export function formatNumber(value: number, options?: Partial<NumberFormat>
 function createFormatterOptions(opts?: Partial<NumberFormat>): Intl.NumberFormatOptions {
   const minimumFractionDigits = opts?.minPrecision,
     maximumFractionDigits = opts?.maxPrecision ?? 10,
-    style = opts?.currency ? "currency" : "decimal";
+    style = opts?.currency ? "currency" : "decimal",
+    currency = opts?.currency !== undefined
+      ? typeof opts.currency === "string"
+        ? opts.currency
+        : findIso4217Currency(opts.currency)?.alpha3Code
+      : undefined;
 
   return {
     style: style,
-    currency: opts?.currency,
+    currency: currency,
     currencyDisplay: style === "currency" 
       ? opts?.currencyDisplay ?? "symbol" 
       : undefined,
+    currencySign: opts?.currencySign,
     minimumFractionDigits: minimumFractionDigits,
     maximumFractionDigits: maximumFractionDigits,
     useGrouping:opts?.thousandsSeparator === false ? false : true

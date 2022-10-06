@@ -225,6 +225,9 @@ formatMoney(1.53588, { precision: 3, currency: "USD" }, "en"); // returns "$1.53
 formatMoney(1.53588, { precision: 3, currency: "USD", currencyDisplay: "code" }, "en"); // returns "USD 1.536"
 formatMoney(1.532, { precision: 2, currency: "PLN" }, "pl-PL"); // returns "1,53 zł"
 formatMoney(1.532, { precision: 2, currency: "USD" }, "pl-PL"); // returns "1,53 USD"
+formatMoney(1.532, { precision: 2, currency: "CAD" }, "en-US"); // returns "CA$1.53"
+formatMoney(1.532, { precision: 2, currency: "CAD", currencyDisplay: "narrowSymbol" }, "en-US"); // returns "$1.53"
+formatMoney(-1.53588, { precision: 3, currency: "USD", currencySign: "accounting" }, "en"); // returns "($1.536)"
 ```
 
 ### formatMonth()
@@ -252,6 +255,7 @@ arguments:
   - negativeZero (boolean): default `true` (current Intl default behavior)
   - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
   - currencyDisplay (string): `"symbol" | "narrowSymbol" | "code" | "name"`; default `"symbol"` when `currency` is provided; see more info in the `Intl` documentation
+  - currencySign (string): `"standard" | "accounting"`; default `"standard"` when `currency` is provided; see more info in the `Intl` documentation
 - locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
 
 ```typescript
@@ -336,6 +340,8 @@ import { getCurrencySymbol } from '@dnvgl/i18n';
 
 getCurrencySymbol("USD", "en-US"); // returns "$"
 getCurrencySymbol(840, "en-US"); // returns "$" (where 840 is the USD numeric code)
+getCurrencySymbol({ currency: "CAD" }, "en-US"); // returns "CA$"
+getCurrencySymbol({ currency: "CAD", currencyDisplay: "narrowSymbol" }, "en-US"); // returns "$"
 ```
 
 ### formatTime()
@@ -529,7 +535,7 @@ parseNumber("-1,62-sd3.454", true, "en-GB"); // returns undefined
 ```
 
 ### plural()
-String pattern as array or separated by characeter (default: `|`, can be customized by `separator` argument)
+String pattern as array or separated by character (default: `|`, can be customized by `separator` argument)
 ```typescript
 import { plural } from '@dnvgl/i18n';
 
