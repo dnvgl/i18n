@@ -40,7 +40,7 @@ Import functions or types from `@dnvgl/i18n`, example:
 import { sort, formatNumber } from '@dnvgl/i18n';
 
 const sortedItems = sort(["Z", "a", "A", "z", "ś"], "asc", "pl-PL"); // returns ["a", "A", "ś", "z", "Z"]
-const numberFormattedInSpecificCulture = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
+const numberFormattedInSpecificCulture = formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
 const numberFormattedInLocalCulture = formatNumber(12486.4529); // returns "12 486,4529" using local browser culture (in this case 'pl-PL'); any culture can be supported out of the box
 ```
 

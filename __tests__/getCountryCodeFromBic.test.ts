@@ -1,6 +1,6 @@
 import { getCountryCodeFromBic } from "../src";
 
-describe('getCountryCodeFromBic', () => {
+describe('getCountryCodeFromBic', () => {
   test.each([
     ["BNPAFRPP", "FR"],
     ["BNPAFRPP", "FR"],
@@ -25,7 +25,7 @@ describe('getCountryCodeFromBic', () => {
     ["CHAS3133", undefined],
     ["CHAS__33", undefined],
   ])('gets code from %p, allowInvalidBicStructure = %p', (value, expected) => {
-    const result = getCountryCodeFromBic(value);
+    const result = getCountryCodeFromBic(value);
     expect(result).toBe(expected);
   });
 });

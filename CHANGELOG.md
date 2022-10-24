@@ -5,10 +5,10 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 `2022-10-24`\
 \
 :rocket: Features:
-- [`formatNumber()`](DOCUMENTATION.md#formatNumber) - new overload, accepts `NumberFormatIntl` options, that can be created using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat). This new overload is dedicated when formatting is used many times (thousands, e.g. big tables with financial data). The source of the problems is creating `new Intl.NumberFormat`, which is expensive. Using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat) it can be created only once and re-used.
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber) - new overload, accepts `NumberFormatIntl` options, that can be created using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat). This new overload is dedicated when formatting is used many times (thousands, e.g. big tables with financial data). The source of the problems is creating `new Intl.NumberFormat`, which is expensive. Using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat) it can be created only once and re-used.
 ```typescript
 const options = createNumberFormat({ thousandsSeparator: false }, "de");
-formatNumber(12486.4, options);
+formatNumber(12486.4, options);
 ```
 :wrench: Internal:
 - rename: `createDateFormat()` -> `createDateFormatIntlObj()`
@@ -105,7 +105,7 @@ roundUsingHalfAwayFromZero(value: number, precision: number): number
 ```
 - [`formatNumber()`](DOCUMENTATION.md#formatNumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed) - `negativeZero` (`boolean`) option
 ```typescript
-formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0" instead of "-0"
+formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0" instead of "-0"
 ```
 - [`roundUsingBankersMethod()`](DOCUMENTATION.md#roundUsingBankersMethod) - allow to use `Infinity` precision (returns the same number passed as the argument)
 

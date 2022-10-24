@@ -3,7 +3,7 @@ import { getCountryCodeFromIban } from "../src";
 const IntlWhitespace = String.fromCharCode(160),
   tab = String.fromCharCode(9);
 
-describe('getCountryCodeFromIban', () => {
+describe('getCountryCodeFromIban', () => {
   test.each([
     ["BE", undefined],
     ["BE71096123456769", "BE"],
@@ -27,8 +27,8 @@ describe('getCountryCodeFromIban', () => {
     ["GB98MIDL07009312345678", "GB"],
     ["BE 7109 6123 4567 69", undefined],
     ["BEXXXXXXXXX", undefined],
-    ["", undefined],
-    ["B", undefined],
+    ["", undefined],
+    ["B", undefined],
     ["be", undefined],
     [" BE71096123456769", undefined],
     ["  BE71096123456769", undefined],
@@ -40,7 +40,7 @@ describe('getCountryCodeFromIban', () => {
     ["b371096123456769", undefined],
     ["1371096123456769", undefined],
   ])('gets code from %p', (value, expected) => {
-    const result = getCountryCodeFromIban(value);
+    const result = getCountryCodeFromIban(value);
     expect(result).toBe(expected);
   });
 
@@ -52,7 +52,7 @@ describe('getCountryCodeFromIban', () => {
     [`${tab}MU43 BOMM 0101 1234 5678 9101 000 MUR`, "MU"],
     ["BR1500000000000010932840814P2", "BR"],
   ])('gets code from %p when removing whitespaces', (value, expected) => {
-    const result = getCountryCodeFromIban(value, { removeWhitespaces: true });
+    const result = getCountryCodeFromIban(value, { removeWhitespaces: true });
     expect(result).toBe(expected);
   });
 
@@ -65,7 +65,7 @@ describe('getCountryCodeFromIban', () => {
     [`${tab}MU43 BOMM 0101 1234 5678 9101 000 MUR`, undefined],
     ["BR1500000000000010932840814P2", "BR"],
   ])('gets code from %p when ignoring IBAN structure', (value, expected) => {
-    const result = getCountryCodeFromIban(value, { validateStructure: false });
+    const result = getCountryCodeFromIban(value, { validateStructure: false });
     expect(result).toBe(expected);
   });
 });

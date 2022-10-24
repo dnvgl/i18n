@@ -1649,7 +1649,7 @@ export const iso3166Countries: Iso3166Country[] = [
   },
   {
     countryName: "United States Minor Outlying Islands (the)",
-    officialStateName: "Baker Island",
+    officialStateName: "Baker Island",
     alpha2Code: "UM",
     alpha3Code: "UMI",
     numericCode: 581

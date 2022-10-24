@@ -1,6 +1,6 @@
 import { formatRelativeTime, Locale } from "../src";
 
-describe('formatRelativeTime', () => {
+describe('formatRelativeTime', () => {
   test.each([
     [5, "day", { style: "long" }, "en", "in 5 days"],
     [-5, "day", { style: "long" }, "en", "5 days ago"],
@@ -22,7 +22,7 @@ describe('formatRelativeTime', () => {
     [-2, "day", { style: "short", numeric: "auto" }, "pl", "przedwczoraj"],
   ] as [number, Intl.RelativeTimeFormatUnit, Intl.RelativeTimeFormatOptions, Locale, string][])
   ('format %p using %p unit, %p options, %p locale', (value, unit, options, locale, expected) => {
-    const result = formatRelativeTime(value, unit, options, locale);
+    const result = formatRelativeTime(value, unit, options, locale);
     expect(result).toBe(expected);
   });
 });

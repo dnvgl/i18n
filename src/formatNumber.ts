@@ -4,9 +4,9 @@ import { Locale } from "./types/locale";
 import { NumberFormat } from "./types/numberFormat";
 import { NumberFormatIntl } from "./types/numberFormatIntl";
 
-export function formatNumber(value: number, options?: Partial<NumberFormat>, locale?: Locale): string
-export function formatNumber(value: number, options?: NumberFormatIntl): string
-export function formatNumber(value: number, options?: Partial<NumberFormat> | NumberFormatIntl, locale?: Locale): string {
+export function formatNumber(value: number, options?: Partial<NumberFormat>, locale?: Locale): string
+export function formatNumber(value: number, options?: NumberFormatIntl): string
+export function formatNumber(value: number, options?: Partial<NumberFormat> | NumberFormatIntl, locale?: Locale): string {
   if (options?.useBankersRounding && options?.maxPrecision !== undefined) {
     value = roundUsingBankersMethod(value, options.maxPrecision);
   }

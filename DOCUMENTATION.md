@@ -133,10 +133,10 @@ When the country code is invalid then the same `string` is returned (for invalid
 ```typescript
 import { formatCountry } from '@dnvgl/i18n';
 
-formatCountry("PL", "en"); // returns "Poland"
-formatCountry("POL", "en"); // returns "Poland"
-formatCountry(616, "en"); // returns "Poland"
-formatCountry("DE", "pl"); // returns "Niemcy"
+formatCountry("PL", "en"); // returns "Poland"
+formatCountry("POL", "en"); // returns "Poland"
+formatCountry(616, "en"); // returns "Poland"
+formatCountry("DE", "pl"); // returns "Niemcy"
 formatCountry("DE"); // returns "Niemcy", current locale: pl-PL
 formatCountry("DE"); // returns "Germany", current locale: en-GB
 formatCountry("xx"); // returns "xx", invalid country code
@@ -153,11 +153,11 @@ When the currency code is invalid then the same `string` is returned (for invali
 ```typescript
 import { formatCurrency } from '@dnvgl/i18n';
 
-formatCurrency("PLN", "pl"); // returns "złoty polski"
-formatCurrency("PLN", "en"); // returns "Polish Zloty"
-formatCurrency(985, "en"); // returns "Polish Zloty"
-formatCurrency("USD", "pl"); // returns "dolar amerykański"
-formatCurrency("USD", "en"); // returns "US Dollar"
+formatCurrency("PLN", "pl"); // returns "złoty polski"
+formatCurrency("PLN", "en"); // returns "Polish Zloty"
+formatCurrency(985, "en"); // returns "Polish Zloty"
+formatCurrency("USD", "pl"); // returns "dolar amerykański"
+formatCurrency("USD", "en"); // returns "US Dollar"
 formatCurrency("USD"); // returns "US-Dollar", example when current locale: de
 formatCurrency("xx"); // returns "xx", invalid currency code
 formatCurrency("__"); // returns "__", invalid currency code
@@ -169,19 +169,19 @@ formatCurrency(""); // returns "", invalid currency code
 ```typescript
 import { formatDate } from '@dnvgl/i18n';
 
-formatDate(new Date("2018-07-08"), "days", "en-US"); // returns "7/8/2018"
-formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/2020"
-formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
+formatDate(new Date("2018-07-08"), "days", "en-US"); // returns "7/8/2018"
+formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/2020"
+formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
 ```
 
 ### formatDatePart()
 ```typescript
 import { formatDatePart } from '@dnvgl/i18n';
 
-formatDatePart(new Date("2018-07-08"), "year", "en-US"); // returns "2018"
-formatDatePart("2020-03-30T14:46:27+02:00", "month", "en-GB"); // returns "3"
-formatDatePart("2018-07-08 14:15:24", "day", "en-US"); // returns "8"
-formatDatePart("2018-07-08 14:15:24", "hour", "en-US"); // returns "2 PM"
+formatDatePart(new Date("2018-07-08"), "year", "en-US"); // returns "2018"
+formatDatePart("2020-03-30T14:46:27+02:00", "month", "en-GB"); // returns "3"
+formatDatePart("2018-07-08 14:15:24", "day", "en-US"); // returns "8"
+formatDatePart("2018-07-08 14:15:24", "hour", "en-US"); // returns "2 PM"
 ```
 
 ### formatDateToISO()
@@ -261,7 +261,7 @@ arguments (overload #1):
 - options (optional):
   - minPrecision (number): default `undefined`
   - maxPrecision (number): default `10`
-  - thousandsSeparator (boolean): default `true`
+  - thousandsSeparator (boolean): default `true`
   - useBankersRounding (boolean): default `false` (Intl default: [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm)
   - negativeZero (boolean): default `true` (current Intl default behavior)
   - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
@@ -276,14 +276,14 @@ arguments (overload #2):
 ```typescript
 import { formatNumber, createNumberFormat } from '@dnvgl/i18n';
 
-formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
-formatNumber(12486.4529, { thousandsSeparator: false }, "de-DE"); // returns "12486,4529"
-formatNumber(-0.001, { maxPrecision: 2 }, "en-US"); // returns "-0"
-formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0"
+formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
+formatNumber(12486.4529, { thousandsSeparator: false }, "de-DE"); // returns "12486,4529"
+formatNumber(-0.001, { maxPrecision: 2 }, "en-US"); // returns "-0"
+formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0"
 
 const options = createNumberFormat({ thousandsSeparator: false }, "de");
-formatNumber(12486.4, options); // returns "12486,4"
-formatNumber(1486.1, options); // returns "1486,1"
+formatNumber(12486.4, options); // returns "12486,4"
+formatNumber(1486.1, options); // returns "1486,1"
 ```
 
 ### formatNumberToFixed()
@@ -292,9 +292,9 @@ Simplified [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed
 ```typescript
 import { formatNumberToFixed } from '@dnvgl/i18n';
 
-formatNumberToFixed(123.454, 2, "en-US"); // returns "123.45"
-formatNumberToFixed(123.454, 1, "en-US"); // returns "123.4"
-formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
+formatNumberToFixed(123.454, 2, "en-US"); // returns "123.45"
+formatNumberToFixed(123.454, 1, "en-US"); // returns "123.4"
+formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```
 
 ### formatRelativeTime()
@@ -321,13 +321,13 @@ Returns valid `Iso3166Alpha2Code` (can be used in [`Country utils`](README.md#co
 ```typescript
 import { getCountryCodeFromBic } from '@dnvgl/i18n';
 
-getCountryCodeFromBic("BNPAFRPP"); // returns "FR"
-getCountryCodeFromBic("BNPAFRP"); // returns undefined (invalid BIC length)
-getCountryCodeFromBic("BNPAXXPP"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
-getCountryCodeFromBic("BNPAFrPP"); // returns undefined (country code is not uppercase)
-getCountryCodeFromBic("1234FRPP"); // returns undefined (invalid structure, institution or bank code cannot contains digits)
-getCountryCodeFromBic("  BNPAFRPP"); // returns undefined (invalid BIC structure)
-getCountryCodeFromBic("BNPAFR"); // returns undefined (BIC is too short)
+getCountryCodeFromBic("BNPAFRPP"); // returns "FR"
+getCountryCodeFromBic("BNPAFRP"); // returns undefined (invalid BIC length)
+getCountryCodeFromBic("BNPAXXPP"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
+getCountryCodeFromBic("BNPAFrPP"); // returns undefined (country code is not uppercase)
+getCountryCodeFromBic("1234FRPP"); // returns undefined (invalid structure, institution or bank code cannot contains digits)
+getCountryCodeFromBic("  BNPAFRPP"); // returns undefined (invalid BIC structure)
+getCountryCodeFromBic("BNPAFR"); // returns undefined (BIC is too short)
 ```
 
 ### getCountryCodeFromIban()
@@ -342,23 +342,23 @@ arguments:
 ```typescript
 import { getCountryCodeFromIban } from '@dnvgl/i18n';
 
-getCountryCodeFromIban("BE71096123456769"); // returns "BE"
-getCountryCodeFromIban("BE71 0961 2345 6769"); // returns undefined (whitespace is not allowed)
-getCountryCodeFromIban("BE71 0961 2345 6769", { removeWhitespaces: true }); // returns "BE"
-getCountryCodeFromIban("be71096123456769"); // returns undefined (country code is not uppercase)
-getCountryCodeFromIban("XX71096123456769"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
-getCountryCodeFromIban("  BE71096123456769"); // returns returns undefined ("  " is not a valid country code)
-getCountryCodeFromIban("  BE71096123456769", { removeWhitespaces: true }); // returns "BE"
-getCountryCodeFromIban("BE", { validateStructure: false }); // returns "BE"
-getCountryCodeFromIban("BE...", { validateStructure: false }); // returns "BE"
+getCountryCodeFromIban("BE71096123456769"); // returns "BE"
+getCountryCodeFromIban("BE71 0961 2345 6769"); // returns undefined (whitespace is not allowed)
+getCountryCodeFromIban("BE71 0961 2345 6769", { removeWhitespaces: true }); // returns "BE"
+getCountryCodeFromIban("be71096123456769"); // returns undefined (country code is not uppercase)
+getCountryCodeFromIban("XX71096123456769"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
+getCountryCodeFromIban("  BE71096123456769"); // returns returns undefined ("  " is not a valid country code)
+getCountryCodeFromIban("  BE71096123456769", { removeWhitespaces: true }); // returns "BE"
+getCountryCodeFromIban("BE", { validateStructure: false }); // returns "BE"
+getCountryCodeFromIban("BE...", { validateStructure: false }); // returns "BE"
 ```
 
 ### getCurrencySymbol()
 ```typescript
 import { getCurrencySymbol } from '@dnvgl/i18n';
 
-getCurrencySymbol("USD", "en-US"); // returns "$"
-getCurrencySymbol(840, "en-US"); // returns "$" (where 840 is the USD numeric code)
+getCurrencySymbol("USD", "en-US"); // returns "$"
+getCurrencySymbol(840, "en-US"); // returns "$" (where 840 is the USD numeric code)
 getCurrencySymbol({ currency: "CAD" }, "en-US"); // returns "CA$"
 getCurrencySymbol({ currency: "CAD", currencyDisplay: "narrowSymbol" }, "en-US"); // returns "$"
 ```
@@ -367,7 +367,7 @@ getCurrencySymbol({ currency: "CAD", currencyDisplay: "narrowSymbol" }, "en-US")
 ```typescript
 import { formatTime } from '@dnvgl/i18n';
 
-formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
+formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
 ```
 
 ### getDateFnsFormat()
@@ -375,7 +375,7 @@ Converts to [`date-fns`](https://date-fns.org/) format.
 ```typescript
 import { getDateFnsFormat } from '@dnvgl/i18n';
 
-getDateFnsFormat("en-GB", "seconds"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
+getDateFnsFormat("en-GB", "seconds"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
 ```
 Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/replace-moment) with `date-fns`):
 ```tsx
@@ -438,7 +438,7 @@ Converts to [`moment.js`](https://momentjs.com/) format.
 ```typescript
 import { getMomentFormat } from '@dnvgl/i18n';
 
-getMomentFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
+getMomentFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
 Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/):
 ```tsx
@@ -548,9 +548,9 @@ arguments:
 ```typescript
 import { parseNumber } from '@dnvgl/i18n';
 
-parseNumber("1,623.454", true, "en-GB"); // returns 1623.454
-parseNumber("-1,62-sd3.454", false, "en-GB"); // returns -162
-parseNumber("-1,62-sd3.454", true, "en-GB"); // returns undefined
+parseNumber("1,623.454", true, "en-GB"); // returns 1623.454
+parseNumber("-1,62-sd3.454", false, "en-GB"); // returns -162
+parseNumber("-1,62-sd3.454", true, "en-GB"); // returns undefined
 ```
 
 ### plural()
@@ -621,8 +621,8 @@ import { sort } from '@dnvgl/i18n';
 
 sort(["Z", "a", "A", "z", "ś"]); // returns ["a", "A", "ś", "z", "Z"], current browser locale pl-PL
 sort(["Z", "a", "A", "z", "ś"], 'asc', 'pl-PL'); // returns ["a", "A", "ś", "z", "Z"]
-sort(['己', '孔', '乙'], "asc", "zh-CN"); // returns ['己', '孔', '乙']
-sort(['己', '孔', '乙'], "asc", "zh-TW"); // returns ['乙', '己', '孔']
+sort(['己', '孔', '乙'], "asc", "zh-CN"); // returns ['己', '孔', '乙']
+sort(['己', '孔', '乙'], "asc", "zh-TW"); // returns ['乙', '己', '孔']
 ```
 
 additional information:
@@ -676,5 +676,5 @@ Useful when implementing custom input component which doesn't allow to type inva
 ```typescript
 import { transformToInputNumericString } from '@dnvgl/i18n';
 
-transformToInputNumericString("  $-102,234,567.89123 - ", "en-US"); // returns "-102234567.89123"
+transformToInputNumericString("  $-102,234,567.89123 - ", "en-US"); // returns "-102234567.89123"
 ```

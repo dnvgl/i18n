@@ -1,7 +1,7 @@
 import { formatCurrency } from "../src";
 import { iso4217Currencies } from "../src/internal/iso4217Currencies";
 
-describe('formatCurrency', () => {
+describe('formatCurrency', () => {
   test.each([
     ["PLN", "pl", "złoty polski"],
     ["PLN", "en", "Polish Zloty"],
@@ -19,7 +19,7 @@ describe('formatCurrency', () => {
     [-1, "en", ""],
     ["", "en", ""],
   ])('formats %p using %p locale', (value, locale, expected) => {
-    const result = formatCurrency(value, locale);
+    const result = formatCurrency(value, locale);
     expect(result).toBe(expected);
   });
 

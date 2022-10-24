@@ -1,7 +1,7 @@
 import { formatCountry } from "../src";
 import { iso3166Countries } from "../src/internal/iso3166Countries";
 
-describe('formatCountry', () => {
+describe('formatCountry', () => {
   test.each([
     ["PL", "pl", "Polska"],
     ["PL", "en", "Poland"],
@@ -19,7 +19,7 @@ describe('formatCountry', () => {
     [-1, "en", ""],
     ["", "en", ""],
   ])('formats %p using %p locale', (value, locale, expected) => {
-    const result = formatCountry(value, locale);
+    const result = formatCountry(value, locale);
     expect(result).toBe(expected);
   });
 

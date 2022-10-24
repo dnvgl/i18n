@@ -1,6 +1,6 @@
 import { DateFormatPrecision, getDateFnsFormat } from "../src";
 
-describe('getDateFnsFormat', () => {
+describe('getDateFnsFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [
     ["pl", "days", "d'.'MM'.'yyyy"],
     ["pl", "seconds", "d'.'MM'.'yyyy', 'HH':'mm':'ss"],
@@ -26,7 +26,7 @@ describe('getDateFnsFormat', () => {
   ];
 
   test.each(cases)('returns format for %p locale when time is included: %p', (locale, precision, expected) => {
-    const result = getDateFnsFormat(precision, locale);
+    const result = getDateFnsFormat(precision, locale);
     expect(result).toBe(expected);
   });
 });

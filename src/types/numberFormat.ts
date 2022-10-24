@@ -1,6 +1,6 @@
 import { NumberFormatBase } from "./numberFormatBase";
 
-export interface NumberFormat extends NumberFormatBase {
-  minPrecision: number;
-  maxPrecision: number;
+export interface NumberFormat extends NumberFormatBase {
+  minPrecision: number;
+  maxPrecision: number;
 }

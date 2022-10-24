@@ -9,7 +9,7 @@ export function formatNumberToFixed(value: number, options?: Partial<NumberForma
   const isNumberArg = options !== undefined && typeof options === "number",
     fixedPrecision = isNumberArg ? options : options?.precision ?? 2 /* HINT: default */;
 
-  const formatOptions: Partial<NumberFormat> = { 
+  const formatOptions: Partial<NumberFormat> = { 
     minPrecision: fixedPrecision,
     maxPrecision: fixedPrecision,
     thousandsSeparator: isNumberArg ? undefined : options?.thousandsSeparator,

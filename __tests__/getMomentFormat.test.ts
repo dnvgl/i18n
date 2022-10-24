@@ -1,6 +1,6 @@
 import { DateFormatPrecision, getMomentFormat } from "../src";
 
-describe('getMomentFormat', () => {
+describe('getMomentFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [
     ["pl", "days", "D[.]MM[.]YYYY"],
     ["pl", "seconds", "D[.]MM[.]YYYY[, ]HH[:]mm[:]ss"],
@@ -26,7 +26,7 @@ describe('getMomentFormat', () => {
   ];
 
   test.each(cases)('returns format for %p locale when time is included: %p', (locale, precision, expected) => {
-    const result = getMomentFormat(precision, locale);
+    const result = getMomentFormat(precision, locale);
     expect(result).toBe(expected);
   });
 });
