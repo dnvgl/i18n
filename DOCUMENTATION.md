@@ -271,7 +271,7 @@ arguments (overload #1):
 
 arguments (overload #2):
 - value: number
-- options (`NumberFormatIntl`): create using [`createNumberFormat()`](DOCUMENTATION.md#createNumberFormat); see options above (overload #1)
+- options (`NumberFormatIntl`): create using [`createNumberFormat()`](DOCUMENTATION.md#createNumberFormat), see options above (overload #1)
 
 ```typescript
 import { formatNumber, createNumberFormat } from '@dnvgl/i18n';
