@@ -12,8 +12,8 @@ formatNumber(12486.4, options);
 formatNumber(100, options);
 ```
 :wrench: Internal:
-- rename: `createDateFormat()` -> `createDateFormatIntlObj()`
-- rename: `createNumberFormat()` -> `createNumberFormatIntlObj()`
+- renamed `createDateFormat()` -> `createDateFormatIntlObj()`
+- renamed `createNumberFormat()` -> `createNumberFormatIntlObj()`
 
 ## v1.10.0
 `2022-10-06`\
