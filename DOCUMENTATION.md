@@ -90,6 +90,15 @@ compare("A", "a"); // returns 1
 compare("Ą", "z"); // returns -1
 ```
 
+### createNumberFormat()
+Creates options for valid number formatting. Use it together with [`formatNumber()`](DOCUMENTATION.md#formatNumber) for best performance.
+
+```typescript
+import { createNumberFormat } from '@dnvgl/i18n';
+
+createNumberFormat({ thousandsSeparator: false }, "de");
+```
+
 ### findIso3166Country()
 Returns specific country information. Please check [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries) to learn more about the country list.
 
@@ -245,7 +254,9 @@ formatMonth(11, "narrow", "en"); // returns "D"
 
 ### formatNumber()
 
-arguments:
+Formats a number according to given parameters. For best performance, it is best to create parameters once ([`createNumberFormat()`](DOCUMENTATION.md#createNumberFormat)) and use them multiple times (see examples).
+
+arguments (overload #1):
 - value: number
 - options (optional):
   - minPrecision (number): default `undefined`
@@ -258,13 +269,21 @@ arguments:
   - currencySign (string): `"standard" | "accounting"`; default `"standard"` when `currency` is provided; see more info in the `Intl` documentation
 - locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
 
+arguments (overload #2):
+- value: number
+- options (`NumberFormatIntl`): create using [`createNumberFormat()`](DOCUMENTATION.md#createNumberFormat); see options above (overload #1)
+
 ```typescript
-import { formatNumber } from '@dnvgl/i18n';
+import { formatNumber, createNumberFormat } from '@dnvgl/i18n';
 
 formatNumber(12486.4529, { maxPrecision: 2 }, "de-DE"); // returns "12.486,45"
 formatNumber(12486.4529, { thousandsSeparator: false }, "de-DE"); // returns "12486,4529"
 formatNumber(-0.001, { maxPrecision: 2 }, "en-US"); // returns "-0"
 formatNumber(-0.001, { maxPrecision: 2, negativeZero: false }, "en-US"); // returns "0"
+
+const options = createNumberFormat({ thousandsSeparator: false }, "de");
+formatNumber(12486.4, options); // returns "12486,4"
+formatNumber(1486.1, options); // returns "1486,1"
 ```
 
 ### formatNumberToFixed()

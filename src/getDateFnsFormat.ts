@@ -1,12 +1,12 @@
 import { resolveDateTimeFormatOptions } from "./internal/resolveDateTimeFormatOptions";
-import { createDateFormat } from "./internal/createDateFormat";
+import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
 import { Locale } from "./types/locale";
 import { DateFormatPrecision } from "./types/dateFormatPrecision";
 
 const dateForParts = new Date(2020, 5, 5, 5, 5, 5); // HINT: carefully selected date (segments smaller than 10)
 
 export function getDateFnsFormat(precision: DateFormatPrecision = "days", locale?: Locale): string {
-  const intlFormat = createDateFormat(locale, resolveDateTimeFormatOptions(precision)),
+  const intlFormat = createDateFormatIntlObj(locale, resolveDateTimeFormatOptions(precision)),
     parts = intlFormat.formatToParts(dateForParts),
     hasDayPeriod = parts.some(x => x.type === "dayPeriod");
 

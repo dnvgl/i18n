@@ -1,4 +1,4 @@
-import { formatNumber } from "../src";
+import { createNumberFormat, formatNumber } from "../src";
 
 const IntlWhitespace = String.fromCharCode(160);
 
@@ -97,5 +97,14 @@ describe('formatNumber', () => {
   ])('formats %p with min precision (%p) and max precision (%p) with negative zero (%p)', (value, minPrecision, maxPrecision, negativeZero, expected) => {
     const result = formatNumber(value, { minPrecision: minPrecision, maxPrecision: maxPrecision, negativeZero: negativeZero}, "en-US");
     expect(result).toBe(expected);
+  });
+
+  test("combined using createNumberFormat()", () => {
+    expect("1.23").toBe(formatNumber(1.23, createNumberFormat(undefined, "en-US")));
+    expect("1.23").toBe(formatNumber(1.23, createNumberFormat({}, "en-US")));
+    expect("0").toBe(formatNumber(-0, createNumberFormat({ negativeZero: false }, "en-US")));
+    expect("-0").toBe(formatNumber(-0, createNumberFormat({ negativeZero: true }, "en-US")));
+    expect("1234,78").toBe(formatNumber(1234.78, createNumberFormat({ thousandsSeparator: false }, "de")));
+    expect("1.234,78").toBe(formatNumber(1234.78, createNumberFormat({ useBankersRounding: true }, "de")));
   });
 });

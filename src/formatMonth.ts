@@ -1,5 +1,5 @@
 import { convertToDate } from "./internal/convertToDate";
-import { createDateFormat } from "./internal/createDateFormat";
+import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
 import { DateIsoString } from "./types/dateIsoString";
 import { Locale } from "./types/locale";
 import { MonthFormat } from "./types/monthFormat";
@@ -11,5 +11,5 @@ export function formatMonth(value: Date | DateIsoString | number, monthFormat: M
     ? new Date(2020, value, 1)
     : convertToDate(value);
 
-  return createDateFormat(locale, { month: monthFormat }).format(date);
+  return createDateFormatIntlObj(locale, { month: monthFormat }).format(date);
 }

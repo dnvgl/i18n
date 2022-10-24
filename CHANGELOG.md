@@ -1,6 +1,19 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.11.0
+`2022-10-24`\
+\
+:rocket: Features:
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber) - new overload, accepts `NumberFormatIntl` options, that can be created using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat). This new overload is dedicated when formatting is used many times (thousands, e.g. big tables with financial data). The source of the problems is creating `new Intl.NumberFormat`, which is expensive. Using `createNumberFormat()`](DOCUMENTATION.md#createNumberFormat) it can be created only once and re-used.
+```typescript
+const options = createNumberFormat({ thousandsSeparator: false }, "de");
+formatNumber(12486.4, options);
+```
+:wrench: Internal:
+- rename: `createDateFormat()` -> `createDateFormatIntlObj()`
+- rename: `createNumberFormat()` -> `createNumberFormatIntlObj()`
+
 ## v1.10.0
 `2022-10-06`\
 \

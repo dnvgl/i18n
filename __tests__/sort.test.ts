@@ -1,7 +1,7 @@
 import { sort, SortOrder } from "../src";
 
 describe('sort', () => {
-  test('returns new array intance', () => {
+  test('returns new array instance', () => {
     const input: number[] = [];
     const result = sort(input, "asc", "en");
     expect(input !== result).toBeTruthy();

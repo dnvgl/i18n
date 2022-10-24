@@ -1,5 +1,5 @@
 import { convertToDate } from "./internal/convertToDate";
-import { createDateFormat } from "./internal/createDateFormat";
+import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
 import { resolveTimeFormatOptions } from "./internal/resolveTimeFormatOptions";
 import { DateIsoString } from "./types/dateIsoString";
 import { Locale } from "./types/locale";
@@ -12,5 +12,5 @@ export function formatTime(x: Date | DateIsoString | [number, number, number], t
     ? new Date(1, 1, 1, x[0] ?? 0, x[1] ?? 0, x[2] ?? 0)
     : convertToDate(x);
 
-  return createDateFormat(locale, resolveTimeFormatOptions(timeFormatType)).format(date);
+  return createDateFormatIntlObj(locale, resolveTimeFormatOptions(timeFormatType)).format(date);
 }
