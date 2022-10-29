@@ -1,13 +1,13 @@
 # How to contribute
 
-Check tools and rules discribed below.
+Check tools and rules described below.
 
 ## 1. Prerequisites, step: install tools
 
 ### Node.js - build runtime environment
 - how to: visit site https://nodejs.org/en and install (msi installer, default options)
-- version: newest `16.xx`
-- verification: run `node -v` in cmd, expected example: `v16.15.0`
+- version: newest `18.xx`
+- verification: run `node -v` in cmd, expected example: `v18.12.0`
 
 ### npm - package manager
 - how to: `npm install -g npm@latest`
@@ -18,7 +18,7 @@ Check tools and rules discribed below.
 - how to: `npm install -g yarn` (that's it!)
 - more info: https://classic.yarnpkg.com/en/docs/install
 - version: newest `1.x`
-- verification: run `yarn --version`, expected example: `1.22.11`
+- verification: run `yarn --version`, expected example: `1.22.19`
 
 ### Visual Studio Code - editor
 - how to: visit https://code.visualstudio.com/download and install (exe installer, default options)
@@ -33,7 +33,7 @@ Check tools and rules discribed below.
 
 ## 3. Project configuration/installation
 
-First time or when swiching to another branch or pulling the newest code.\
+First time or when switching to another branch or pulling the newest code.\
 \
 Run `yarn install`
 
@@ -60,7 +60,7 @@ Interactive console option to upgrade packages in the project.
 ## 5. Project coding conventions & rules
 
 - keep it simple
-- no external dependecies
+- no external dependencies
 - native solutions preferred
 - tab = 2 spaces
 - each "public" function, object or type should be included/exported in `index.ts`
@@ -72,4 +72,4 @@ Interactive console option to upgrade packages in the project.
 
 ## 6. Contribution
 
-Modifiy code, add unit test if makes sense and describe all applied changes in a PR or create a task for it (link it). Before creating a pull request check that your code is valid by running `yarn test` and `yarn build`. Create pull request to the `main` branch and wait for code review.
+Modify the code, add unit test if makes sense and describe all applied changes in a PR or create a task for it (link it). Before creating a pull request check that your code is valid by running `yarn test` and `yarn build`. Create pull request to the `main` branch and wait for code review.

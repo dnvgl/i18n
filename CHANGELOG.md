@@ -15,6 +15,10 @@ formatNumber(100, options);
 - renamed `createDateFormat()` -> `createDateFormatIntlObj()`
 - renamed `createNumberFormat()` -> `createNumberFormatIntlObj()`
 
+:page_facing_up: Documentation:
+- [`formatNumber()`](DOCUMENTATION.md#formatNumber) - performance results
+- [`compareStringsFactory()`](DOCUMENTATION.md#compareStringsFactory) - performance results
+
 ## v1.10.0
 `2022-10-06`\
 \

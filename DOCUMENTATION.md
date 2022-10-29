@@ -90,8 +90,42 @@ compare("A", "a"); // returns 1
 compare("Ą", "z"); // returns -1
 ```
 
+**Performance**
+```typescript
+compareStrings("a", "b");
+compareStrings("a", "b");
+...
+
+vs
+
+const compare = compareStringsFactory();
+compare("a", "b");
+compare("a", "b");
+...
+```
+
+| times | compareStrings | compareStringsFactory |
+| -- | -- | -- |
+| 1000 | 5.6 ms | 0.2 ms |
+| 10000 | 52.3 ms | 1.8 ms |
+| 100000 | 519.8 ms | 11.8 ms |
+
+i7-10810U (laptop)
+
 ### createNumberFormat()
 Creates options for valid number formatting. Use it together with [`formatNumber()`](DOCUMENTATION.md#formatNumber) for best performance.
+
+arguments (overload #1):
+- options (optional):
+  - minPrecision (number): default `undefined`
+  - maxPrecision (number): default `10`
+  - thousandsSeparator (boolean): default `true`
+  - useBankersRounding (boolean): default `false` (Intl default: [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm)
+  - negativeZero (boolean): default `true` (current Intl default behavior)
+  - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
+  - currencyDisplay (string): `"symbol" | "narrowSymbol" | "code" | "name"`; default `"symbol"` when `currency` is provided; see more info in the `Intl` documentation
+  - currencySign (string): `"standard" | "accounting"`; default `"standard"` when `currency` is provided; see more info in the `Intl` documentation
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
 
 ```typescript
 import { createNumberFormat } from '@dnvgl/i18n';
@@ -285,6 +319,52 @@ const options = createNumberFormat({ thousandsSeparator: false }, "de");
 formatNumber(12486.4, options); // returns "12486,4"
 formatNumber(1486.1, options); // returns "1486,1"
 ```
+
+**Performance #1** (local culture, default options)
+```typescript
+formatNumber(num1);
+formatNumber(num2);
+...
+
+vs
+
+const numberFormat = createNumberFormat();
+formatNumber(num1, numberFormat);
+formatNumber(num2, numberFormat);
+...
+```
+
+| times | formatNumber | formatNumber + createNumberFormat |
+| -- | -- | -- |
+| 100 | 1.5 ms | 0.1 ms |
+| 1000 | 15.8 ms | 0.6 ms |
+| 10000 | 160.1 ms | 5.9 ms |
+| 40000 | 618.8 ms | 26.7 ms |
+
+i7-10810U (laptop)
+
+**Performance #2** (specific culture, USD currency)
+```typescript
+formatNumber(num1, { currency: "USD" }, "en-US");
+formatNumber(num2, { currency: "USD" }, "en-US");
+...
+
+vs
+
+const numberFormat = createNumberFormat({ currency: "USD" }, "en-US");
+formatNumber(num1, numberFormat);
+formatNumber(num2, numberFormat);
+...
+```
+
+| times | formatNumber  | formatNumber + createNumberFormat |
+| -- | -- | -- |
+| 100 | 3.2 ms | 0.1 ms |
+| 1000 | 28 ms | 0.6 ms |
+| 10000 | 270.1 ms | 6.9 ms |
+| 40000 | 1093.5 ms | 23.0 ms |
+
+i7-10810U (laptop)
 
 ### formatNumberToFixed()
 Simplified [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed precision (`minPrecision = maxPrecision`).
