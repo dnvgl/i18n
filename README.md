@@ -57,6 +57,9 @@ Library supports `esm` modules tree shaking by default.
 }
 ```
 
+When there is another package that requires ES6 only then the pattern is:
+`"/node_modules/(?!(PACKAGE_1|PACKAGE_2))"`, e.g. `"/node_modules/(?!(@dnvgl/i18n|another-package))"`
+
 #### TypeScript
 Library provides a built-in ts definition.
 
