@@ -1,6 +1,34 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.12.0
+`2022-12-22`\
+\
+:rocket: Features:
+- [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries) - `"Turkey"` country name has been changed to `"Türkiye"`
+```typescript
+{
+  countryName: "Türkiye",
+  officialStateName: "The Republic of Türkiye",
+  alpha2Code: "TR",
+  alpha3Code: "TUR",
+  numericCode: 792
+}
+```
+- [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) - from `2023-01-01` Kuna currency (HRK) will be treated as historical because Croatia joins the euro. New argument `statusForTheDay` has been introduced. When `statusForTheDay` is defined then only valid (non-historical) currencies are returned. `statusForTheDay = undefined` means today (`new Date()`). `Iso4217Currency` has two new optional properties: `historicalFrom?: DateIsoString`, `introducedIn?: DateIsoString` (for future use).
+```typescript
+getIso4217Currencies(statusForTheDay?: Date | DateIsoString): Iso4217Currency[]
+
+interface Iso4217Currency {
+  // ... old properties
+  historicalFrom?: DateIsoString; // e.g. "2023-01-01"
+  introducedIn?: DateIsoString;
+}
+```
+
+:wrench: Internal:
+- TypeScript upgrade `4.7.2` -> `4.9.4`
+
 ## v1.11.0
 `2022-10-24`\
 \

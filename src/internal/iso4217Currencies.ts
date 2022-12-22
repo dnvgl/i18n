@@ -377,7 +377,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "HRK",
     currencyName: "Kuna",
     numericCode: 191,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2023-01-01"
   },
   {
     alpha3Code: "HTG",

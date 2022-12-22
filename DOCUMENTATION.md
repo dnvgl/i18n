@@ -497,6 +497,8 @@ To get `currencyName` in your local culture please use [`formatCurrency()`](DOCU
 import { getIso4217Currencies } from '@dnvgl/i18n';
 
 getIso4217Currencies(); // returns [{ alpha3Code: "AED", currencyName: "UAE Dirham", numericCode: 784, minorUnit: 2 }, { alpha3Code: "AFN",...}]
+getIso4217Currencies("2023-01-01"); // e.g. Kuna (HRK) currency is not on the list
+getIso4217Currencies(new Date("2022-12-31")); // e.g. Kuna (HRK) currency is on the list
 ```
 Example integration with [`formatCurrency()`](DOCUMENTATION.md#formatCurrency):
 ```typescript

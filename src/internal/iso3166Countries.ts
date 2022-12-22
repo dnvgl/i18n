@@ -1592,8 +1592,8 @@ export const iso3166Countries: Iso3166Country[] = [
     numericCode: 788
   },
   {
-    countryName: "Turkey",
-    officialStateName: "The Republic of Turkey",
+    countryName: "Türkiye",
+    officialStateName: "The Republic of Türkiye",
     alpha2Code: "TR",
     alpha3Code: "TUR",
     numericCode: 792
