@@ -640,10 +640,10 @@ String pattern as array or separated by character (default: `|`, can be customiz
 ```typescript
 import { plural } from '@dnvgl/i18n';
 
-plural(["cat", "cats"], "en", 0); // returns "cats"
-plural(["cat", "cats"], "en", 1); // returns "cat"
-plural(["cat", "cats"], "en", 10); // returns "cats"
-plural("pies|psy|psów", "pl", 10); // returns "psów"
+plural(["cat", "cats"], 0, "en"); // returns "cats"
+plural(["cat", "cats"], 1, "en"); // returns "cat"
+plural(["cat", "cats"], 10, "en"); // returns "cats"
+plural("pies|psy|psów", 10, "pl"); // returns "psów"
 ```
 
 ### roundUsingHalfAwayFromZero()
