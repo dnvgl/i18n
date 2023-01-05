@@ -516,7 +516,7 @@ getMinusSign("en-GB"); // returns "-"
 ```
 
 ### getMomentFormat()
-Converts to [`moment.js`](https://momentjs.com/) format.
+Converts to [`moment.js`](https://momentjs.com/) format ([`day.js`](https://day.js.org/) uses the same format).
 ```typescript
 import { getMomentFormat } from '@dnvgl/i18n';
 
