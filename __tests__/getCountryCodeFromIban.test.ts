@@ -1,6 +1,6 @@
 import { getCountryCodeFromIban } from "../src";
 
-const IntlWhitespace = String.fromCharCode(160),
+const nonBreakingSpace = String.fromCharCode(160),
   tab = String.fromCharCode(9);
 
 describe('getCountryCodeFromIban', () => {
@@ -48,7 +48,7 @@ describe('getCountryCodeFromIban', () => {
     ["BE", undefined],
     ["BR15 0000 0000 0000 1093 2840 814 P2", "BR"],
     ["BR15 0000 0000 000010932840 814 P2", "BR"],
-    [`BR15${IntlWhitespace}0000${IntlWhitespace}0000${IntlWhitespace}000010932840${IntlWhitespace}814${IntlWhitespace}P2`, "BR"],
+    [`BR15${nonBreakingSpace}0000${nonBreakingSpace}0000${nonBreakingSpace}000010932840${nonBreakingSpace}814${nonBreakingSpace}P2`, "BR"],
     [`${tab}MU43 BOMM 0101 1234 5678 9101 000 MUR`, "MU"],
     ["BR1500000000000010932840814P2", "BR"],
   ])('gets code from %p when removing whitespaces', (value, expected) => {

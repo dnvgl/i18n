@@ -27,6 +27,7 @@ export { getCountryCodeFromBic } from './getCountryCodeFromBic';
 export { getCountryCodeFromIban } from './getCountryCodeFromIban';
 export { getCurrencySymbol } from './getCurrencySymbol';
 export { getDateFnsFormat } from './getDateFnsFormat';
+export { getDayJsFormat } from './getDayJsFormat';
 export { getDecimalSeparator } from './getDecimalSeparator';
 export { getIso3166Countries } from './getIso3166Countries';
 export { getIso4217Currencies } from './getIso4217Currencies';

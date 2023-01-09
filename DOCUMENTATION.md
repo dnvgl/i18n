@@ -381,7 +381,7 @@ formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```typescript
 import { formatRelativeTime } from '@dnvgl/i18n';
 
-formatRelativeTime(5, "day", { style: "narrow" }, "en"); // returns "in 5 days"
+formatRelativeTime(5, "day", { style: "narrow" }, "en"); // returns "in 5d"
 formatRelativeTime(-1, "day", { style: "long" }, "en"); // returns "1 day ago"
 formatRelativeTime(-1, "day", { style: "short", numeric: "auto" }, "en"); // returns "yesterday"
 ```
@@ -451,17 +451,33 @@ formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
 ```
 
 ### getDateFnsFormat()
-Converts to [`date-fns`](https://date-fns.org/) format.
+Converts `Intl` current locale format to [`date-fns`](https://date-fns.org/) format.
 ```typescript
 import { getDateFnsFormat } from '@dnvgl/i18n';
 
-getDateFnsFormat("en-GB", "seconds"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
+getDateFnsFormat("seconds", "en-GB"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
 ```
-Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/replace-moment) with `date-fns`):
+Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `date-fns`):
 ```tsx
 import { DatePicker } from 'your_module_with_custom_date_picker';
 
 <DatePicker format={getDateFnsFormat("days")} />
+```
+
+### getDayJsFormat()
+`To be released`\
+\
+Converts `Intl` current locale format to [`day.js`](https://day.js.org/) format.
+```typescript
+import { getDayJsFormat } from '@dnvgl/i18n';
+
+getDayJsFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
+```
+Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/):
+```tsx
+import { DatePicker } from 'antd';
+
+<DatePicker format={getDayJsFormat("days")} />
 ```
 
 ### getDecimalSeparator()
@@ -516,15 +532,15 @@ getMinusSign("en-GB"); // returns "-"
 ```
 
 ### getMomentFormat()
-Converts to [`moment.js`](https://momentjs.com/) format ([`day.js`](https://day.js.org/) uses the same format).
+Converts `Intl` current locale format to [`moment.js`](https://momentjs.com/) format.
 ```typescript
 import { getMomentFormat } from '@dnvgl/i18n';
 
 getMomentFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
-Example integration with [`AntDesign` calendar](https://ant.design/components/date-picker/):
+Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `moment.js`):
 ```tsx
-import { DatePicker } from 'antd';
+import { DatePicker } from 'your_module_with_custom_date_picker';
 
 <DatePicker format={getMomentFormat("days")} />
 ```

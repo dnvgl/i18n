@@ -1,6 +1,16 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## Next release (planned)
+`To be released`\
+\
+:rocket: Features:
+- [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat) - converts `Intl` current locale format to [`day.js`](https://day.js.org/) format; in practice the implementation is the same as in [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat) so `getDayJsFormat()` is an alias for `getMomentFormat()`
+
+:page_facing_up: Documentation:
+- [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat) - AntD v5 example update
+- [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat) - AntD v5 example update
+
 ## v1.12.0
 `2022-12-22`\
 \

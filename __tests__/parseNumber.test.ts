@@ -1,6 +1,6 @@
 import { parseNumber } from "../src";
 
-const IntlWhitespace = String.fromCharCode(160);
+const nonBreakingSpace = String.fromCharCode(160);
 const RegularWhitespace = String.fromCharCode(32);
 
 describe('parseNumber', () => {
@@ -12,15 +12,15 @@ describe('parseNumber', () => {
     ["--1,623.454", true, "en-GB", undefined],
     ["1,623-454", true, "en-GB", undefined],
     ["1,623.454", true, "en-GB", 1623.454],
-    [`-1${IntlWhitespace}062,454`, true, "pl", -1062.454],
+    [`-1${nonBreakingSpace}062,454`, true, "pl", -1062.454],
     [`-1${RegularWhitespace}062,454`, true, "pl", -1062.454],
     [`-1 062,454`, true, "pl", -1062.454],
     ["", false, "en-GB", undefined],
     ["", true, "en-GB", undefined],
     [" ", false, "en-GB", undefined],
     [" ", true, "en-GB", undefined],
-    [IntlWhitespace, false, "en-GB", undefined],
-    [IntlWhitespace, true, "en-GB", undefined],
+    [nonBreakingSpace, false, "en-GB", undefined],
+    [nonBreakingSpace, true, "en-GB", undefined],
     ["0", false, "en-GB", 0],
     ["0", true, "en-GB", 0],
     [",0", false, "de", 0],
@@ -50,7 +50,7 @@ describe('parseNumber', () => {
     ["-11.1e-3", false, "en-GB", -0.0111],
     ["-11.1e-3",  true, "en-GB", -0.0111],
     ["-1.623,454", false, "de", -1623.454],
-    [`-1${IntlWhitespace}623,454`, false, "pl", -1623.454],
+    [`-1${nonBreakingSpace}623,454`, false, "pl", -1623.454],
     [`-1${RegularWhitespace}623,454`, false, "pl", -1623.454],
     ["12’345.78", true, "de-LI" /* Liechtenstein */, 12345.78],
     ["12’345.78", false, "de-LI" /* Liechtenstein */, 12345.78],
