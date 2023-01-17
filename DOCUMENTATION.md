@@ -159,6 +159,29 @@ findIso4217Currency("pl"); // returns undefined
 findIso4217Currency("XX"); // returns undefined
 ```
 
+### findIso4217CurrencyForIso3166Country()
+`To be released`\
+\
+Returns specific currency information for selected country, otherwise `undefined`. In practice `undefined` can happen only for:
+- ATA, Antarctica
+- PSE, Palestine, State of
+- SGS, South Georgia and the South Sandwich Islands\
+
+
+Above countries has no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one.
+
+```typescript
+import { findIso4217CurrencyForIso3166Country } from '@dnvgl/i18n';
+
+findIso4217CurrencyForIso3166Country("USA"); // returns { alpha3Code: "USD", currencyName: "US Dol... }
+findIso4217CurrencyForIso3166Country("US"); // returns { alpha3Code: "USD", currencyName: "US Dol... }
+findIso4217CurrencyForIso3166Country(840); // returns { alpha3Code: "USD", currencyName: "US Dol... }
+findIso4217CurrencyForIso3166Country("usa"); // returns undefined; invalid code
+findIso4217CurrencyForIso3166Country("ATA"); // returns undefined; ATA = Antarctica; no universal currency
+findIso4217CurrencyForIso3166Country("pl"); // returns undefined
+findIso4217CurrencyForIso3166Country("XX"); // returns undefined
+```
+
 ### formatCountry()
 Function returns translated currency name by `Iso3166Alpha2Code` (e.g. `"PL"`) or `Iso4217Alpha3Code` (e.g. `"POL"`) or `Iso4217NumericCode` (e.g. `616`) argument value.\
 Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.\

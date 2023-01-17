@@ -9,6 +9,7 @@ export { compareStringsFactory } from './compareStringsFactory';
 export { createNumberFormat } from './createNumberFormat';
 export { findIso3166Country } from './findIso3166Country';
 export { findIso4217Currency } from './findIso4217Currency';
+export { findIso4217CurrencyForIso3166Country } from './findIso4217CurrencyForIso3166Country';
 export { formatCountry } from './formatCountry';
 export { formatCurrency } from './formatCurrency';
 export { formatDate } from './formatDate';

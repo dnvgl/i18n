@@ -16,7 +16,7 @@ export function getCountryCodeFromIban(iban: string, options?: Partial<IbanParse
   const code = iban.substring(0, 2);
 
   if (code === "XK") {
-    return "XK";
+    return "XK"; // HINT: Kosovo country
   }
 
   if (iso3166Countries.some(x => x.alpha2Code === code)) {
