@@ -6,7 +6,7 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 \
 :rocket: Features:
 - [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat) - converts `Intl` current locale format to [`day.js`](https://day.js.org/) format; in practice the implementation is the same as in [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat) so `getDayJsFormat()` is an alias for `getMomentFormat()`
-- [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country) - return ISO4217 currency for specific ISO3166 country
+- [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country) - returns `ISO4217` currency for specific `ISO3166` country
 ```typescript
 findIso4217CurrencyForIso3166Country(code: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode): Iso4217Currency | undefined
 ```

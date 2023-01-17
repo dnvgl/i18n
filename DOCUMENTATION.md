@@ -165,7 +165,7 @@ findIso4217Currency("XX"); // returns undefined
 Returns specific currency information for selected country, otherwise `undefined`. In practice `undefined` can happen only for:
 - ATA, Antarctica
 - PSE, Palestine, State of
-- SGS, South Georgia and the South Sandwich Islands\
+- SGS, South Georgia and the South Sandwich Islands
 
 
 Above countries has no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one.
