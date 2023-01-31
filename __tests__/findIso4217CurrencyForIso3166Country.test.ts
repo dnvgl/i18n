@@ -31,9 +31,11 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
   test('Map: all currencies are found', () => {
     iso3166Countries.forEach(country => {
       const currencyCode = iso3166CountryToIso4217Currency.get(country.alpha3Code);
-
+      
       if (currencyCode) {
-        expect(findIso4217Currency(currencyCode)).toBeDefined();
+        const currency = findIso4217Currency(currencyCode);
+        expect(currency).toBeDefined();
+        expect(currency?.historicalFrom).toBeUndefined();
       }
     })
   });
