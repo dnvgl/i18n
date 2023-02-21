@@ -1,8 +1,8 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
-## Next release (planned)
-`To be released`\
+## v1.13.0
+`2023-02-21`\
 \
 :rocket: Features:
 - [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat) - converts `Intl` current locale format to [`day.js`](https://day.js.org/) format; in practice the implementation is the same as in [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat) so `getDayJsFormat()` is an alias for `getMomentFormat()`

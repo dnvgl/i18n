@@ -160,8 +160,6 @@ findIso4217Currency("XX"); // returns undefined
 ```
 
 ### findIso4217CurrencyForIso3166Country()
-`To be released`\
-\
 Returns specific currency information for selected country, otherwise `undefined`. In practice `undefined` can happen only for:
 - ATA, Antarctica
 - PSE, Palestine, State of
@@ -488,8 +486,6 @@ import { DatePicker } from 'your_module_with_custom_date_picker';
 ```
 
 ### getDayJsFormat()
-`To be released`\
-\
 Converts `Intl` current locale format to [`day.js`](https://day.js.org/) format.
 ```typescript
 import { getDayJsFormat } from '@dnvgl/i18n';
