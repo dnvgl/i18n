@@ -4,7 +4,7 @@ import { DateIsoString } from "./types/dateIsoString";
 import { Locale } from "./types/locale";
 import { MonthFormat } from "./types/monthFormat";
 
-export function formatMonth(month: number, monthFormat: MonthFormat, locale?: Locale): string
+export function formatMonth(monthIndex: number, monthFormat: MonthFormat, locale?: Locale): string
 export function formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat, locale?: Locale): string
 export function formatMonth(value: Date | DateIsoString | number, monthFormat: MonthFormat, locale?: Locale): string {
   const date = typeof value === "number"

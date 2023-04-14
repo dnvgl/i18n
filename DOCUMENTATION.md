@@ -295,6 +295,8 @@ formatMoney(-1.53588, { precision: 3, currency: "USD", currencySign: "accounting
 ```
 
 ### formatMonth()
+When using month `number` argument please note that JavaScript month index starts from `0` (valid value range: `0-11`).
+
 ```typescript
 import { formatMonth } from '@dnvgl/i18n';
 
