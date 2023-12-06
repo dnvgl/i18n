@@ -6,13 +6,13 @@ Check tools and rules described below.
 
 ### Node.js - build runtime environment
 - how to: visit site https://nodejs.org/en and install (msi installer, default options)
-- version: newest `18.xx`
-- verification: run `node -v` in cmd, expected example: `v18.12.0`
+- version: newest `20.xx`
+- verification: run `node -v` in cmd, expected example: `v20.10.0`
 
 ### npm - package manager
 - how to: `npm install -g npm@latest`
-- version: minimum `7.x`
-- verification: run `npm -v` in cmd, expected example: `v8.3.1`
+- version: minimum `8.x`
+- verification: run `npm -v` in cmd, expected example: `v8.19.3`
 
 ### Yarn classic - package manager
 - how to: `npm install -g yarn` (that's it!)
@@ -29,7 +29,7 @@ Check tools and rules described below.
 
 ### Visual Studio Code + TypeScript
 - Press `ctrl+shift+p` in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
-- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 4.8.4`
+- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 5.3.2`
 
 ## 3. Project configuration/installation
 
