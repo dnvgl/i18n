@@ -21,4 +21,11 @@ describe('findIso4217Currency', () => {
   ])('does not find currency by %p code', (code) => {
     expect(findIso4217Currency(code)).toBeUndefined();
   });
+
+  test('finds currency for numeric code that has two currencies', () => {
+    expect(findIso4217Currency(532)).toMatchObject({
+      numericCode: 532,
+      minorUnit: 2
+    });
+  });
 });

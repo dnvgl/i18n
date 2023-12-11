@@ -24,18 +24,45 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
     expect(findIso4217CurrencyForIso3166Country(code)).toBeUndefined();
   });
 
+  test('finds old currency for Croatia', () => {
+    expect(findIso4217CurrencyForIso3166Country("HRV")).toMatchObject(  {
+      alpha3Code: "EUR",
+      currencyName: "Euro",
+      numericCode: 978,
+      minorUnit: 2
+    });
+
+    expect(findIso4217CurrencyForIso3166Country("HRV", "2023-01-01")).toMatchObject(  {
+      alpha3Code: "EUR",
+      currencyName: "Euro",
+      numericCode: 978,
+      minorUnit: 2
+    });
+  });
+
+  test('finds new currency for Croatia', () => {
+    expect(findIso4217CurrencyForIso3166Country("HRV", "2022-05-05")).toMatchObject(  {
+      alpha3Code: "HRK",
+      currencyName: "Kuna",
+      numericCode: 191,
+      minorUnit: 2
+    });
+  });
+
   test('Map: all countries are covered', () => {
     expect(iso3166CountryToIso4217Currency.size).toEqual(iso3166Countries.length);
   });
 
   test('Map: all currencies are found', () => {
     iso3166Countries.forEach(country => {
-      const currencyCode = iso3166CountryToIso4217Currency.get(country.alpha3Code);
+      const resolver = iso3166CountryToIso4217Currency.get(country.alpha3Code);
       
-      if (currencyCode) {
-        const currency = findIso4217Currency(currencyCode);
+      if (resolver) {
+        const currency = findIso4217Currency(typeof resolver === "string" ? resolver : resolver(new Date()));
         expect(currency).toBeDefined();
-        expect(currency?.historicalFrom).toBeUndefined();
+        if (!!currency?.historicalFrom) {
+          expect(new Date(currency.historicalFrom).getTime()).toBeGreaterThan(new Date().getTime());
+        }
       }
     })
   });

@@ -1,6 +1,31 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.14.0
+`2023-12-11`\
+\
+:rocket: Features:
+- support for `XCG` currency (future replacement for `ANG`): [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country)
+
+```typescript
+  {
+    alpha3Code: "ANG",
+    currencyName: "Netherlands Antillean Guilder",
+    numericCode: 532,
+    minorUnit: 2,
+    historicalFrom: "2025-07-01" // CHANGED (before: undefined)
+  },
+  // ... other currencies
+  {
+    alpha3Code: "XCG", // NEW
+    currencyName: "Caribbean Guilder", // NEW
+    numericCode: 532, // NEW
+    minorUnit: 2, // NEW
+    introducedIn: "2025-03-31" // NEW
+  },
+```
+- [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country): new argument `statusForTheDay` has been introduced
+
 ## v1.13.0
 `2023-02-21`\
 \

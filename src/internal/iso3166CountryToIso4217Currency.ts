@@ -2,7 +2,10 @@ import { Iso3166Alpha3Code } from "../types/iso3166";
 import { Iso4217Alpha3Code } from "../types/iso4217";
 
 /** @internal */
-export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso4217Alpha3Code|undefined>([
+export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code |undefined | ((d: Date) => Iso4217Alpha3Code);
+
+/** @internal */
+export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso4217Alpha3CodeResolver>([
   ["AFG", "AFN"],
   ["ALA", "EUR"],
   ["ALB", "ALL"],
@@ -58,9 +61,9 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["COK", "NZD"],
   ["CRI", "CRC"],
   ["CIV", "XOF"],
-  ["HRV", "EUR"],
+  ["HRV", (d: Date) => d >= new Date("2023-01-01") ? "EUR" : "HRK"],
   ["CUB", "CUP"],
-  ["CUW", "ANG"],
+  ["CUW", (d: Date) => d >= new Date("2025-03-31") ? "XCG" : "ANG"],
   ["CYP", "EUR"],
   ["CZE", "CZK"],
   ["DNK", "DKK"],
@@ -204,7 +207,7 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["SYC", "SCR"],
   ["SLE", "SLE"],
   ["SGP", "SGD"],
-  ["SXM", "ANG"],
+  ["SXM", (d: Date) => d >= new Date("2025-03-31") ? "XCG" : "ANG"],
   ["SVK", "EUR"],
   ["SVN", "EUR"],
   ["SLB", "SBD"],

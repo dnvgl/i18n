@@ -30,7 +30,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "ANG",
     currencyName: "Netherlands Antillean Guilder",
     numericCode: 532,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2025-07-01"
   },
   {
     alpha3Code: "AOA",
@@ -1018,6 +1019,13 @@ export const iso4217Currencies: Iso4217Currency[] = [
     currencyName: "East Caribbean Dollar",
     numericCode: 951,
     minorUnit: 2
+  },
+  {
+    alpha3Code: "XCG",
+    currencyName: "Caribbean Guilder",
+    numericCode: 532,
+    minorUnit: 2,
+    introducedIn: "2025-03-31"
   },
   {
     alpha3Code: "XDR",

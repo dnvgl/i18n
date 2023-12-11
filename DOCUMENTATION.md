@@ -147,7 +147,7 @@ findIso3166Country("XX"); // returns undefined
 ```
 
 ### findIso4217Currency()
-Returns specific currency information. Please check [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) to learn more about the list of currencies.
+Returns specific currency information. Please check [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) to learn more about the list of currencies. Please be aware that only `alpha3Code` is unique for all currencies (e.g. `numericCode` is the same for `AND` and `XCG` currencies).
 
 ```typescript
 import { findIso4217Currency } from '@dnvgl/i18n';
@@ -178,6 +178,9 @@ findIso4217CurrencyForIso3166Country("usa"); // returns undefined; invalid code
 findIso4217CurrencyForIso3166Country("ATA"); // returns undefined; ATA = Antarctica; no universal currency
 findIso4217CurrencyForIso3166Country("pl"); // returns undefined
 findIso4217CurrencyForIso3166Country("XX"); // returns undefined
+findIso4217CurrencyForIso3166Country("HRV"); // returns { alpha3Code: "EUR", currencyName: "Euro... }
+findIso4217CurrencyForIso3166Country("HRV", "2022-05-05"); // returns { alpha3Code: "HRK", currencyName: "Kuna... }
+
 ```
 
 ### formatCountry()
