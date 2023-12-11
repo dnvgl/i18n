@@ -2,7 +2,7 @@ import { Iso3166Alpha3Code } from "../types/iso3166";
 import { Iso4217Alpha3Code } from "../types/iso4217";
 
 /** @internal */
-export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code |undefined | ((d: Date) => Iso4217Alpha3Code);
+export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code | undefined | ((d: Date) => Iso4217Alpha3Code);
 
 /** @internal */
 export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso4217Alpha3CodeResolver>([

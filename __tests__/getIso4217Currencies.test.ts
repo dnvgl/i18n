@@ -28,16 +28,16 @@ describe('getIso4217Currencies', () => {
     expect(countries.find(x => x.alpha3Code === "HRK")).toBeDefined();
   });
 
-  test('Caribbean Guilder (XCG) and Netherlands Antillean Guilder (ANG) currencies are returned', () => {
-    const countries = getIso4217Currencies("2025-03-31");
-    expect(countries).toHaveLength(181);
-    expect(countries.find(x => x.alpha3Code === "XCG")).toBeDefined();
+  test('Netherlands Antillean Guilder (ANG) currency is returned', () => {
+    const countries = getIso4217Currencies("2024-01-01");
+    expect(countries).toHaveLength(180);
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeDefined();
   });
 
-  test('Netherlands Antillean Guilder (ANG) currency is no longer returned', () => {
-    const countries = getIso4217Currencies("2025-07-01");
+  test('Caribbean Guilder (XCG) is returned', () => {
+    const countries = getIso4217Currencies("2025-03-31");
     expect(countries).toHaveLength(180);
+    expect(countries.find(x => x.alpha3Code === "XCG")).toBeDefined();
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeUndefined();
   });
 

@@ -13,7 +13,7 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
     currencyName: "Netherlands Antillean Guilder",
     numericCode: 532,
     minorUnit: 2,
-    historicalFrom: "2025-07-01" // CHANGED (before: undefined)
+    historicalFrom: "2025-03-31" // CHANGED (before: undefined)
   },
   // ... other currencies
   {

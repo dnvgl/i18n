@@ -31,7 +31,7 @@ export const iso4217Currencies: Iso4217Currency[] = [
     currencyName: "Netherlands Antillean Guilder",
     numericCode: 532,
     minorUnit: 2,
-    historicalFrom: "2025-07-01"
+    historicalFrom: "2025-03-31"
   },
   {
     alpha3Code: "AOA",
