@@ -1,6 +1,21 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.15.0
+`2024-05-10`\
+\
+🚀 Features:
+- TypeScript `5.4.x` support
+```typescript
+// before
+export type Locale = Intl.BCP47LanguageTag | Intl.BCP47LanguageTag[]; // TS 5.3.x
+// new:
+export type Locale = Intl.LocalesArgument; // TS 5.4.x
+```
+
+🔧 Internal:
+- TypeScript upgrade `5.3.2` -> `5.4.5`
+
 ## v1.14.0
 `2023-12-11`\
 \

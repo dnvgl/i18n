@@ -2,10 +2,10 @@ import { createCollator } from "./createCollator";
 import { LocaleOrCollator } from "../types/locale";
 
 /** @internal */
-export function resolveCollatorLocale(locale?: LocaleOrCollator): Intl.Collator {
-  return !locale 
+export function resolveCollatorLocale(source?: LocaleOrCollator): Intl.Collator {
+  return !source 
     ? createCollator() 
-    : (typeof locale === "string" || Array.isArray(locale))
-      ? createCollator(locale)
-      : locale;
+    : source instanceof Intl.Collator
+      ? source
+      : createCollator(source);
 }
