@@ -28,7 +28,11 @@ function getCurrencySymbolString(currency?: Iso4217Alpha3Code, currencyDisplay?:
     return "";
   }
 
-  const intlOptions = { style: "currency", currency: currency, currencyDisplay: currencyDisplay ?? "symbol" };
+  const intlOptions: Intl.NumberFormatOptions = { 
+    style: "currency", 
+    currency: currency, 
+    currencyDisplay: currencyDisplay ?? "symbol" 
+  };
 
   return getSeparator(1, "currency", intlOptions, locale);
 }
