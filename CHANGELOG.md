@@ -1,6 +1,32 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.16.0
+`2024-06-26`\
+\
+🚀 Features:
+- support for `ZWG` currency: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country)
+
+```typescript
+  {
+    alpha3Code: "ZWG", // NEW
+    currencyName: "Zimbabwe Gold", // NEW
+    numericCode: 924, // NEW
+    minorUnit: 2, // NEW
+    introducedIn: "2024-06-25" // NEW
+  },
+  {
+    alpha3Code: "ZWL",
+    currencyName: "Zimbabwe Dollar",
+    numericCode: 932,
+    minorUnit: 2,
+    historicalFrom: "2024-09-01" // CHANGED (before: undefined)
+  }
+```
+
+🔧 Internal:
+- TypeScript upgrade `5.4.5` -> `5.5.2`
+
 ## v1.15.0
 `2024-05-10`\
 \

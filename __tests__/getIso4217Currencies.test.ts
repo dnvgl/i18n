@@ -16,7 +16,7 @@ describe('getIso4217Currencies', () => {
     expect(countries.every(x => x.introducedIn === undefined || x.introducedIn.length === 10)).toBeTruthy();
   });
 
-  test('Kuna currency is not returned', () => {
+  test('Kuna (HRK) currency is not returned', () => {
     const countries = getIso4217Currencies("2023-01-01");
     expect(countries).toHaveLength(180);
     expect(countries.find(x => x.alpha3Code === "HRK")).toBeUndefined();
@@ -39,6 +39,30 @@ describe('getIso4217Currencies', () => {
     expect(countries).toHaveLength(180);
     expect(countries.find(x => x.alpha3Code === "XCG")).toBeDefined();
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeUndefined();
+  });
+
+  test('Zimbabwe Gold (ZWG) currency is not returned', () => {
+    const countries = getIso4217Currencies("2024-06-24");
+    expect(countries).toHaveLength(180);
+    expect(countries.find(x => x.alpha3Code === "ZWG")).toBeUndefined();
+  });
+
+  test('Zimbabwe Gold (ZWG) currency is returned', () => {
+    const countries = getIso4217Currencies("2024-06-25");
+    expect(countries).toHaveLength(181);
+    expect(countries.find(x => x.alpha3Code === "ZWG")).toBeDefined();
+  });
+
+  test('Zimbabwe Dollar (ZWL) currency is not returned', () => {
+    const countries = getIso4217Currencies("2024-09-01");
+    expect(countries).toHaveLength(180);
+    expect(countries.find(x => x.alpha3Code === "ZWL")).toBeUndefined();
+  });
+
+  test('Zimbabwe Dollar (ZWL) currency is returned', () => {
+    const countries = getIso4217Currencies("2024-08-31");
+    expect(countries).toHaveLength(181);
+    expect(countries.find(x => x.alpha3Code === "ZWL")).toBeDefined();
   });
 
   test('function should return the same reference', () => {

@@ -1100,9 +1100,17 @@ export const iso4217Currencies: Iso4217Currency[] = [
     minorUnit: 2
   },
   {
+    alpha3Code: "ZWG",
+    currencyName: "Zimbabwe Gold",
+    numericCode: 924,
+    minorUnit: 2,
+    introducedIn: "2024-06-25"
+  },
+  {
     alpha3Code: "ZWL",
     currencyName: "Zimbabwe Dollar",
     numericCode: 932,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2024-09-01"
   }
 ];
