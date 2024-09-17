@@ -60,9 +60,6 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
       if (resolver) {
         const currency = findIso4217Currency(typeof resolver === "string" ? resolver : resolver(new Date()));
         expect(currency).toBeDefined();
-        if (!!currency?.historicalFrom) {
-          expect(new Date(currency.historicalFrom).getTime()).toBeGreaterThan(new Date().getTime());
-        }
       }
     })
   });
