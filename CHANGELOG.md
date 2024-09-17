@@ -1,6 +1,15 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.16.1
+`2024-09-17`\
+\
+🐛 Bug fixes:
+- `ZWG` currency currency should be returned from `2024-09-01` [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country)
+
+🔧 Internal:
+- TypeScript upgrade `5.5.2` -> `5.6.2`
+
 ## v1.16.0
 `2024-06-26`\
 \

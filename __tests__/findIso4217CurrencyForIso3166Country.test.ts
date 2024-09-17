@@ -24,7 +24,7 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
     expect(findIso4217CurrencyForIso3166Country(code)).toBeUndefined();
   });
 
-  test('finds old currency for Croatia', () => {
+  test('finds new currency for Croatia', () => {
     expect(findIso4217CurrencyForIso3166Country("HRV")).toMatchObject(  {
       alpha3Code: "EUR",
       currencyName: "Euro",
@@ -40,11 +40,36 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
     });
   });
 
-  test('finds new currency for Croatia', () => {
+  test('finds old currency for Croatia', () => {
     expect(findIso4217CurrencyForIso3166Country("HRV", "2022-05-05")).toMatchObject(  {
       alpha3Code: "HRK",
       currencyName: "Kuna",
       numericCode: 191,
+      minorUnit: 2
+    });
+  });
+
+  test('finds new currency for Zimbabwe', () => {
+    expect(findIso4217CurrencyForIso3166Country("ZWE")).toMatchObject(  {
+      alpha3Code: "ZWG",
+      currencyName: "Zimbabwe Gold",
+      numericCode: 924,
+      minorUnit: 2
+    });
+
+    expect(findIso4217CurrencyForIso3166Country("ZWE", "2024-09-01")).toMatchObject(  {
+      alpha3Code: "ZWG",
+      currencyName: "Zimbabwe Gold",
+      numericCode: 924,
+      minorUnit: 2
+    });
+  });
+
+  test('finds old currency for Zimbabwe', () => {
+    expect(findIso4217CurrencyForIso3166Country("ZWE", "2024-08-31")).toMatchObject(  {
+      alpha3Code: "ZWL",
+      currencyName: "Zimbabwe Dollar",
+      numericCode: 932,
       minorUnit: 2
     });
   });
@@ -60,6 +85,10 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
       if (resolver) {
         const currency = findIso4217Currency(typeof resolver === "string" ? resolver : resolver(new Date()));
         expect(currency).toBeDefined();
+        if (!!currency?.historicalFrom) {
+          // HINT: historical currencies should not be used for the current date
+          expect(new Date(currency.historicalFrom).getTime()).toBeGreaterThan(new Date().getTime());
+        }
       }
     })
   });

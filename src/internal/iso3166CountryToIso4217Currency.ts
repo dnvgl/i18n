@@ -254,5 +254,5 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["ESH", "MAD"],
   ["YEM", "YER"],
   ["ZMB", "ZMW"],
-  ["ZWE", "ZWL"]
+  ["ZWE", (d: Date) => d >= new Date("2024-09-01") ? "ZWG" : "ZWL"]
 ]);
