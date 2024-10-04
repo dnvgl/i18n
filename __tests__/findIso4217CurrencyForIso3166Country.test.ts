@@ -83,7 +83,7 @@ describe('findIso4217CurrencyForIso3166Country.', () => {
       const resolver = iso3166CountryToIso4217Currency.get(country.alpha3Code);
       
       if (resolver) {
-        const currency = findIso4217Currency(typeof resolver === "string" ? resolver : resolver(new Date()));
+        const currency = findIso4217Currency(typeof resolver === "string" ? resolver : resolver(new Date("2099-01-01")));
         expect(currency).toBeDefined();
         if (!!currency?.historicalFrom) {
           // HINT: historical currencies should not be used for the current date
