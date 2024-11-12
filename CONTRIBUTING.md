@@ -6,8 +6,8 @@ Check tools and rules described below.
 
 ### Node.js - build runtime environment
 - how to: visit site https://nodejs.org/en and install (msi installer, default options)
-- version: newest `20.xx`
-- verification: run `node -v` in cmd, expected example: `v20.10.0`
+- version: newest `22.xx`
+- verification: run `node -v` in cmd, expected example: `v22.11.0`
 
 ### npm - package manager
 - how to: `npm install -g npm@latest`
