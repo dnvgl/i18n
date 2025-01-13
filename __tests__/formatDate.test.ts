@@ -2,9 +2,9 @@ import { DateFormatPrecision, formatDate } from "../src";
 
 describe('formatDate', () => {
   test.each([
-    ["2018-07-08", "years", "ar-sa", "١٤٣٩ هـ"],
+    ["2018-07-08", "years", "ar-sa", "٢٠١٨"],
     ["2018-07-08", "years", "en-GB", "2018"],
-    ["2018-07-08", "months", "ar-sa", "١٠‏/١٤٣٩ هـ"],
+    ["2018-07-08", "months", "ar-sa", "٧‏/٢٠١٨"],
     ["2018-07-08", "months", "en-GB", "07/2018"],
     ["2018-07-08", "days", "en-GB", "08/07/2018"],
     ["2018-07-08", "days", "en-US", "7/8/2018"],

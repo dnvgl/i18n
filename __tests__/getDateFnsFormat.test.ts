@@ -22,7 +22,7 @@ describe('getDateFnsFormat', () => {
     ["zh-HK", "minutes", "d'/'M'/'yyyy' 'Ah':'mm"],
     ["fr-CA", "seconds", "yyyy'-'MM'-'dd' 'HH' h 'mm' min 'ss' s'"],
     ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'A"],
-    ["ar-sa", "seconds", "dd'‏/'MM'‏/'yyyy' 'G'، 'h':'mm':'ss' 'A"]
+    ["ar-sa", "seconds", "d'‏/'M'‏/'yyyy'، 'h':'mm':'ss' 'A"]
   ];
 
   test.each(cases)('returns format for %p locale when time is included: %p', (locale, precision, expected) => {
