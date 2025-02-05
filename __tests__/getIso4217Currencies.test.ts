@@ -71,8 +71,14 @@ describe('getIso4217Currencies', () => {
     expect(countries1 === countries2).toBeTruthy();
   });
 
+  test('Peso Convertible (CUC) currency is returned', () => {
+    const countries = getIso4217Currencies("2025-02-03");
+    expect(countries).toHaveLength(180);
+    expect(countries.find(x => x.alpha3Code === "CUC")).toBeDefined();
+  });
+
   test('Peso Convertible (CUC) currency is not returned', () => {
-    const countries = getIso4217Currencies("2025-02-25");
+    const countries = getIso4217Currencies("2025-02-04");
     expect(countries).toHaveLength(179);
     expect(countries.find(x => x.alpha3Code === "CUC")).toBeUndefined();
   });
