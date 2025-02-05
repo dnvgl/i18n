@@ -36,7 +36,7 @@ describe('getIso4217Currencies', () => {
 
   test('Caribbean Guilder (XCG) is returned', () => {
     const countries = getIso4217Currencies("2025-03-31");
-    expect(countries).toHaveLength(180);
+    expect(countries).toHaveLength(179);
     expect(countries.find(x => x.alpha3Code === "XCG")).toBeDefined();
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeUndefined();
   });
@@ -69,6 +69,12 @@ describe('getIso4217Currencies', () => {
     const countries1 = getIso4217Currencies("2022-12-31");
     const countries2 = getIso4217Currencies("2022-12-31");
     expect(countries1 === countries2).toBeTruthy();
+  });
+
+  test('Peso Convertible (CUC) currency is not returned', () => {
+    const countries = getIso4217Currencies("2025-02-25");
+    expect(countries).toHaveLength(179);
+    expect(countries.find(x => x.alpha3Code === "CUC")).toBeUndefined();
   });
 
   test('no duplicates for property alpha3Code', () => {
