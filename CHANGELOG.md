@@ -1,6 +1,25 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.17.0
+`2025-02-05`\
+\
+🚀 Features:
+- `CUC` currency treated as historical: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies). This currency was withdrawn in `2021`, but because ISO update was released on `2025-02-04` we will use the second date. We don't want to introduce any breaking change when using `statusForTheDay` feature.
+
+```typescript
+  {
+    alpha3Code: "CUC",
+    currencyName: "Peso Convertible",
+    numericCode: 931,
+    minorUnit: 2,
+    historicalFrom: "2025-02-04" // CHANGED (before: undefined)
+  }
+```
+
+🔧 Internal:
+- TypeScript upgrade `5.5.2` -> `5.7.3`
+
 ## v1.16.1
 `2024-09-17`\
 \

@@ -234,7 +234,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "CUC",
     currencyName: "Peso Convertible",
     numericCode: 931,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2025-02-04"
   },
   {
     alpha3Code: "CUP",
