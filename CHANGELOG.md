@@ -1,6 +1,14 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.17.1
+`2025-02-26`\
+\
+🐛 Bug fixes:
+- [`formatCountry()`](DOCUMENTATION.md#formatCountry) circular dependency fix; `vite` build log example:\
+\
+`Export "formatCountry" of module "node_modules/@dnvgl/i18n/lib/formatCountry.js" was reexported through module "node_modules/@dnvgl/i18n/lib/index.js" while both modules are dependencies of each other and will end up in different chunks by current Rollup settings. This scenario is not well supported at the moment as it will produce a circular dependency between chunks and will likely lead to broken execution order.`
+
 ## v1.17.0
 `2025-02-05`\
 \
