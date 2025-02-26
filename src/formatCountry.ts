@@ -1,4 +1,4 @@
-import { findIso3166Country } from ".";
+import { findIso3166Country } from "./findIso3166Country";
 import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase";
 import { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166";
 import { Locale } from "./types/locale";
