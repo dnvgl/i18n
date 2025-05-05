@@ -1,6 +1,26 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.18.0
+`2025-05-05`\
+\
+🚀 Features:
+- support for `XAD` fund currency: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country)
+
+```typescript
+  {
+    alpha3Code: "XAD", // NEW
+    currencyName: "Arab Accounting Dinar", // NEW
+    numericCode: 396, // NEW
+    minorUnit: 2, // NEW
+    isFund: true, // NEW
+    introducedIn: "2025-05-12" // NEW
+  },
+```
+
+🔧 Internal:
+- TypeScript upgrade `5.7.3` -> `5.8.3`
+
 ## v1.17.1
 `2025-02-26`\
 \

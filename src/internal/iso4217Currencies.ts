@@ -974,6 +974,14 @@ export const iso4217Currencies: Iso4217Currency[] = [
     minorUnit: 2
   },
   {
+    alpha3Code: "XAD",
+    currencyName: "Arab Accounting Dinar",
+    numericCode: 396,
+    minorUnit: 2,
+    isFund: true,
+    introducedIn: "2025-05-12"
+  },
+  {
     alpha3Code: "XAF",
     currencyName: "CFA Franc BEAC",
     numericCode: 950,
