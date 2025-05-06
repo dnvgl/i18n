@@ -5,7 +5,7 @@ Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 `2025-05-05`\
 \
 🚀 Features:
-- support for `XAD` fund currency: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country)
+- support for `XAD` fund currency: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies)
 
 ```typescript
   {
