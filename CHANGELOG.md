@@ -1,6 +1,22 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.19.0
+`2025-05-12`\
+\
+🐛 Bug fixes:
+- `UYW` currency should be marked as a fund currency: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) and [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies). This currency could be used so far if someone filtered by `!== x.isFund`, so for some library clients this might be a breaking change. Therefore, instead of increasing the patch version, we are increasing the minor version during this release.
+
+```typescript
+  {
+    alpha3Code: "UYW",
+    currencyName: "Unidad Previsional",
+    numericCode: 927,
+    minorUnit: 4,
+    isFund: true // CHANGED (before: undefined)
+  },
+```
+
 ## v1.18.0
 `2025-05-05`\
 \

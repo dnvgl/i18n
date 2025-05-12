@@ -935,7 +935,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "UYW",
     currencyName: "Unidad Previsional",
     numericCode: 927,
-    minorUnit: 4
+    minorUnit: 4,
+    isFund: true
   },
   {
     alpha3Code: "UZS",
