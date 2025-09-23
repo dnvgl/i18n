@@ -40,7 +40,7 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["BRA", "BRL"],
   ["IOT", "USD"],
   ["BRN", "BND"],
-  ["BGR", "BGN"],
+  ["BGR", (d: Date) => d >= new Date("2026-01-01") ? "EUR" : "BGN"],
   ["BFA", "XOF"],
   ["BDI", "BIF"],
   ["CPV", "CVE"],

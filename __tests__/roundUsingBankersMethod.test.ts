@@ -34,6 +34,6 @@ describe('roundUsingBankersMethod', () => {
     [1.049, Number.NaN],
   ])('throws error on invalid arguments (rounds %p using precision %p)', (value, precision) => {
     expect(() => roundUsingBankersMethod(value, precision))
-      .toThrowError(new RangeError("precision value is out of range."));
+      .toThrow(new RangeError("precision value is out of range."));
   });
 });

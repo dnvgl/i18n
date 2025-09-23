@@ -1,6 +1,24 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.20.0
+`2025-09-23`\
+\
+🚀 Features:
+- [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies), [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country) - from `2026-01-01` Bulgarian Lev (BGN) currency will be treated as historical because Bulgaria joins the euro.
+```typescript
+  {
+    alpha3Code: "BGN",
+    currencyName: "Bulgarian Lev",
+    numericCode: 975,
+    minorUnit: 2,
+    historicalFrom: "2026-01-01" // CHANGED (before: undefined)
+  },
+```
+
+🔧 Internal:
+- TypeScript upgrade `5.8.3` -> `5.9.2`
+
 ## v1.19.0
 `2025-05-12`\
 \

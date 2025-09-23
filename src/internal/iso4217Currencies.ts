@@ -85,7 +85,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "BGN",
     currencyName: "Bulgarian Lev",
     numericCode: 975,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2026-01-01"
   },
   {
     alpha3Code: "BHD",

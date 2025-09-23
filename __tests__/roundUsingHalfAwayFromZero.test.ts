@@ -35,6 +35,6 @@ describe('roundUsingHalfAwayFromZero', () => {
     [1.049, Number.NaN],
   ])('throws error on invalid arguments (rounds %p using precision %p)', (value, precision) => {
     expect(() => roundUsingHalfAwayFromZero(value, precision))
-      .toThrowError(new RangeError("precision value is out of range."));
+      .toThrow(new RangeError("precision value is out of range."));
   });
 });
