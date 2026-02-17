@@ -6,13 +6,13 @@ Check tools and rules described below.
 
 ### Node.js - build runtime environment
 - how to: visit site https://nodejs.org/en and install (msi installer, default options)
-- version: newest `22.xx`
-- verification: run `node -v` in cmd, expected example: `v22.11.0`
+- version: newest `24.xx`
+- verification: run `node -v` in cmd, expected example: `v24.11.1`
 
 ### npm - package manager
 - how to: `npm install -g npm@latest`
 - version: minimum `8.x`
-- verification: run `npm -v` in cmd, expected example: `v8.19.3`
+- verification: run `npm -v` in cmd, expected example: `v11.6.4`
 
 ### Yarn classic - package manager
 - how to: `npm install -g yarn` (that's it!)
