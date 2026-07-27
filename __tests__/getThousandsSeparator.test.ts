@@ -1,14 +1,14 @@
 import { getThousandsSeparator } from "../src";
 
-const IntlWhitespace = String.fromCharCode(160);
+const noBreakSpace = String.fromCharCode(160);
 
 describe('getThousandsSeparator', () => {
   test.each([
     ["en", ","],
     ["en-GB", ","],
     ["de", "."],
-    ["pl-PL", IntlWhitespace],
-    ["fr-CA", IntlWhitespace],
+    ["pl-PL", noBreakSpace],
+    ["fr-CA", noBreakSpace],
     ["zh", ","],
   ])('returns proper value for %p locale', (locale, expected) => {
     const result = getThousandsSeparator(locale);

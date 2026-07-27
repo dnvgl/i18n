@@ -1,6 +1,6 @@
 import { formatMoney } from "../src";
 
-const IntlWhitespace = String.fromCharCode(160);
+const noBreakSpace = String.fromCharCode(160);
 
 describe('formatMoney', () => {
   test.each([
@@ -17,12 +17,12 @@ describe('formatMoney', () => {
   });
 
   test("using options", () => {
-    expect(formatMoney(1.532, { precision: 2, currency: "PLN" }, "pl-PL")).toEqual(`1,53${IntlWhitespace}zł`);
-    expect(formatMoney(1.532, { precision: 2, currency: "USD" }, "pl-PL")).toEqual(`1,53${IntlWhitespace}USD`);
-    expect(formatMoney(1.532, { precision: 2, currency: 840 }, "pl-PL")).toEqual(`1,53${IntlWhitespace}USD`);
+    expect(formatMoney(1.532, { precision: 2, currency: "PLN" }, "pl-PL")).toEqual(`1,53${noBreakSpace}zł`);
+    expect(formatMoney(1.532, { precision: 2, currency: "USD" }, "pl-PL")).toEqual(`1,53${noBreakSpace}USD`);
+    expect(formatMoney(1.532, { precision: 2, currency: 840 }, "pl-PL")).toEqual(`1,53${noBreakSpace}USD`);
     expect(formatMoney(1.53588, { precision: 3, currency: "USD" }, "en")).toEqual("$1.536");
     expect(formatMoney(-1.53588, { precision: 3, currency: "USD", currencySign: "accounting" }, "en")).toEqual("($1.536)");
-    expect(formatMoney(1.53588, { precision: 3, currency: "USD", currencyDisplay: "code" }, "en")).toEqual(`USD${IntlWhitespace}1.536`);
+    expect(formatMoney(1.53588, { precision: 3, currency: "USD", currencyDisplay: "code" }, "en")).toEqual(`USD${noBreakSpace}1.536`);
   });
 
   test("using partial options", () => {
@@ -33,6 +33,6 @@ describe('formatMoney', () => {
     expect(formatMoney(1.53588, { currency: "CAD", currencyDisplay: "narrowSymbol" }, "en")).toEqual("$1.54");
     expect(formatMoney(1.53588, { currencyDisplay: "narrowSymbol" }, "en")).toEqual("1.54");
     expect(formatMoney(-1.53588, { currencySign: "accounting" }, "en")).toEqual("-1.54");
-    expect(formatMoney(1.53588, { currency: "USD", currencyDisplay: "code" }, "en")).toEqual(`USD${IntlWhitespace}1.54`);
+    expect(formatMoney(1.53588, { currency: "USD", currencyDisplay: "code" }, "en")).toEqual(`USD${noBreakSpace}1.54`);
   });
 });

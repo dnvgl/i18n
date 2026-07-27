@@ -1,5 +1,7 @@
 import { type DateFormatPrecision, getMomentFormat } from "../src";
 
+const thinSpace = String.fromCharCode(0x2009);
+
 describe('getMomentFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [
     ["pl", "days", "D[.]MM[.]YYYY"],
@@ -18,8 +20,8 @@ describe('getMomentFormat', () => {
     ["zh", "seconds", "YYYY[/]M[/]D[ ]HH[:]mm[:]ss"],
     ["zh", "minutes", "YYYY[/]M[/]D[ ]HH[:]mm"],
     ["zh-HK", "days", "D[/]M[/]YYYY"],
-    ["zh-HK", "seconds", "D[/]M[/]YYYY[ ]Ah[:]mm[:]ss"],
-    ["zh-HK", "minutes", "D[/]M[/]YYYY[ ]Ah[:]mm"],
+    ["zh-HK", "seconds", `D[/]M[/]YYYY[${thinSpace}]Ah[:]mm[:]ss`],
+    ["zh-HK", "minutes", `D[/]M[/]YYYY[${thinSpace}]Ah[:]mm`],
     ["fr-CA", "seconds", "YYYY[-]MM[-]DD[ ]HH[ h ]mm[ min ]ss[ s]"],
     ["en-AU", "seconds", "DD[/]MM[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
     ["ar-sa", "seconds", "D[‏/]M[‏/]YYYY[، ]h[:]mm[:]ss[ ]A"]

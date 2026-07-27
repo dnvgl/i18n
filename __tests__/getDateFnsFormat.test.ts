@@ -1,5 +1,7 @@
 import { type DateFormatPrecision, getDateFnsFormat } from "../src";
 
+const thinSpace = String.fromCharCode(0x2009);
+
 describe('getDateFnsFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [
     ["pl", "days", "d'.'MM'.'yyyy"],
@@ -18,8 +20,8 @@ describe('getDateFnsFormat', () => {
     ["zh", "seconds", "yyyy'/'M'/'d' 'HH':'mm':'ss"],
     ["zh", "minutes", "yyyy'/'M'/'d' 'HH':'mm"],
     ["zh-HK", "days", "d'/'M'/'yyyy"],
-    ["zh-HK", "seconds", "d'/'M'/'yyyy' 'Ah':'mm':'ss"],
-    ["zh-HK", "minutes", "d'/'M'/'yyyy' 'Ah':'mm"],
+    ["zh-HK", "seconds", `d'/'M'/'yyyy'${thinSpace}'Ah':'mm':'ss`],
+    ["zh-HK", "minutes", `d'/'M'/'yyyy'${thinSpace}'Ah':'mm`],
     ["fr-CA", "seconds", "yyyy'-'MM'-'dd' 'HH' h 'mm' min 'ss' s'"],
     ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'A"],
     ["ar-sa", "seconds", "d'‏/'M'‏/'yyyy'، 'h':'mm':'ss' 'A"]

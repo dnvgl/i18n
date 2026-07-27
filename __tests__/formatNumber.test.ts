@@ -1,13 +1,13 @@
 import { createNumberFormat, formatNumber } from "../src";
 
-const IntlWhitespace = String.fromCharCode(160);
+const noBreakSpace = String.fromCharCode(160);
 
 describe('formatNumber', () => {
   test.each([
     [102234567.89123, "en-US", "102,234,567.89123"],
     [1, "en-US", "1"],
     [1.2, "en-US", "1.2"],
-    [12345.78, "de-LI" /* Liechtenstein */, "12’345.78"],
+    [12345.78, "de-LI" /* Liechtenstein */, "12'345.78"],
     [11.1e+3, "en-US", "11,100"],
     [123456789123457000, "en-US", "123,456,789,123,457,000"]
   ])('uses proper default (full formatting with full precision) for %p locale', (value, locale, expected) => {
@@ -52,7 +52,7 @@ describe('formatNumber', () => {
     [1234.78, "de", true, "1.234,78"],
     [1234567.78, "de", true, "1.234.567,78"],
     [0.000000003, "en", false, "0.000000003"], // HINT: should not be 3e-9
-    [1234567.78, "pl", true, `1${IntlWhitespace}234${IntlWhitespace}567,78`],
+    [1234567.78, "pl", true, `1${noBreakSpace}234${noBreakSpace}567,78`],
   ])('formats %p with proper locale (%p) when thousands separator option is %p', (value, locale, thousandsSeparator, expected) => {
     const result = formatNumber(value, { thousandsSeparator: thousandsSeparator }, locale);
     expect(result).toBe(expected);
