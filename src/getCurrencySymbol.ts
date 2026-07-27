@@ -1,9 +1,9 @@
 import { findIso4217Currency } from "./findIso4217Currency";
 import { getSeparator } from "./internal/getSeparator";
-import { CurrencySymbolOptions } from "./types/currencySymbolOptions";
-import { IntlCurrencyDisplay } from "./types/intlCurrencyDisplay";
-import { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
-import { Locale } from "./types/locale";
+import type { CurrencySymbolOptions } from "./types/currencySymbolOptions";
+import type { IntlCurrencyDisplay } from "./types/intlCurrencyDisplay";
+import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
+import type { Locale } from "./types/locale";
 
 export function getCurrencySymbol(currencyCode: Iso4217Alpha3Code | Iso4217NumericCode, locale?: Locale): string
 export function getCurrencySymbol(currencyCode: CurrencySymbolOptions, locale?: Locale): string

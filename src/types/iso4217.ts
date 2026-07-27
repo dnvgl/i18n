@@ -1,4 +1,4 @@
-import { DateIsoString } from "./dateIsoString";
+import type { DateIsoString } from "./dateIsoString";
 
 export interface Iso4217Currency {
   alpha3Code: Iso4217Alpha3Code;

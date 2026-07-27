@@ -1,7 +1,7 @@
-import { OptionalType } from "./types/optionalType";
+import type { OptionalType } from "./types/optionalType";
 import { compareStrings } from "./compareStrings";
 import { resolveCollatorLocale } from "./internal/resolveCollatorLocale";
-import { LocaleOrCollator } from "./types/locale";
+import type { LocaleOrCollator } from "./types/locale";
 
 export function compareStringsFactory(locale?: LocaleOrCollator): (a: OptionalType<string>, b: OptionalType<string>) => number {
   const nativeComparer = resolveCollatorLocale(locale);

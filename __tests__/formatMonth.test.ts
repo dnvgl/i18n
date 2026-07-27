@@ -1,4 +1,4 @@
-import { formatMonth, MonthFormat } from "../src";
+import { formatMonth, type MonthFormat } from "../src";
 
 describe('formatMonth', () => {
   test.each([

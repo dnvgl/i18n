@@ -6,16 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     # Setup .npmrc file to publish to npm
-    - uses: actions/setup-node@v2
+    - uses: actions/setup-node@v4
       with:
         node-version: '24.x'
         registry-url: 'https://registry.npmjs.org'
         scope: '@dnvgl'
-    - run: yarn
+    - run: corepack enable
+    - run: yarn install --immutable
     - run: yarn test
     - run: yarn build
-    - run: yarn publish --access public
+    - run: yarn npm publish --access public
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -1,4 +1,4 @@
-import { Iso4217Currency } from "../types/iso4217";
+import type { Iso4217Currency } from "../types/iso4217";
 
 /** @internal */
 export const iso4217Currencies: Iso4217Currency[] = [

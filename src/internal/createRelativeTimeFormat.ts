@@ -1,4 +1,4 @@
-import { Locale } from "../types/locale";
+import type { Locale } from "../types/locale";
 
 /** @internal */
 export function createRelativeTimeFormat(locale?: Locale, options?: Intl.RelativeTimeFormatOptions): Intl.RelativeTimeFormat {

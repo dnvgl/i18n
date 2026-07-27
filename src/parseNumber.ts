@@ -3,7 +3,7 @@ import { getMinusSign } from "./getMinusSign";
 import { getThousandsSeparator } from "./getThousandsSeparator";
 import { isEmptyOrWhiteSpace } from "./internal/isEmptyOrWhiteSpace";
 import { replaceAll } from "./internal/replaceAll";
-import { Locale } from "./types/locale";
+import type { Locale } from "./types/locale";
 
 export function parseNumber(value: string, strictMode: boolean = false, locale?: Locale): number | undefined {
   const decimalSeparator = getDecimalSeparator(locale),

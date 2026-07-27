@@ -1,4 +1,4 @@
-import { formatRelativeTime, Locale } from "../src";
+import { formatRelativeTime, type Locale } from "../src";
 
 describe('formatRelativeTime', () => {
   test.each([

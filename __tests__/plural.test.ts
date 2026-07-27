@@ -1,4 +1,4 @@
-import { plural, PluralizationLang } from "../src";
+import { plural, type PluralizationLang } from "../src";
 
 describe('plural', () => {
   test.each([

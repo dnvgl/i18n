@@ -1,7 +1,7 @@
 import { formatNumberToFixed } from "./formatNumberToFixed";
-import { Locale } from "./types/locale";
-import { NumberFormatFixed } from "./types/numberFormatFixed";
-import { NumberFormatMoney } from "./types/numberFormatMoney";
+import type { Locale } from "./types/locale";
+import type { NumberFormatFixed } from "./types/numberFormatFixed";
+import type { NumberFormatMoney } from "./types/numberFormatMoney";
 
 const defaultOptions: Partial<NumberFormatFixed> = { precision: 2, useBankersRounding: true };
 

@@ -1,4 +1,4 @@
-import { DateFormatPrecision, getDateFnsFormat } from "../src";
+import { type DateFormatPrecision, getDateFnsFormat } from "../src";
 
 describe('getDateFnsFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [

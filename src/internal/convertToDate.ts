@@ -1,4 +1,4 @@
-import { DateIsoString } from "../types/dateIsoString";
+import type { DateIsoString } from "../types/dateIsoString";
 
 /** @internal */
 export function convertToDate(value: Date | DateIsoString): Date {

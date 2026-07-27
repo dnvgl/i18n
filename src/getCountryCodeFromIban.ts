@@ -1,8 +1,8 @@
 import { iso3166Countries } from "./internal/iso3166Countries";
 import { isValidIbanStructure } from "./internal/isValidIbanStructure";
 import { removeWhitespaces } from "./internal/removeWhitespaces";
-import { IbanParseOptions } from "./types/ibanParseOptions";
-import { Iso3166Alpha2Code } from "./types/iso3166";
+import type { IbanParseOptions } from "./types/ibanParseOptions";
+import type { Iso3166Alpha2Code } from "./types/iso3166";
 
 export function getCountryCodeFromIban(iban: string, options?: Partial<IbanParseOptions>): Iso3166Alpha2Code | "XK" | undefined {
   if (options?.removeWhitespaces === true) {

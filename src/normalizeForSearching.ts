@@ -1,4 +1,4 @@
-import { Locale } from "./types/locale";
+import type { Locale } from "./types/locale";
 
 export function normalizeForSearching(value: string, locale?: Locale): string {
   return value

@@ -1,4 +1,4 @@
-import { formatTime, TimeFormatPrecision } from "../src";
+import { formatTime, type TimeFormatPrecision } from "../src";
 
 describe('formatTime', () => {
   test.each([

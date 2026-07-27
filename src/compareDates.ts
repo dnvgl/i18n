@@ -1,6 +1,6 @@
 import { compareNumbersAlike } from "./compareNumbersAlike";
-import { OptionalType } from "./types/optionalType";
-import { DateIsoString } from "./types/dateIsoString";
+import type { OptionalType } from "./types/optionalType";
+import type { DateIsoString } from "./types/dateIsoString";
 import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes";
 import { convertToDate } from "./internal/convertToDate";
 

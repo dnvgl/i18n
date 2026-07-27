@@ -1,4 +1,4 @@
-import { CurrencySymbolOptions, getCurrencySymbol } from "../src";
+import { type CurrencySymbolOptions, getCurrencySymbol } from "../src";
 
 describe('getCurrencySymbol', () => {
   test.each([

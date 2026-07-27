@@ -14,11 +14,11 @@ Check tools and rules described below.
 - version: minimum `8.x`
 - verification: run `npm -v` in cmd, expected example: `v11.6.4`
 
-### Yarn classic - package manager
-- how to: `npm install -g yarn` (that's it!)
-- more info: https://classic.yarnpkg.com/en/docs/install
-- version: newest `1.x`
-- verification: run `yarn --version`, expected example: `1.22.19`
+### Yarn - package manager
+This project uses **Yarn 4** (modern "Berry"), pinned via the `packageManager` field in `package.json` and managed by **Corepack** (bundled with Node.js). You do not install Yarn globally.
+- how to: enable Corepack once with `corepack enable`
+- verification: run `yarn --version` inside the project folder, expected example: `4.17.1` (the version comes from the `packageManager` field in `package.json`)
+- note: do NOT run `npm install -g yarn` - Corepack automatically provisions the correct Yarn version for the project
 
 ### Visual Studio Code - editor
 - how to: visit https://code.visualstudio.com/download and install (exe installer, default options)
@@ -28,8 +28,15 @@ Check tools and rules described below.
 ## 2. Prerequisites, step: configure tools
 
 ### Visual Studio Code + TypeScript
-- Press `ctrl+shift+p` in a TypeScript file -> choose "Select TypeScript Version" -> pick "Use Workspace Version"
-- verification: open TypeScript file (*.ts or *.tsx), expected example on the bottom right: `Typescript 5.3.2`
+This project uses the native **TypeScript 7** compiler (a Go-based port). It does not ship the classic `tsserver.js`, so the old "Select TypeScript Version -> Use Workspace Version" option does **not** work anymore (VS Code would fall back to its bundled TypeScript).
+
+To get editor language features (IntelliSense, error highlighting) that match the build, install the official extension:
+- extension: **TypeScript 7** (id: `typescriptteam.native-preview`)
+- how to: open the Extensions view (`ctrl+shift+x`), search for `TypeScript 7`, install it
+- when you open a TypeScript file (`*.ts` or `*.tsx`), VS Code shows a prompt asking whether to use the native TS 7 language server (SDK) - accept it
+- verification: open a TypeScript file; the bottom right / language status shows the native TypeScript 7 language server is active
+
+Note: do **not** use "Select TypeScript Version -> Use Workspace Version" for TS 7 - it will fail because there is no `tsserver.js` in the native package.
 
 ## 3. Project configuration/installation
 

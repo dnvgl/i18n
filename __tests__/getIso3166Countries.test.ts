@@ -1,4 +1,4 @@
-import { getIso3166Countries, Iso3166Country } from "../src";
+import { getIso3166Countries, type Iso3166Country } from "../src";
 import { iso3166Countries } from "../src/internal/iso3166Countries";
 
 const isArrayUnique = (arr: any[]) => Array.isArray(arr) 

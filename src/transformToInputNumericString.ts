@@ -1,8 +1,8 @@
 import { getDecimalSeparator } from "./getDecimalSeparator";
 import { getMinusSign } from "./getMinusSign";
 import { headAndTail } from "./internal/headAndTail";
-import { Locale } from "./types/locale";
-import { TransformationOptions } from "./types/transformationOptions";
+import type { Locale } from "./types/locale";
+import type { TransformationOptions } from "./types/transformationOptions";
 
 const nativeMinusSign = "-";
 

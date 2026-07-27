@@ -1,4 +1,4 @@
-import { Locale } from "../types/locale";
+import type { Locale } from "../types/locale";
 
 /** @internal */
 export function createCollator(locale?: Locale, options?: Intl.CollatorOptions): Intl.Collator {

@@ -1,4 +1,4 @@
-import { DateFormatPrecision, getMomentFormat } from "../src";
+import { type DateFormatPrecision, getMomentFormat } from "../src";
 
 describe('getMomentFormat', () => {
   const cases: [string, DateFormatPrecision, string][] = [

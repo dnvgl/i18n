@@ -1,4 +1,4 @@
-import { OptionalType } from "./optionalType";
+import type { OptionalType } from "./optionalType";
 
 export type SortSelector<T> = 
   ((x: T) => OptionalType<string>) 

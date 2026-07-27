@@ -1,6 +1,6 @@
 import { iso3166Countries } from "./internal/iso3166Countries";
 import { isValidBicStructure } from "./internal/isValidBicStructure";
-import { Iso3166Alpha2Code } from "./types/iso3166";
+import type { Iso3166Alpha2Code } from "./types/iso3166";
 
 export function getCountryCodeFromBic(bic: string): Iso3166Alpha2Code | "XK" | undefined {
   if (!isValidBicStructure(bic)) {

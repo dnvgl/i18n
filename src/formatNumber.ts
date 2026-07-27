@@ -1,8 +1,8 @@
 import { createNumberFormat } from "./createNumberFormat";
 import { roundUsingBankersMethod } from "./roundUsingBankersMethod";
-import { Locale } from "./types/locale";
-import { NumberFormat } from "./types/numberFormat";
-import { NumberFormatIntl } from "./types/numberFormatIntl";
+import type { Locale } from "./types/locale";
+import type { NumberFormat } from "./types/numberFormat";
+import type { NumberFormatIntl } from "./types/numberFormatIntl";
 
 export function formatNumber(value: number, options?: Partial<NumberFormat>, locale?: Locale): string
 export function formatNumber(value: number, options?: NumberFormatIntl): string

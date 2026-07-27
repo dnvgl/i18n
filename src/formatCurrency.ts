@@ -1,5 +1,5 @@
-import { Locale } from "./types/locale";
-import { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
+import type { Locale } from "./types/locale";
+import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
 import { findIso4217Currency } from "./findIso4217Currency";
 import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase";
 

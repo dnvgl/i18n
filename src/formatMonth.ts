@@ -1,8 +1,8 @@
 import { convertToDate } from "./internal/convertToDate";
 import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
-import { DateIsoString } from "./types/dateIsoString";
-import { Locale } from "./types/locale";
-import { MonthFormat } from "./types/monthFormat";
+import type { DateIsoString } from "./types/dateIsoString";
+import type { Locale } from "./types/locale";
+import type { MonthFormat } from "./types/monthFormat";
 
 export function formatMonth(monthIndex: number, monthFormat: MonthFormat, locale?: Locale): string
 export function formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat, locale?: Locale): string

@@ -1,4 +1,4 @@
-import { DateFormatPrecision } from "../types/dateFormatPrecision";
+import type { DateFormatPrecision } from "../types/dateFormatPrecision";
 
 const yearFormat: Intl.DateTimeFormatOptions = { year: 'numeric' },
   monthFormat: Intl.DateTimeFormatOptions = { ...yearFormat, month: 'numeric' },

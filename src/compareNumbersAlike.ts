@@ -1,5 +1,5 @@
 import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes";
-import { OptionalType } from "./types/optionalType";
+import type { OptionalType } from "./types/optionalType";
 
 export function compareNumbersAlike(a: OptionalType<number>, b: OptionalType<number>): number;
 export function compareNumbersAlike(a: OptionalType<Date>, b: OptionalType<Date>): number;

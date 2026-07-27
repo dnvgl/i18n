@@ -1,5 +1,5 @@
 import { createCollator } from "./createCollator";
-import { LocaleOrCollator } from "../types/locale";
+import type { LocaleOrCollator } from "../types/locale";
 
 /** @internal */
 export function resolveCollatorLocale(source?: LocaleOrCollator): Intl.Collator {
