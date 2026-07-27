@@ -41,5 +41,13 @@
     "rimraf": "^6.1.3",
     "typescript": "^7.0.2"
   },
+  "dependenciesMeta": {
+    "@swc/core": {
+      "built": true
+    },
+    "unrs-resolver": {
+      "built": true
+    }
+  },
   "packageManager": "yarn@4.17.1"
 }

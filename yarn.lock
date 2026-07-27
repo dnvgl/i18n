@@ -659,6 +659,11 @@ __metadata:
     jest: "npm:^30.4.2"
     rimraf: "npm:^6.1.3"
     typescript: "npm:^7.0.2"
+  dependenciesMeta:
+    "@swc/core":
+      built: true
+    unrs-resolver:
+      built: true
   languageName: unknown
   linkType: soft
 
