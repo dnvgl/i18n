@@ -483,7 +483,7 @@ import { getDateFnsFormat } from '@dnvgl/i18n';
 
 getDateFnsFormat("seconds", "en-GB"); // returns "dd'/'MM'/'yyyy', 'HH':'mm':'ss"
 ```
-Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `date-fns`):
+Example integration with [AntDesign v5/v6 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `date-fns`; in AntD v6 the generate config is imported from `@rc-component/picker/generate/dateFns`, in v5 from `rc-picker/lib/generate/dateFns`):
 ```tsx
 import { DatePicker } from 'your_module_with_custom_date_picker';
 
@@ -497,7 +497,7 @@ import { getDayJsFormat } from '@dnvgl/i18n';
 
 getDayJsFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
-Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/):
+Example integration with [AntDesign v5/v6 calendar](https://ant.design/components/date-picker/) (`day.js` is the default date library in AntD, so no custom integration is required):
 ```tsx
 import { DatePicker } from 'antd';
 
@@ -562,7 +562,7 @@ import { getMomentFormat } from '@dnvgl/i18n';
 
 getMomentFormat("seconds", "en-GB"); // returns "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"
 ```
-Example integration with [AntDesign v5 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `moment.js`):
+Example integration with [AntDesign v5/v6 calendar](https://ant.design/components/date-picker/) (when [integrated](https://ant.design/docs/react/use-custom-date-library) with `moment.js`; in AntD v6 the generate config is imported from `@rc-component/picker/generate/moment`, in v5 from `rc-picker/lib/generate/moment`):
 ```tsx
 import { DatePicker } from 'your_module_with_custom_date_picker';
 

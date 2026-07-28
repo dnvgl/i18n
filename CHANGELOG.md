@@ -1,6 +1,15 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.20.1
+`2026-07-28`\
+\
+🐛 Bug fixes:
+- [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat) returned `A` for the day period (AM/PM), which is a `date-fns` v1 token. Since v2 the correct token is `a`, and using `A` throws a `RangeError` in v2/v3/v4. The token is now `a`, so the returned format is compatible with the currently supported `date-fns` versions.
+
+🔧 Internal:
+- TypeScript upgrade `5.9.2` -> `7.0.2`
+
 ## v1.20.0
 `2025-09-23`\
 \

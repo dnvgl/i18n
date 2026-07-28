@@ -9,8 +9,8 @@ export function getDateFnsFormat(precision: DateFormatPrecision = "days", locale
   const intlFormat = createDateFormatIntlObj(locale, resolveDateTimeFormatOptions(precision)),
     parts = intlFormat.formatToParts(dateForParts),
     hasDayPeriod = parts.some(x => x.type === "dayPeriod");
-
-  // HINT: date-fns v2 format
+    
+  // HINT: https://date-fns.org/v4.4.0/docs/format
   return parts
     .map(x => {
       switch (x.type) {
@@ -20,7 +20,7 @@ export function getDateFnsFormat(precision: DateFormatPrecision = "days", locale
         case "hour": return x.value.length === 1 ? hasDayPeriod ? "h" : "H" : hasDayPeriod ? "hh" : "HH";
         case "minute": return x.value.length === 1 ? "m" : "mm";
         case "second": return x.value.length === 1 ? "s" : "ss";
-        case "dayPeriod": return "A";
+        case "dayPeriod": return "a";
         case "literal": return `'${x.value}'`; // HINT: escaping
         case "era": return 'G';
         case "timeZoneName": return 'XXX';

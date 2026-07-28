@@ -11,8 +11,8 @@ describe('getDateFnsFormat', () => {
     ["de", "seconds", "d'.'M'.'yyyy', 'HH':'mm':'ss"],
     ["de", "minutes", "d'.'M'.'yyyy', 'HH':'mm"],
     ["en-US", "days", "M'/'d'/'yyyy"],
-    ["en-US", "seconds", "M'/'d'/'yyyy', 'h':'mm':'ss' 'A"],
-    ["en-US", "minutes", "M'/'d'/'yyyy', 'h':'mm' 'A"],
+    ["en-US", "seconds", "M'/'d'/'yyyy', 'h':'mm':'ss' 'a"],
+    ["en-US", "minutes", "M'/'d'/'yyyy', 'h':'mm' 'a"],
     ["en-GB", "days", "dd'/'MM'/'yyyy"],
     ["en-GB", "seconds", "dd'/'MM'/'yyyy', 'HH':'mm':'ss"],
     ["en-GB", "minutes", "dd'/'MM'/'yyyy', 'HH':'mm"],
@@ -20,11 +20,11 @@ describe('getDateFnsFormat', () => {
     ["zh", "seconds", "yyyy'/'M'/'d' 'HH':'mm':'ss"],
     ["zh", "minutes", "yyyy'/'M'/'d' 'HH':'mm"],
     ["zh-HK", "days", "d'/'M'/'yyyy"],
-    ["zh-HK", "seconds", `d'/'M'/'yyyy'${thinSpace}'Ah':'mm':'ss`],
-    ["zh-HK", "minutes", `d'/'M'/'yyyy'${thinSpace}'Ah':'mm`],
+    ["zh-HK", "seconds", `d'/'M'/'yyyy'${thinSpace}'ah':'mm':'ss`],
+    ["zh-HK", "minutes", `d'/'M'/'yyyy'${thinSpace}'ah':'mm`],
     ["fr-CA", "seconds", "yyyy'-'MM'-'dd' 'HH' h 'mm' min 'ss' s'"],
-    ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'A"],
-    ["ar-sa", "seconds", "d'‏/'M'‏/'yyyy'، 'h':'mm':'ss' 'A"]
+    ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'a"],
+    ["ar-sa", "seconds", "d'‏/'M'‏/'yyyy'، 'h':'mm':'ss' 'a"]
   ];
 
   test.each(cases)('returns format for %p locale when time is included: %p', (locale, precision, expected) => {
