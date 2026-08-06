@@ -47,19 +47,6 @@ const numberFormattedInLocalCulture = formatNumber(12486.4529); // returns "12 4
 #### Module system
 Library supports `esm` modules tree shaking by default.
 
-#### Testing in Jest
-[Jest](https://jestjs.io/) does not support `esm` modules, and `@dnvgl/i18n` uses them. In order to test your application with Jest you have to add the following to your `package.json`:
-```json
-"jest": {
-  "transformIgnorePatterns": [
-    "/node_modules/(?!@dnvgl/i18n)"
-  ]
-}
-```
-
-When there is another package that requires ES6 only then the pattern is:\
-`"/node_modules/(?!(PACKAGE_1|PACKAGE_2))"`, e.g. `"/node_modules/(?!(@dnvgl/i18n|another-package))"`
-
 #### TypeScript
 Library provides a built-in ts definition.
 
@@ -73,7 +60,7 @@ See full details in the [`DOCUMENTATION.md`](DOCUMENTATION.md) file.
 [`formatInteger()`](DOCUMENTATION.md#formatInteger), [`formatNumber()`](DOCUMENTATION.md#formatnumber), [`formatNumberToFixed()`](DOCUMENTATION.md#formatNumberToFixed), [`parseNumber()`](DOCUMENTATION.md#parseNumber), [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString), [`roundUsingHalfAwayFromZero()`](DOCUMENTATION.md#roundUsingHalfAwayFromZero), [`getDecimalSeparator()`](DOCUMENTATION.md#getDecimalSeparator), [`getMinusSign()`](DOCUMENTATION.md#getMinusSign), [`getThousandsSeparator()`](DOCUMENTATION.md#getThousandsSeparator), [`createNumberFormat()`](DOCUMENTATION.md#createNumberFormat)
 
 #### Datetime formatting
-[`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO), [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime), [`formatMonth()`](DOCUMENTATION.md#formatMonth), [`formatTime()`](DOCUMENTATION.md#formatTime), [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat)
+[`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO), [`formatRelativeTime()`](DOCUMENTATION.md#formatRelativeTime), [`formatMonth()`](DOCUMENTATION.md#formatMonth), [`formatTime()`](DOCUMENTATION.md#formatTime), [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat), [`getWeekendDays()`](DOCUMENTATION.md#getWeekendDays)
 
 #### Sorting/comparison
 [`compareBooleans()`](DOCUMENTATION.md#compareBooleans), [`compareDates()`](DOCUMENTATION.md#compareDates), [`compareNumbers()`](DOCUMENTATION.md#compareNumbers), [`compareNumbersAlike()`](DOCUMENTATION.md#compareNumbersAlike), [`compareStrings()`](DOCUMENTATION.md#compareStrings), [`compareStringsFactory()`](DOCUMENTATION.md#compareStringsFactory), [`sort()`](DOCUMENTATION.md#sort-sortinplace), [`sortBy()`](DOCUMENTATION.md#sortby-sortbyinplace), [`sortByInplace()`](DOCUMENTATION.md#sortby-sortbyinplace), [`sortInplace()`](DOCUMENTATION.md#sort-sortinplace)

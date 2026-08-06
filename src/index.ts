@@ -37,6 +37,7 @@ export { getMomentFormat } from './getMomentFormat';
 export { getStatesOfUsa } from './getStatesOfUsa';
 export { getSystemLocaleName } from './getSystemLocaleName';
 export { getThousandsSeparator } from './getThousandsSeparator';
+export { getWeekendDays } from './getWeekendDays';
 export { isBrowserCompatible } from './isBrowserCompatible';
 export { isEuropeanUnionMember } from './isEuropeanUnionMember';
 export { isValidIso3166Code } from './isValidIso3166Code';

@@ -1,6 +1,16 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.21.0
+`2026-08-06`\
+\
+🚀 Features:
+- [`getWeekendDays()`](DOCUMENTATION.md#getWeekendDays) - a new function returning the weekend days for a locale as ISO weekday numbers (`1` = Monday … `7` = Sunday). Uses the native `Intl.Locale.prototype.getWeekInfo()` when available and falls back to a region-based mapping on older browsers.
+
+🔧 Internal:
+- The package is now explicitly ESM-only. Added `"type": "module"`, `"sideEffects": false` and an `"exports"` map to `package.json`. This enables reliable tree shaking (including `webpack`) and fixes native Node.js ESM resolution.
+- The `"exports"` map restricts resolution to the public entry point (`@dnvgl/i18n`). Deep imports such as `@dnvgl/i18n/lib/...` or `@dnvgl/i18n/internal/...` are no longer resolvable. This is not a breaking change - it only enforces the already-documented policy that only the root `@dnvgl/i18n` module is officially supported (see [`DOCUMENTATION.md`](DOCUMENTATION.md), section 1.1).
+
 ## v1.20.1
 `2026-07-28`\
 \

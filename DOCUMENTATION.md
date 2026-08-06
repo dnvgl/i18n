@@ -184,7 +184,7 @@ findIso4217CurrencyForIso3166Country("HRV", "2022-05-05"); // returns { alpha3Co
 ```
 
 ### formatCountry()
-Function returns translated currency name by `Iso3166Alpha2Code` (e.g. `"PL"`) or `Iso4217Alpha3Code` (e.g. `"POL"`) or `Iso4217NumericCode` (e.g. `616`) argument value.\
+Function returns translated country name by `Iso3166Alpha2Code` (e.g. `"PL"`) or `Iso3166Alpha3Code` (e.g. `"POL"`) or `Iso3166NumericCode` (e.g. `616`) argument value.\
 Not supported in Safari browser v14.0 (v14.1 and newer are supported) -> the function returns ISO country name (in english) instead.\
 When the country code is invalid then the same `string` is returned (for invalid numeric code empty string is returned).
 
@@ -421,6 +421,13 @@ formatString("some test {0}, ok?", "abc"); // returns "some test abc, ok?"
 formatString("some test {0} a {0} {1} {3} {2}", 1, "test", 5, 100); // returns "some test 1 a 1 test 100 5"
 ```
 
+### formatTime()
+```typescript
+import { formatTime } from '@dnvgl/i18n';
+
+formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
+```
+
 ### getCountryCodeFromBic()
 Returns valid `Iso3166Alpha2Code` (can be used in [`Country utils`](README.md#country-utils)) or `"XK"` ([`Wikipedia`](https://en.wikipedia.org/wiki/ISO_9362): *"SWIFT has assigned the code XK to Republic of Kosovo, which does not have an ISO 3166-1 country code"*) only when [`BIC structure (simplified rules)`](https://en.wikipedia.org/wiki/ISO_9362#Structure) is valid.
 
@@ -453,7 +460,7 @@ getCountryCodeFromIban("BE71 0961 2345 6769"); // returns undefined (whitespace 
 getCountryCodeFromIban("BE71 0961 2345 6769", { removeWhitespaces: true }); // returns "BE"
 getCountryCodeFromIban("be71096123456769"); // returns undefined (country code is not uppercase)
 getCountryCodeFromIban("XX71096123456769"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
-getCountryCodeFromIban("  BE71096123456769"); // returns returns undefined ("  " is not a valid country code)
+getCountryCodeFromIban("  BE71096123456769"); // returns undefined ("  " is not a valid country code)
 getCountryCodeFromIban("  BE71096123456769", { removeWhitespaces: true }); // returns "BE"
 getCountryCodeFromIban("BE", { validateStructure: false }); // returns "BE"
 getCountryCodeFromIban("BE...", { validateStructure: false }); // returns "BE"
@@ -467,13 +474,6 @@ getCurrencySymbol("USD", "en-US"); // returns "$"
 getCurrencySymbol(840, "en-US"); // returns "$" (where 840 is the USD numeric code)
 getCurrencySymbol({ currency: "CAD" }, "en-US"); // returns "CA$"
 getCurrencySymbol({ currency: "CAD", currencyDisplay: "narrowSymbol" }, "en-US"); // returns "$"
-```
-
-### formatTime()
-```typescript
-import { formatTime } from '@dnvgl/i18n';
-
-formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
 ```
 
 ### getDateFnsFormat()
@@ -593,6 +593,18 @@ getThousandsSeparator("en-GB"); // returns ","
 getThousandsSeparator("de"); // returns "."
 ```
 
+### getWeekendDays()
+Returns the weekend days for a locale as ISO weekday numbers (`1` = Monday … `7` = Sunday). Uses the native [`Intl.Locale.prototype.getWeekInfo()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getWeekInfo) when available, otherwise falls back to a region-based mapping.
+```typescript
+import { getWeekendDays } from '@dnvgl/i18n';
+
+getWeekendDays(); // returns [6, 7] (Sat, Sun), current locale: pl-PL (depends on client's machine)
+getWeekendDays("en-US"); // returns [6, 7]
+getWeekendDays("ar-EG"); // returns [5, 6] (Fri, Sat)
+getWeekendDays("fa-IR"); // returns [5] (Fri)
+getWeekendDays("en-IN"); // returns [7] (Sun)
+```
+
 ### isBrowserCompatible()
 Checks whether browser supports all necessary features. Based on browser features, not `userAgent`. In practice it returns `false` for all Internet Explorer versions, old Edge browser (12-18), Safari 13 and other old browsers. Example: https://caniuse.com/?search=Intl.RelativeTimeFormat
 
@@ -686,6 +698,21 @@ plural(["cat", "cats"], 10, "en"); // returns "cats"
 plural("pies|psy|psów", 10, "pl"); // returns "psów"
 ```
 
+### roundUsingBankersMethod()
+
+[`Round half to even`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) algorithm, also called bankers' rounding. Part of [`formatNumber()`](DOCUMENTATION.md#formatNumber) function when using `useBankersRounding` option.\
+Allowed `precision`: value >= 0 or `Infinity` (otherwise `RangeError` will be thrown). Decimal `precision` will be converted to integer (using `Math.trunc`).
+
+```typescript
+import { roundUsingBankersMethod } from '@dnvgl/i18n';
+
+roundUsingBankersMethod(1.35, 1); // returns 1.4
+roundUsingBankersMethod(1.45, 1); // returns 1.4
+roundUsingBankersMethod(1.55, 1); // returns 1.6
+roundUsingBankersMethod(23.5, 0); // returns 24
+roundUsingBankersMethod(24.5, 0); // returns 24
+```
+
 ### roundUsingHalfAwayFromZero()
 [`Round half away from zero`](https://en.wikipedia.org/wiki/Rounding#Round_half_away_from_zero) algorithm. The same algorithm is used by Intl default rounding implementation.\
 Allowed `precision`: value from 0 to 15 or `Infinity` (otherwise `RangeError` will be thrown). Decimal `precision` will be converted to integer (using `Math.trunc`).
@@ -713,21 +740,6 @@ Number(1.005.toFixed(2)); // (actual: 1, expected: 1.01)
 +1.005.toFixed(2); // (actual: 1, expected: 1.01)
 _.round(-1.005, 2); // lodash library uses "Round half up" algorithm that rounds negative numbers differently (result: -1)
 +(Math.round(1.19e-7 + "e+2")  + "e-2"); // (actual: NaN, expected: 0), also uses "Round half up" algorithm that rounds negative numbers differently
-```
-
-### roundUsingBankersMethod()
-
-[`Round half to even`](https://en.wikipedia.org/wiki/Rounding#Round_half_to_even) algorithm, also called bankers' rounding. Part of [`formatNumber()`](DOCUMENTATION.md#formatNumber) function when using `useBankersRounding` option.\
-Allowed `precision`: value >= 0 or `Infinity` (otherwise `RangeError` will be thrown). Decimal `precision` will be converted to integer (using `Math.trunc`).
-
-```typescript
-import { roundUsingBankersMethod } from '@dnvgl/i18n';
-
-roundUsingBankersMethod(1.35, 1); // returns 1.4
-roundUsingBankersMethod(1.45, 1); // returns 1.4
-roundUsingBankersMethod(1.55, 1); // returns 1.6
-roundUsingBankersMethod(23.5, 0); // returns 24
-roundUsingBankersMethod(24.5, 0); // returns 24
 ```
 
 ### sort(), sortInplace()
@@ -795,8 +807,26 @@ common mistakes:
 
 ### transformToInputNumericString()
 Useful when implementing custom input component which doesn't allow to type invalid characters (transformation can be done during onChange event).
+
+arguments:
+- value (`string`)
+- options (`object`, optional):
+  - negativeAllowed (boolean): default `true`; when `false` the minus sign is removed
+  - minAllowedValue (number): default `undefined`; clamps the value to the given minimum
+  - maxAllowedValue (number): default `undefined`; clamps the value to the given maximum
+  - fractionalPart (number): default `undefined`; maximum number of fractional digits
+  - forceFractionalPart (boolean): default `false`; pads the fractional part with zeros up to `fractionalPart` (requires `fractionalPart`)
+  - allowOnlyHalfs (boolean): default `false`; keeps only `.5` as the fractional part (requires `fractionalPart`)
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
+
 ```typescript
 import { transformToInputNumericString } from '@dnvgl/i18n';
 
-transformToInputNumericString("  $-102,234,567.89123 - ", "en-US"); // returns "-102234567.89123"
+transformToInputNumericString("  $-102,234,567.89123 - ", undefined, "en-US"); // returns "-102234567.89123"
+transformToInputNumericString("fg$%^  -102.234.567,89123 -", undefined, "de"); // returns "-102234567,89123"
+transformToInputNumericString("-100", { negativeAllowed: false }); // returns "100"
+transformToInputNumericString("140.123", { fractionalPart: 2 }, "en-US"); // returns "140.12"
+transformToInputNumericString("140.12", { fractionalPart: 5, forceFractionalPart: true }, "en-US"); // returns "140.12000"
+transformToInputNumericString("10", { maxAllowedValue: -10, fractionalPart: 2 }, "en-US"); // returns "-10"
+transformToInputNumericString("0.55", { allowOnlyHalfs: true, fractionalPart: 2 }, "en-US"); // returns "0.5"
 ```

@@ -1,9 +1,17 @@
 {
   "name": "@dnvgl/i18n",
-  "version": "1.20.1",
+  "version": "1.21.0",
   "description": "A set of functions to support multiple languages/cultures in a browser or Node.js",
+  "type": "module",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
   "files": [
     "lib/**/*"
   ],
@@ -33,7 +41,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@swc/core": "^1.15.46",
+    "@swc/core": "^1.15.47",
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.20.1",
@@ -49,5 +57,5 @@
       "built": true
     }
   },
-  "packageManager": "yarn@4.17.1"
+  "packageManager": "yarn@4.18.0"
 }
