@@ -1,4 +1,4 @@
-import { isEuropeanUnionMember } from "../src";
+import { isEuropeanUnionMember } from "../src/index.js";
 
 describe('isEuropeanUnionMember', () => {
   test.each([

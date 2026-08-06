@@ -1,4 +1,4 @@
-import { type DateFormatPrecision, formatDate } from "../src";
+import { type DateFormatPrecision, formatDate } from "../src/index.js";
 
 describe('formatDate', () => {
   test.each([

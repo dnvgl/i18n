@@ -1,5 +1,5 @@
-import { formatCountry } from "../src";
-import { iso3166Countries } from "../src/internal/iso3166Countries";
+import { formatCountry } from "../src/index.js";
+import { iso3166Countries } from "../src/internal/iso3166Countries.js";
 
 describe('formatCountry', () => {
   test.each([

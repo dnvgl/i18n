@@ -1,4 +1,4 @@
-import { plural, type PluralizationLang } from "../src";
+import { plural, type PluralizationLang } from "../src/index.js";
 
 describe('plural', () => {
   test.each([

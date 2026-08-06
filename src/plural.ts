@@ -1,5 +1,5 @@
-import { isInRange } from "./internal/isInRange";
-import type { PluralizationLang } from "./types/pluralizationLang";
+import { isInRange } from "./internal/isInRange.js";
+import type { PluralizationLang } from "./types/pluralizationLang.js";
 
 function germanAlike(n: number): number { 
   return n === 1 ? 0 : 1;

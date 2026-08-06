@@ -1,4 +1,4 @@
-import { formatString } from "../src";
+import { formatString } from "../src/index.js";
 
 describe('formatString', () => {
   it('creates string with params', () => {

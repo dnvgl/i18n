@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from "../src";
+import { capitalizeFirstLetter } from "../src/index.js";
 
 describe('capitalizeFirstLetter', () => {
   test.each([

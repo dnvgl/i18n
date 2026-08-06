@@ -1,5 +1,5 @@
-import { getWeekendDays } from "../src";
-import { getWeekendDaysByRegionInternal } from "../src/internal/getWeekendDaysByRegionInternal";
+import { getWeekendDays } from "../src/index.js";
+import { getWeekendDaysByRegionInternal } from "../src/internal/getWeekendDaysByRegionInternal.js";
 
 const supportsGetWeekInfo = typeof new Intl.Locale("en").getWeekInfo === "function";
 

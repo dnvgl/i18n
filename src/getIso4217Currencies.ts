@@ -1,7 +1,7 @@
-import { convertToDate } from "./internal/convertToDate";
-import { iso4217Currencies } from "./internal/iso4217Currencies";
-import type { DateIsoString } from "./types/dateIsoString";
-import type { Iso4217Currency } from "./types/iso4217";
+import { convertToDate } from "./internal/convertToDate.js";
+import { iso4217Currencies } from "./internal/iso4217Currencies.js";
+import type { DateIsoString } from "./types/dateIsoString.js";
+import type { Iso4217Currency } from "./types/iso4217.js";
 
 const _cache: Record<string, Iso4217Currency[]> = {};
 

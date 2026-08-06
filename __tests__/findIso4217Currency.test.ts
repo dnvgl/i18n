@@ -1,4 +1,4 @@
-import { findIso4217Currency } from "../src";
+import { findIso4217Currency } from "../src/index.js";
 
 describe('findIso4217Currency', () => {
   test.each([

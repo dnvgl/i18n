@@ -1,4 +1,4 @@
-import { getDecimalSeparator } from "../src";
+import { getDecimalSeparator } from "../src/index.js";
 
 describe('getDecimalSeparator', () => {
   test.each([

@@ -1,5 +1,5 @@
-import { formatCurrency } from "../src";
-import { iso4217Currencies } from "../src/internal/iso4217Currencies";
+import { formatCurrency } from "../src/index.js";
+import { iso4217Currencies } from "../src/internal/iso4217Currencies.js";
 
 describe('formatCurrency', () => {
   test.each([

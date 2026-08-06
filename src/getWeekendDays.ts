@@ -1,5 +1,5 @@
-import { getWeekendDaysByRegionInternal } from "./internal/getWeekendDaysByRegionInternal";
-import { resolveLocaleIntlObj } from "./internal/resolveLocaleIntlObj";
+import { getWeekendDaysByRegionInternal } from "./internal/getWeekendDaysByRegionInternal.js";
+import { resolveLocaleIntlObj } from "./internal/resolveLocaleIntlObj.js";
 
 export function getWeekendDays(locale?: Intl.UnicodeBCP47LocaleIdentifier | Intl.Locale): number[] {
   const localeInstance = resolveLocaleIntlObj(locale);

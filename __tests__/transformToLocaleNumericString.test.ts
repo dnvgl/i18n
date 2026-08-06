@@ -1,4 +1,4 @@
-import { transformToInputNumericString } from "../src";
+import { transformToInputNumericString } from "../src/index.js";
 
 describe('transformToLocaleNumericString', () => {
   test.each([

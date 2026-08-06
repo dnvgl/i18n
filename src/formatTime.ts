@@ -1,9 +1,9 @@
-import { convertToDate } from "./internal/convertToDate";
-import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
-import { resolveTimeFormatOptions } from "./internal/resolveTimeFormatOptions";
-import type { DateIsoString } from "./types/dateIsoString";
-import type { Locale } from "./types/locale";
-import type { TimeFormatPrecision } from "./types/timeFormatPrecision";
+import { convertToDate } from "./internal/convertToDate.js";
+import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj.js";
+import { resolveTimeFormatOptions } from "./internal/resolveTimeFormatOptions.js";
+import type { DateIsoString } from "./types/dateIsoString.js";
+import type { Locale } from "./types/locale.js";
+import type { TimeFormatPrecision } from "./types/timeFormatPrecision.js";
 
 export function formatTime(time: [number, number, number], timeFormatType?: TimeFormatPrecision, locale?: Locale): string;
 export function formatTime(value: Date | DateIsoString, timeFormatType?: TimeFormatPrecision, locale?: Locale): string;

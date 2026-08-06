@@ -1,4 +1,4 @@
-import type { StateOfUsa } from "../types/stateOfUsa";
+import type { StateOfUsa } from "../types/stateOfUsa.js";
 
 /** @internal */
 export const statesOfUsa: StateOfUsa[] = [

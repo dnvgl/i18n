@@ -1,4 +1,4 @@
-import type { Iso3166Country } from "../types/iso3166";
+import type { Iso3166Country } from "../types/iso3166.js";
 
 /** @internal */
 export const iso3166Countries: Iso3166Country[] = [

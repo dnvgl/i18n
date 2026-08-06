@@ -1,7 +1,7 @@
-import { sortByInplace } from "./sortByInplace";
-import type { LocaleOrCollator } from "./types/locale";
-import type { OptionalType } from "./types/optionalType";
-import type { SortOrder } from "./types/sortOrder";
+import { sortByInplace } from "./sortByInplace.js";
+import type { LocaleOrCollator } from "./types/locale.js";
+import type { OptionalType } from "./types/optionalType.js";
+import type { SortOrder } from "./types/sortOrder.js";
 
 export function sortInplace(source: OptionalType<string>[], order?: SortOrder, locale?: LocaleOrCollator): string[];
 export function sortInplace(source: OptionalType<number>[], order?: SortOrder, locale?: LocaleOrCollator): number[];

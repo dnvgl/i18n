@@ -1,4 +1,4 @@
-import { formatMoney } from "../src";
+import { formatMoney } from "../src/index.js";
 
 const noBreakSpace = String.fromCharCode(160);
 

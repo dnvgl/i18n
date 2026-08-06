@@ -1,4 +1,4 @@
-import { getSystemLocaleName } from "../src";
+import { getSystemLocaleName } from "../src/index.js";
 
 describe('getSystemLocaleName', () => {
   test.each([

@@ -1,6 +1,15 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.21.1
+`2026-08-06`\
+\
+🐛 Bug fixes:
+- Emit spec-compliant ESM. Relative import specifiers in the published output now include explicit `.js` extensions, fixing native Node.js and Vite ESM resolution that broke after the package became ESM-only in `1.21.0`. No public API changes.
+
+🔧 Internal:
+- Switched `module`/`moduleResolution` to `nodenext` so the compiler validates emitted module specifiers the way Node.js and browsers resolve them, preventing extensionless-import regressions. Source files use explicit `.js` extensions on relative imports.
+
 ## v1.21.0
 `2026-08-06`\
 \

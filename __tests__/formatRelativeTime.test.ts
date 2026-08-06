@@ -1,4 +1,4 @@
-import { formatRelativeTime, type Locale } from "../src";
+import { formatRelativeTime, type Locale } from "../src/index.js";
 
 describe('formatRelativeTime', () => {
   test.each([

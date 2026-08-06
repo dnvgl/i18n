@@ -1,5 +1,5 @@
-import { iso3166Countries } from "./internal/iso3166Countries";
-import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166";
+import { iso3166Countries } from "./internal/iso3166Countries.js";
+import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166.js";
 
 export function isValidIso3166Code(code: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode): boolean {
   return typeof code === "string"

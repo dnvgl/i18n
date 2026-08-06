@@ -1,4 +1,4 @@
-import { isValidIso3166Code } from "../src";
+import { isValidIso3166Code } from "../src/index.js";
 
 describe('isValidIso3166Code', () => {
   test.each([

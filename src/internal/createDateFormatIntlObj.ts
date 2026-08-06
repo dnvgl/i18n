@@ -1,4 +1,4 @@
-import type { Locale } from "../types/locale";
+import type { Locale } from "../types/locale.js";
 
 /** @internal */
 export function createDateFormatIntlObj(locale?: Locale, options?: Intl.DateTimeFormatOptions): Intl.DateTimeFormat {

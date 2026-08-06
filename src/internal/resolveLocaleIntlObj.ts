@@ -1,4 +1,4 @@
-import { getSystemLocaleName } from "../getSystemLocaleName";
+import { getSystemLocaleName } from "../getSystemLocaleName.js";
 
 /** @internal */
 export function resolveLocaleIntlObj(locale?: Intl.UnicodeBCP47LocaleIdentifier | Intl.Locale): Intl.Locale {

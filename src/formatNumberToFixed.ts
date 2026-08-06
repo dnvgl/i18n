@@ -1,7 +1,7 @@
-import { formatNumber } from "./formatNumber";
-import type { Locale } from "./types/locale";
-import type { NumberFormat } from "./types/numberFormat";
-import type { NumberFormatFixed } from "./types/numberFormatFixed";
+import { formatNumber } from "./formatNumber.js";
+import type { Locale } from "./types/locale.js";
+import type { NumberFormat } from "./types/numberFormat.js";
+import type { NumberFormatFixed } from "./types/numberFormatFixed.js";
 
 export function formatNumberToFixed(value: number, precision?: number, locale?: Locale): string
 export function formatNumberToFixed(value: number, options?: Partial<NumberFormatFixed>, locale?: Locale): string

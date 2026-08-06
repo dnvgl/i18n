@@ -1,4 +1,4 @@
-import { getCountryCodeFromIban } from "../src";
+import { getCountryCodeFromIban } from "../src/index.js";
 
 const nonBreakingSpace = String.fromCharCode(160),
   tab = String.fromCharCode(9);

@@ -1,6 +1,6 @@
-import { findIso4217Currency, findIso4217CurrencyForIso3166Country } from "../src";
-import { iso3166Countries } from "../src/internal/iso3166Countries";
-import { iso3166CountryToIso4217Currency } from "../src/internal/iso3166CountryToIso4217Currency";
+import { findIso4217Currency, findIso4217CurrencyForIso3166Country } from "../src/index.js";
+import { iso3166Countries } from "../src/internal/iso3166Countries.js";
+import { iso3166CountryToIso4217Currency } from "../src/internal/iso3166CountryToIso4217Currency.js";
 
 describe('findIso4217CurrencyForIso3166Country.', () => {
   test.each([

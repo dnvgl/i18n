@@ -1,7 +1,7 @@
-import { findIso3166Country } from "./findIso3166Country";
-import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase";
-import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166";
-import type { Locale } from "./types/locale";
+import { findIso3166Country } from "./findIso3166Country.js";
+import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase.js";
+import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166.js";
+import type { Locale } from "./types/locale.js";
 
 let intlDisplayNamesCache: Intl.DisplayNames | null = null,
   cachedLocale: Locale | undefined = undefined;

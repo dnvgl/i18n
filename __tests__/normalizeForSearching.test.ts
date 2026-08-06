@@ -1,4 +1,4 @@
-import { normalizeForSearching } from "../src";
+import { normalizeForSearching } from "../src/index.js";
 
 describe('normalizeForSearching', () => {
   test.each([

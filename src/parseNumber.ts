@@ -1,9 +1,9 @@
-import { getDecimalSeparator } from "./getDecimalSeparator";
-import { getMinusSign } from "./getMinusSign";
-import { getThousandsSeparator } from "./getThousandsSeparator";
-import { isEmptyOrWhiteSpace } from "./internal/isEmptyOrWhiteSpace";
-import { replaceAll } from "./internal/replaceAll";
-import type { Locale } from "./types/locale";
+import { getDecimalSeparator } from "./getDecimalSeparator.js";
+import { getMinusSign } from "./getMinusSign.js";
+import { getThousandsSeparator } from "./getThousandsSeparator.js";
+import { isEmptyOrWhiteSpace } from "./internal/isEmptyOrWhiteSpace.js";
+import { replaceAll } from "./internal/replaceAll.js";
+import type { Locale } from "./types/locale.js";
 
 export function parseNumber(value: string, strictMode: boolean = false, locale?: Locale): number | undefined {
   const decimalSeparator = getDecimalSeparator(locale),

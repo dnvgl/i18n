@@ -1,5 +1,5 @@
-import { iso4217Currencies } from "./internal/iso4217Currencies";
-import type { Iso4217Alpha3Code, Iso4217Currency, Iso4217NumericCode } from "./types/iso4217";
+import { iso4217Currencies } from "./internal/iso4217Currencies.js";
+import type { Iso4217Alpha3Code, Iso4217Currency, Iso4217NumericCode } from "./types/iso4217.js";
 
 export function findIso4217Currency(code: Iso4217Alpha3Code | Iso4217NumericCode): Iso4217Currency | undefined {
   if (code === 532) {

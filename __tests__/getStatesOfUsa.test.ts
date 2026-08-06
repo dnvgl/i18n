@@ -1,4 +1,4 @@
-import { getStatesOfUsa } from "../src";
+import { getStatesOfUsa } from "../src/index.js";
 
 describe('getStatesOfUsa', () => {
   test('check the list', () => {

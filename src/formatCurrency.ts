@@ -1,7 +1,7 @@
-import type { Locale } from "./types/locale";
-import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
-import { findIso4217Currency } from "./findIso4217Currency";
-import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase";
+import type { Locale } from "./types/locale.js";
+import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217.js";
+import { findIso4217Currency } from "./findIso4217Currency.js";
+import { isCharAtoZUppercase } from "./internal/isCharAtoZUppercase.js";
 
 let intlDisplayNamesCache: Intl.DisplayNames | null = null,
   cachedLocale: Locale | undefined = undefined;

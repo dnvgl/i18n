@@ -1,4 +1,4 @@
-import type { OptionalType } from "./optionalType";
+import type { OptionalType } from "./optionalType.js";
 
 export type SortDataType = 
   OptionalType<string> 

@@ -45,7 +45,10 @@ const numberFormattedInLocalCulture = formatNumber(12486.4529); // returns "12 4
 ```
 
 #### Module system
-Library supports `esm` modules tree shaking by default.
+The library ships as spec-compliant, pure ESM: relative imports use explicit `.js` specifiers, so it resolves natively in the browser (`<script type="module">`), Node.js, and every major bundler (Vite, webpack, Rollup, esbuild) — no extra configuration required. Tree shaking works out of the box (`"sideEffects": false`), so only the functions you actually import end up in your bundle.
+
+#### Server-side rendering (SSR)
+The library is fully isomorphic and side-effect free, so it is safe to use in server-side rendered apps (Next.js, Remix, SvelteKit, Nuxt, Astro, etc.). It relies solely on the standard `Intl` API and ships no browser-only globals (`window`, `navigator`), so the exact same code runs on the server and the client without guards.
 
 #### TypeScript
 Library provides a built-in ts definition.

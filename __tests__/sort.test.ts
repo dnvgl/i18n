@@ -1,4 +1,4 @@
-import { sort, type SortOrder } from "../src";
+import { sort, type SortOrder } from "../src/index.js";
 
 describe('sort', () => {
   test('returns new array instance', () => {

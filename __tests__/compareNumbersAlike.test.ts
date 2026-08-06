@@ -1,4 +1,4 @@
-import { compareNumbersAlike } from "../src";
+import { compareNumbersAlike } from "../src/index.js";
 
 describe('compareNumbersAlike', () => {
   test.each([

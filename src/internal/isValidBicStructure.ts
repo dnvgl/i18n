@@ -1,5 +1,5 @@
-import { isCharAtoZUppercase } from "./isCharAtoZUppercase";
-import { isCharDigit } from "./isCharDigit";
+import { isCharAtoZUppercase } from "./isCharAtoZUppercase.js";
+import { isCharDigit } from "./isCharDigit.js";
 
 /** @internal */
 export function isValidBicStructure(bic: string): boolean {

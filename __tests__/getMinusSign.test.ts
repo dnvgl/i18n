@@ -1,4 +1,4 @@
-import { getMinusSign } from "../src";
+import { getMinusSign } from "../src/index.js";
 
 describe('getMinusSign', () => {
   test.each([

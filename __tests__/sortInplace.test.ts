@@ -1,4 +1,4 @@
-import { type OptionalType, sortInplace, type SortOrder } from "../src";
+import { type OptionalType, sortInplace, type SortOrder } from "../src/index.js";
 
 describe('sortInplace', () => {
   test('returns the same array intance', () => {

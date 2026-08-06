@@ -1,5 +1,5 @@
-import { convertToDate } from "./internal/convertToDate";
-import type { DateIsoString } from "./types/dateIsoString";
+import { convertToDate } from "./internal/convertToDate.js";
+import type { DateIsoString } from "./types/dateIsoString.js";
 
 export function formatDateToISO(value: Date | DateIsoString, includeTime: boolean = false): DateIsoString {
   const isoString = convertToDate(value).toISOString();

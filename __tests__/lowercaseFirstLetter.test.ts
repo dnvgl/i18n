@@ -1,4 +1,4 @@
-import { lowercaseFirstLetter } from "../src";
+import { lowercaseFirstLetter } from "../src/index.js";
 
 describe('lowercaseFirstLetter', () => {
   test.each([

@@ -1,4 +1,4 @@
-import { parseNumber } from "../src";
+import { parseNumber } from "../src/index.js";
 
 const nonBreakingSpace = String.fromCharCode(160);
 const RegularWhitespace = String.fromCharCode(32);

@@ -1,8 +1,8 @@
-import { findIso4217Currency } from "./findIso4217Currency";
-import { createNumberFormatIntlObj } from "./internal/createNumberFormatIntlObj";
-import type { Locale } from "./types/locale";
-import type { NumberFormat } from "./types/numberFormat";
-import type { NumberFormatIntl } from "./types/numberFormatIntl";
+import { findIso4217Currency } from "./findIso4217Currency.js";
+import { createNumberFormatIntlObj } from "./internal/createNumberFormatIntlObj.js";
+import type { Locale } from "./types/locale.js";
+import type { NumberFormat } from "./types/numberFormat.js";
+import type { NumberFormatIntl } from "./types/numberFormatIntl.js";
 
 export function createNumberFormat(options?: Partial<NumberFormat>, locale?: Locale): NumberFormatIntl {
   return {

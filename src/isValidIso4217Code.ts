@@ -1,5 +1,5 @@
-import { iso4217Currencies } from "./internal/iso4217Currencies";
-import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217";
+import { iso4217Currencies } from "./internal/iso4217Currencies.js";
+import type { Iso4217Alpha3Code, Iso4217NumericCode } from "./types/iso4217.js";
 
 export function isValidIso4217Code(code: Iso4217Alpha3Code | Iso4217NumericCode): boolean {
   return typeof code === "string"

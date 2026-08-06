@@ -1,4 +1,4 @@
-import type { DatePart } from "../types/datePart";
+import type { DatePart } from "../types/datePart.js";
 
 const yearFormat: Intl.DateTimeFormatOptions = { year: 'numeric' },
   monthFormat: Intl.DateTimeFormatOptions = { month: 'numeric' },

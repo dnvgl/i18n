@@ -1,4 +1,4 @@
-import { roundUsingHalfAwayFromZero } from "../src";
+import { roundUsingHalfAwayFromZero } from "../src/index.js";
 
 describe('roundUsingHalfAwayFromZero', () => {
   test.each([

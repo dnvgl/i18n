@@ -1,7 +1,7 @@
-import { resolveDateTimeFormatOptions } from "./internal/resolveDateTimeFormatOptions";
-import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj";
-import type { Locale } from "./types/locale";
-import type { DateFormatPrecision } from "./types/dateFormatPrecision";
+import { resolveDateTimeFormatOptions } from "./internal/resolveDateTimeFormatOptions.js";
+import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj.js";
+import type { Locale } from "./types/locale.js";
+import type { DateFormatPrecision } from "./types/dateFormatPrecision.js";
 
 const dateForParts = new Date(2020, 5, 5, 5, 5, 5); // HINT: carefully selected date (segments smaller than 10)
 

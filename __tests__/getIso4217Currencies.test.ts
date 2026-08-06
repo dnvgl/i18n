@@ -1,5 +1,5 @@
-import { getIso4217Currencies } from "../src";
-import { iso4217Currencies } from "../src/internal/iso4217Currencies";
+import { getIso4217Currencies } from "../src/index.js";
+import { iso4217Currencies } from "../src/internal/iso4217Currencies.js";
 
 const isArrayUnique = (arr: any[]) => Array.isArray(arr) 
   && new Set(arr).size === arr.length;

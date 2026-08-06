@@ -1,4 +1,4 @@
-import { sortByInplace } from "../src";
+import { sortByInplace } from "../src/index.js";
 
 describe("sortByInplace", () => {
   describe("given an array of people", () => {

@@ -1,4 +1,4 @@
-import { getThousandsSeparator } from "../src";
+import { getThousandsSeparator } from "../src/index.js";
 
 const noBreakSpace = String.fromCharCode(160);
 

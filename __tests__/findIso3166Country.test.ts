@@ -1,4 +1,4 @@
-import { findIso3166Country } from "../src";
+import { findIso3166Country } from "../src/index.js";
 
 describe('findIso3166Country', () => {
   test.each([

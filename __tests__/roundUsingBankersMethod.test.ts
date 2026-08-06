@@ -1,4 +1,4 @@
-import { roundUsingBankersMethod } from "../src";
+import { roundUsingBankersMethod } from "../src/index.js";
 
 describe('roundUsingBankersMethod', () => {
   // HINT: the same output as in .NET framework

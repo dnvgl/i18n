@@ -1,4 +1,4 @@
-import { type DateFormatPrecision, getDateFnsFormat } from "../src";
+import { type DateFormatPrecision, getDateFnsFormat } from "../src/index.js";
 
 const thinSpace = String.fromCharCode(0x2009);
 

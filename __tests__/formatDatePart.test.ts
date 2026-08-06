@@ -1,4 +1,4 @@
-import { type DatePart, formatDatePart } from "../src";
+import { type DatePart, formatDatePart } from "../src/index.js";
 
 describe('formatDatePart', () => {
   test.each([

@@ -1,5 +1,5 @@
-import { getIso3166Countries, type Iso3166Country } from "../src";
-import { iso3166Countries } from "../src/internal/iso3166Countries";
+import { getIso3166Countries, type Iso3166Country } from "../src/index.js";
+import { iso3166Countries } from "../src/internal/iso3166Countries.js";
 
 const isArrayUnique = (arr: any[]) => Array.isArray(arr) 
   && new Set(arr).size === arr.length;

@@ -1,4 +1,4 @@
-import { escapeRegExp } from "./escapeRegExp";
+import { escapeRegExp } from "./escapeRegExp.js";
 
 /** @internal */
 export function replaceAll(value: string, searchValue: string, replaceValue: string): string {

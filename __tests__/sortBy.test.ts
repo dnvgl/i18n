@@ -1,4 +1,4 @@
-import { sortBy } from "../src";
+import { sortBy } from "../src/index.js";
 
 describe("sortBy", () => {
   describe("given an array of people", () => {

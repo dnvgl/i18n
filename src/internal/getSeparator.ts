@@ -1,5 +1,5 @@
-import { createNumberFormatIntlObj } from "./createNumberFormatIntlObj";
-import type { Locale } from "../types/locale";
+import { createNumberFormatIntlObj } from "./createNumberFormatIntlObj.js";
+import type { Locale } from "../types/locale.js";
 
 /** @internal */
 export function getSeparator(value: number, separatorType: Intl.NumberFormatPartTypes, options?: Intl.NumberFormatOptions, locale?: Locale): string {

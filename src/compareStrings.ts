@@ -1,7 +1,7 @@
-import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes";
-import { resolveCollatorLocale } from "./internal/resolveCollatorLocale";
-import type { LocaleOrCollator } from "./types/locale";
-import type { OptionalType } from "./types/optionalType";
+import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes.js";
+import { resolveCollatorLocale } from "./internal/resolveCollatorLocale.js";
+import type { LocaleOrCollator } from "./types/locale.js";
+import type { OptionalType } from "./types/optionalType.js";
 
 export function compareStrings(a: OptionalType<string>, b: OptionalType<string>, locale?: LocaleOrCollator): number {
   const notDefinedComparisonResult = compareNotDefinedTypes(a, b);

@@ -1,5 +1,5 @@
-import type { Iso3166Alpha3Code } from "../types/iso3166";
-import type { Iso4217Alpha3Code } from "../types/iso4217";
+import type { Iso3166Alpha3Code } from "../types/iso3166.js";
+import type { Iso4217Alpha3Code } from "../types/iso4217.js";
 
 /** @internal */
 export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code | undefined | ((d: Date) => Iso4217Alpha3Code);

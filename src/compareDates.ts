@@ -1,8 +1,8 @@
-import { compareNumbersAlike } from "./compareNumbersAlike";
-import type { OptionalType } from "./types/optionalType";
-import type { DateIsoString } from "./types/dateIsoString";
-import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes";
-import { convertToDate } from "./internal/convertToDate";
+import { compareNumbersAlike } from "./compareNumbersAlike.js";
+import type { OptionalType } from "./types/optionalType.js";
+import type { DateIsoString } from "./types/dateIsoString.js";
+import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes.js";
+import { convertToDate } from "./internal/convertToDate.js";
 
 export function compareDates(a: OptionalType<DateIsoString>, b: OptionalType<DateIsoString>): number;
 export function compareDates(a: OptionalType<Date>, b: OptionalType<Date>): number;

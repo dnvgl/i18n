@@ -1,4 +1,4 @@
-import { formatInteger } from "../src";
+import { formatInteger } from "../src/index.js";
 
 describe('formatInteger', () => {
   test.each([

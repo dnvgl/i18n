@@ -1,4 +1,4 @@
-import { formatIban } from "../src";
+import { formatIban } from "../src/index.js";
 
 const nonBreakingSpace = String.fromCharCode(160);
 

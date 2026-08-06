@@ -1,10 +1,10 @@
-import { convertToDate } from "./internal/convertToDate";
-import { iso3166Countries } from "./internal/iso3166Countries";
-import { iso3166CountryToIso4217Currency } from "./internal/iso3166CountryToIso4217Currency";
-import { iso4217Currencies } from "./internal/iso4217Currencies";
-import type { DateIsoString } from "./types/dateIsoString";
-import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166";
-import type { Iso4217Currency } from "./types/iso4217";
+import { convertToDate } from "./internal/convertToDate.js";
+import { iso3166Countries } from "./internal/iso3166Countries.js";
+import { iso3166CountryToIso4217Currency } from "./internal/iso3166CountryToIso4217Currency.js";
+import { iso4217Currencies } from "./internal/iso4217Currencies.js";
+import type { DateIsoString } from "./types/dateIsoString.js";
+import type { Iso3166Alpha2Code, Iso3166Alpha3Code, Iso3166NumericCode } from "./types/iso3166.js";
+import type { Iso4217Currency } from "./types/iso4217.js";
 
 export function findIso4217CurrencyForIso3166Country(
   code: Iso3166Alpha2Code | Iso3166Alpha3Code | Iso3166NumericCode,

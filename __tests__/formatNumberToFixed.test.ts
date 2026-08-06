@@ -1,4 +1,4 @@
-import { formatNumberToFixed } from "../src";
+import { formatNumberToFixed } from "../src/index.js";
 
 describe('formatNumberToFixed', () => {
   test.each([

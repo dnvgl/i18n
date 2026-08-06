@@ -1,4 +1,4 @@
-import { createNumberFormat, formatNumber } from "../src";
+import { createNumberFormat, formatNumber } from "../src/index.js";
 
 const noBreakSpace = String.fromCharCode(160);
 

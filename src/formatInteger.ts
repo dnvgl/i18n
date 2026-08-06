@@ -1,6 +1,6 @@
-import { formatNumberToFixed } from "./formatNumberToFixed";
-import type { Locale } from "./types/locale";
-import type { NumberFormatFixed } from "./types/numberFormatFixed";
+import { formatNumberToFixed } from "./formatNumberToFixed.js";
+import type { Locale } from "./types/locale.js";
+import type { NumberFormatFixed } from "./types/numberFormatFixed.js";
 
 const defaultOptions: Partial<NumberFormatFixed> = { precision: 0 };
 

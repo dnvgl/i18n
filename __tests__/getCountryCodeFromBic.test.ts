@@ -1,4 +1,4 @@
-import { getCountryCodeFromBic } from "../src";
+import { getCountryCodeFromBic } from "../src/index.js";
 
 describe('getCountryCodeFromBic', () => {
   test.each([

@@ -1,4 +1,4 @@
-import { compareDates } from "../src";
+import { compareDates } from "../src/index.js";
 
 describe('compareDates', () => {
   test.each([

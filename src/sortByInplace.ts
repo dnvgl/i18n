@@ -1,10 +1,10 @@
-import { compareNumbersAlike } from "./compareNumbersAlike";
-import { compareStrings } from "./compareStrings";
-import { resolveCollatorLocale } from "./internal/resolveCollatorLocale";
-import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes";
-import type { LocaleOrCollator } from "./types/locale";
-import type { SortSelector } from "./types/sortSelector";
-import type { SortOrder } from "./types/sortOrder";
+import { compareNumbersAlike } from "./compareNumbersAlike.js";
+import { compareStrings } from "./compareStrings.js";
+import { resolveCollatorLocale } from "./internal/resolveCollatorLocale.js";
+import { compareNotDefinedTypes } from "./internal/compareNotDefinedTypes.js";
+import type { LocaleOrCollator } from "./types/locale.js";
+import type { SortSelector } from "./types/sortSelector.js";
+import type { SortOrder } from "./types/sortOrder.js";
 
 export function sortByInplace<T>(source: T[], selector: SortSelector<T>, order?: SortOrder, locale?: LocaleOrCollator): T[]
 export function sortByInplace<T>(source: T[], selectors: SortSelector<T>[], order?: SortOrder | SortOrder[], locale?: LocaleOrCollator): T[]

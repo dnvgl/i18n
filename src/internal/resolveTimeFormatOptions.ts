@@ -1,4 +1,4 @@
-import type { TimeFormatPrecision } from "../types/timeFormatPrecision";
+import type { TimeFormatPrecision } from "../types/timeFormatPrecision.js";
 
 const minutesFormat: Intl.DateTimeFormatOptions = { hour: 'numeric', minute: 'numeric' };
 const secondsFormat: Intl.DateTimeFormatOptions = { ...minutesFormat, second: 'numeric' };

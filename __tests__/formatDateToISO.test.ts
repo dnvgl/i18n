@@ -1,4 +1,4 @@
-import { formatDateToISO } from "../src";
+import { formatDateToISO } from "../src/index.js";
 
 describe('formatDateToISO', () => {
   test.each([
