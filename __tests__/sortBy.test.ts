@@ -45,6 +45,34 @@ describe("sortBy", () => {
     });
   });
 
+  describe("given a selector returning null and undefined values", () => {
+    const records: { id: number, value: number | null | undefined }[] = [
+      { id: 1, value: 2 },
+      { id: 2, value: null },
+      { id: 3, value: 1 },
+      { id: 4, value: undefined },
+    ];
+
+    it.each([
+      ["asc" as const, [4, 2, 3, 1]],
+      ["desc" as const, [1, 3, 2, 4]],
+    ])("treats null and undefined the same way as sortInplace with %p order", (order, expected) => {
+      const result = sortBy(records, (x) => x.value, order);
+      expect(result.map((x) => x.id)).toEqual(expected);
+    });
+
+    it("orders undefined before null when every selected value is nullish", () => {
+      const nullish = [
+        { id: 1, value: null },
+        { id: 2, value: undefined },
+        { id: 3, value: null },
+      ];
+
+      const result = sortBy(nullish, (x) => x.value);
+      expect(result.map((x) => x.id)).toEqual([2, 1, 3]);
+    });
+  });
+
   describe("given invalid parameters", () => {
     it("fails to compile", () => {
       // @ts-expect-error

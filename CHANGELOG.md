@@ -1,6 +1,17 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.21.2
+`2026-08-17`\
+\
+🐛 Bug fixes:
+- [`sortBy()`](DOCUMENTATION.md#sortBy), [`sortByInplace()`](DOCUMENTATION.md#sortByInplace) - elements ended up in an unpredictable order when the selector returned `null` or `undefined`. Such values now follow the documented order (`undefined` < `null` < value), the same as in [`sort()`](DOCUMENTATION.md#sort)/[`sortInplace()`](DOCUMENTATION.md#sortInplace). Only the value returned by the selector was affected - when the compared element itself was `null` or `undefined` the order was already correct, so [`sort()`](DOCUMENTATION.md#sort) and [`sortInplace()`](DOCUMENTATION.md#sortInplace) never suffered from this issue.
+```typescript
+const records = [{ id: 1, value: 2 }, { id: 2, value: null }, { id: 3, value: 1 }, { id: 4, value: undefined }];
+
+sortBy(records, x => x.value).map(x => x.id); // returns [4, 2, 3, 1] (before: [2, 4, 3, 1])
+```
+
 ## v1.21.1
 `2026-08-06`\
 \

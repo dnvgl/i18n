@@ -1,6 +1,6 @@
 import { transformToInputNumericString } from "../src/index.js";
 
-describe('transformToLocaleNumericString', () => {
+describe('transformToInputNumericString', () => {
   test.each([
     ["  $-102,234,567.89123 - ", "en-US", "-102234567.89123"],
     ["fg$%^  -102.234.567,89123 -", "de", "-102234567,89123"],

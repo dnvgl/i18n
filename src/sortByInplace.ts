@@ -46,7 +46,7 @@ export function sortByInplace<T>(source: T[], selectors: SortSelector<T> | SortS
       typeofSource = aValue ?? bValue;
 
     if (typeofSource == null) {
-      return compareNotDefinedTypes(a, b)!;
+      return compareNotDefinedTypes(aValue, bValue)!;
     }
     
     if (typeof typeofSource === "string") {

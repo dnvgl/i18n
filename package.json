@@ -1,6 +1,6 @@
 {
   "name": "@dnvgl/i18n",
-  "version": "1.21.1",
+  "version": "1.21.2",
   "description": "A set of functions to support multiple languages/cultures in a browser or Node.js",
   "type": "module",
   "main": "./lib/index.js",
