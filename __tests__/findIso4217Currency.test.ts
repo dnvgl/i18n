@@ -28,4 +28,21 @@ describe('findIso4217Currency', () => {
       minorUnit: 2
     });
   });
+
+  test('warns only once about numeric code that has two currencies', () => {
+    const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+
+    try {
+      jest.isolateModules(() => {
+        const { findIso4217Currency: find } = require("../src/findIso4217Currency.js");
+        find(532);
+        find(532);
+        find(532);
+      });
+
+      expect(warn).toHaveBeenCalledTimes(1);
+    } finally {
+      warn.mockRestore();
+    }
+  });
 });

@@ -11,8 +11,8 @@ describe('getDateFnsFormat', () => {
     ["de", "seconds", "d'.'M'.'yyyy', 'HH':'mm':'ss"],
     ["de", "minutes", "d'.'M'.'yyyy', 'HH':'mm"],
     ["en-US", "days", "M'/'d'/'yyyy"],
-    ["en-US", "seconds", "M'/'d'/'yyyy', 'h':'mm':'ss' 'a"],
-    ["en-US", "minutes", "M'/'d'/'yyyy', 'h':'mm' 'a"],
+    ["en-US", "seconds", "M'/'d'/'yyyy', 'h':'mm':'ss' 'a"],
+    ["en-US", "minutes", "M'/'d'/'yyyy', 'h':'mm' 'a"],
     ["en-GB", "days", "dd'/'MM'/'yyyy"],
     ["en-GB", "seconds", "dd'/'MM'/'yyyy', 'HH':'mm':'ss"],
     ["en-GB", "minutes", "dd'/'MM'/'yyyy', 'HH':'mm"],
@@ -23,7 +23,7 @@ describe('getDateFnsFormat', () => {
     ["zh-HK", "seconds", `d'/'M'/'yyyy'${thinSpace}'ah':'mm':'ss`],
     ["zh-HK", "minutes", `d'/'M'/'yyyy'${thinSpace}'ah':'mm`],
     ["fr-CA", "seconds", "yyyy'-'MM'-'dd' 'HH' h 'mm' min 'ss' s'"],
-    ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'a"],
+    ["en-AU", "seconds", "dd'/'MM'/'yyyy', 'h':'mm':'ss' 'a"],
     ["ar-sa", "seconds", "d'‏/'M'‏/'yyyy'، 'h':'mm':'ss' 'a"]
   ];
 

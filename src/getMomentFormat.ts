@@ -20,7 +20,7 @@ export function getMomentFormat(precision: DateFormatPrecision = "days", locale?
         case "minute": return x.value.length === 1 ? "m" : "mm";
         case "second": return x.value.length === 1 ? "s" : "ss";
         case "dayPeriod": return "A";
-        case "literal": return `[${x.value}]`; // HINT: escaping
+        case "literal": return `[${x.value.replace(/[\u00a0\u202f]/g, " ")}]`; // HINT: escaping; no-break spaces would not match typed (parsed) input
         case "era": return ''; // HINT: not supported in moment.js
         case "timeZoneName": return 'Z';
         case "weekday": return "ddd";

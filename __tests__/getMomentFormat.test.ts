@@ -11,8 +11,8 @@ describe('getMomentFormat', () => {
     ["de", "seconds", "D[.]M[.]YYYY[, ]HH[:]mm[:]ss"],
     ["de", "minutes", "D[.]M[.]YYYY[, ]HH[:]mm"],
     ["en-US", "days", "M[/]D[/]YYYY"],
-    ["en-US", "seconds", "M[/]D[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
-    ["en-US", "minutes", "M[/]D[/]YYYY[, ]h[:]mm[ ]A"],
+    ["en-US", "seconds", "M[/]D[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
+    ["en-US", "minutes", "M[/]D[/]YYYY[, ]h[:]mm[ ]A"],
     ["en-GB", "days", "DD[/]MM[/]YYYY"],
     ["en-GB", "seconds", "DD[/]MM[/]YYYY[, ]HH[:]mm[:]ss"],
     ["en-GB", "minutes", "DD[/]MM[/]YYYY[, ]HH[:]mm"],
@@ -23,7 +23,7 @@ describe('getMomentFormat', () => {
     ["zh-HK", "seconds", `D[/]M[/]YYYY[${thinSpace}]Ah[:]mm[:]ss`],
     ["zh-HK", "minutes", `D[/]M[/]YYYY[${thinSpace}]Ah[:]mm`],
     ["fr-CA", "seconds", "YYYY[-]MM[-]DD[ ]HH[ h ]mm[ min ]ss[ s]"],
-    ["en-AU", "seconds", "DD[/]MM[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
+    ["en-AU", "seconds", "DD[/]MM[/]YYYY[, ]h[:]mm[:]ss[ ]A"],
     ["ar-sa", "seconds", "D[‏/]M[‏/]YYYY[، ]h[:]mm[:]ss[ ]A"]
   ];
 

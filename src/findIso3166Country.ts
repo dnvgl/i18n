@@ -9,5 +9,6 @@ export function findIso3166Country(code: Iso3166Alpha2Code | Iso3166Alpha3Code |
         : x => x.alpha3Code === code
       : x => x.numericCode === code;
 
+  // HINT: intentionally the shared object from the internal list (same instance as in getIso3166Countries()); callers must not mutate it
   return iso3166Countries.find(predicate);
 }

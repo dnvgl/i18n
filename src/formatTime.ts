@@ -1,4 +1,4 @@
-import { convertToDate } from "./internal/convertToDate.js";
+import { convertToLocalDate } from "./internal/convertToLocalDate.js";
 import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj.js";
 import { resolveTimeFormatOptions } from "./internal/resolveTimeFormatOptions.js";
 import type { DateIsoString } from "./types/dateIsoString.js";
@@ -10,7 +10,7 @@ export function formatTime(value: Date | DateIsoString, timeFormatType?: TimeFor
 export function formatTime(x: Date | DateIsoString | [number, number, number], timeFormatType: TimeFormatPrecision = "seconds", locale?: Locale): string {
   const date = Array.isArray(x)
     ? new Date(1, 1, 1, x[0] ?? 0, x[1] ?? 0, x[2] ?? 0)
-    : convertToDate(x);
+    : convertToLocalDate(x);
 
   return createDateFormatIntlObj(locale, resolveTimeFormatOptions(timeFormatType)).format(date);
 }

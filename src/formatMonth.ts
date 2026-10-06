@@ -1,4 +1,4 @@
-import { convertToDate } from "./internal/convertToDate.js";
+import { convertToLocalDate } from "./internal/convertToLocalDate.js";
 import { createDateFormatIntlObj } from "./internal/createDateFormatIntlObj.js";
 import type { DateIsoString } from "./types/dateIsoString.js";
 import type { Locale } from "./types/locale.js";
@@ -9,7 +9,7 @@ export function formatMonth(date: Date | DateIsoString, monthFormat: MonthFormat
 export function formatMonth(value: Date | DateIsoString | number, monthFormat: MonthFormat, locale?: Locale): string {
   const date = typeof value === "number"
     ? new Date(2020, value, 1)
-    : convertToDate(value);
+    : convertToLocalDate(value);
 
   return createDateFormatIntlObj(locale, { month: monthFormat }).format(date);
 }

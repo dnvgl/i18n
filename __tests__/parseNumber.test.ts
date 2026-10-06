@@ -58,7 +58,25 @@ describe('parseNumber', () => {
     ["123,456,789,123,457,000", true, "en-GB", 123456789123457000],
     [`-10`, true, "lt-LT", -10],
     [`−10`, true, "lt-LT", -10],
-    [`10٫1`, true, "ar-SA", 10.1]
+    [`10٫1`, true, "ar-SA", 10.1],
+    ["0x10", false, "en-GB", 0],
+    ["0x10", true, "en-GB", undefined],
+    ["0X10", true, "en-GB", undefined],
+    ["0b101", false, "en-GB", 0],
+    ["0b101", true, "en-GB", undefined],
+    ["0o17", false, "en-GB", 0],
+    ["0o17", true, "en-GB", undefined],
+    ["-0x10", true, "en-GB", undefined],
+    ["e3", true, "en-GB", undefined],
+    ["1e", true, "en-GB", undefined],
+    [".", true, "en-GB", undefined],
+    ["+", true, "en-GB", undefined],
+    ["1E3", true, "en-GB", 1000],
+    [`${nonBreakingSpace}12${nonBreakingSpace}`, true, "en-GB", 12],
+    [`1${nonBreakingSpace}000,5`, false, "fr-FR", 1000.5],
+    [`1${nonBreakingSpace}000,5`, true, "fr-FR", 1000.5],
+    [`1\u202f000,5`, true, "pl-PL", 1000.5],
+    [`1\t000`, true, "en-GB", 1000]
   ])('parse %p using strict mode (%p) with specific locale %p', (value, mode, locale, expected) => {
     const result = parseNumber(value, mode, locale);
     expect(result).toBe(expected);

@@ -1,3 +1,4 @@
+import { formatNumber } from "./formatNumber.js";
 import { getDecimalSeparator } from "./getDecimalSeparator.js";
 import { getMinusSign } from "./getMinusSign.js";
 import { headAndTail } from "./internal/headAndTail.js";
@@ -43,7 +44,7 @@ export function transformToInputNumericString(text: string, options?: Transforma
   }
 
   if (options?.maxAllowedValue !== undefined || options?.minAllowedValue !== undefined) {
-    const parsedNumber = parseFloat(`${signPart}${integerPart}.${fractionalPart}`);
+    const parsedNumber = parseFloat(`${signPart ? nativeMinusSign : ''}${integerPart}.${fractionalPart}`);
 
     if (!Number.isNaN(parsedNumber)) {
       const targetValue = (parsedNumber > (options.maxAllowedValue ?? parsedNumber))
@@ -53,9 +54,10 @@ export function transformToInputNumericString(text: string, options?: Transforma
           : parsedNumber;
 
       if (parsedNumber !== targetValue) {
-        const parts = targetValue.toString().split('.');
-        signPart = parts[0].charAt(0) === minusSign ? minusSign : '';
-        integerPart = parts[0].replace(minusSign, '');
+        // HINT: "en-US" keeps 0-9 digits and "."; toString() would produce exponential notation (1e-7, 1e+21)
+        const parts = formatNumber(Math.abs(targetValue), { thousandsSeparator: false, maxPrecision: 20 }, "en-US").split('.');
+        signPart = targetValue < 0 ? minusSign : '';
+        integerPart = parts[0];
         fractionalPart = parts[1] ?? '';
         separatorPart = fractionalPart ? decimalSeparator : '';
       }

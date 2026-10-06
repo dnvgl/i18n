@@ -1,19 +1,15 @@
-import { convertToDate } from "./internal/convertToDate.js";
 import { iso4217Currencies } from "./internal/iso4217Currencies.js";
+import { toDateKey } from "./internal/toDateKey.js";
 import type { DateIsoString } from "./types/dateIsoString.js";
 import type { Iso4217Currency } from "./types/iso4217.js";
 
 const _cache: Record<string, Iso4217Currency[]> = {};
 
 export function getIso4217Currencies(statusForTheDay?: Date | DateIsoString): Iso4217Currency[] {
-  const limit = statusForTheDay ? convertToDate(statusForTheDay) : new Date(),
-    year = limit.getFullYear(),
-    month = limit.getMonth() + 1,
-    day = limit.getDate();
-
-  const dateKey = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+  const dateKey = toDateKey(statusForTheDay);
   const cachedResult = _cache[dateKey];
 
+  // HINT: intentionally a stable shared reference per day (e.g. React memoization), do not return a copy; callers must not mutate it
   if (cachedResult) {
     return cachedResult;
   }

@@ -1,8 +1,9 @@
+import type { DateIsoString } from "../types/dateIsoString.js";
 import type { Iso3166Alpha3Code } from "../types/iso3166.js";
 import type { Iso4217Alpha3Code } from "../types/iso4217.js";
 
 /** @internal */
-export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code | undefined | ((d: Date) => Iso4217Alpha3Code);
+export type Iso4217Alpha3CodeResolver = Iso4217Alpha3Code | undefined | ((day: DateIsoString) => Iso4217Alpha3Code);
 
 /** @internal */
 export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso4217Alpha3CodeResolver>([
@@ -40,7 +41,7 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["BRA", "BRL"],
   ["IOT", "USD"],
   ["BRN", "BND"],
-  ["BGR", (d: Date) => d >= new Date("2026-01-01") ? "EUR" : "BGN"],
+  ["BGR", day => day >= "2026-01-01" ? "EUR" : "BGN"],
   ["BFA", "XOF"],
   ["BDI", "BIF"],
   ["CPV", "CVE"],
@@ -61,9 +62,9 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["COK", "NZD"],
   ["CRI", "CRC"],
   ["CIV", "XOF"],
-  ["HRV", (d: Date) => d >= new Date("2023-01-01") ? "EUR" : "HRK"],
+  ["HRV", day => day >= "2023-01-01" ? "EUR" : "HRK"],
   ["CUB", "CUP"],
-  ["CUW", (d: Date) => d >= new Date("2025-03-31") ? "XCG" : "ANG"],
+  ["CUW", day => day >= "2025-03-31" ? "XCG" : "ANG"],
   ["CYP", "EUR"],
   ["CZE", "CZK"],
   ["DNK", "DKK"],
@@ -207,7 +208,7 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["SYC", "SCR"],
   ["SLE", "SLE"],
   ["SGP", "SGD"],
-  ["SXM", (d: Date) => d >= new Date("2025-03-31") ? "XCG" : "ANG"],
+  ["SXM", day => day >= "2025-03-31" ? "XCG" : "ANG"],
   ["SVK", "EUR"],
   ["SVN", "EUR"],
   ["SLB", "SBD"],
@@ -254,5 +255,5 @@ export const iso3166CountryToIso4217Currency = new Map<Iso3166Alpha3Code, Iso421
   ["ESH", "MAD"],
   ["YEM", "YER"],
   ["ZMB", "ZMW"],
-  ["ZWE", (d: Date) => d >= new Date("2024-09-01") ? "ZWG" : "ZWL"]
+  ["ZWE", day => day >= "2024-09-01" ? "ZWG" : "ZWL"]
 ]);

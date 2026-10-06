@@ -7,6 +7,7 @@ export function roundUsingBankersMethod(value: number, precision: number): numbe
     throw new RangeError("precision value is out of range.");
   }
 
+  // HINT: intentionally the same as .NET Math.Round(double, digits, MidpointRounding.ToEven), e.g. 1.035 (binary 1.03499...) -> 1.03
   const p = Math.pow(10, Math.trunc(precision)),
     x = value * p,
     r = Math.round(x),

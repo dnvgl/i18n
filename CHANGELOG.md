@@ -1,6 +1,35 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.21.3
+`2026-10-06`\
+\
+🐛 Bug fixes:
+- [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies), [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country), [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) - currencies are now resolved by the calendar day consistently in every timezone. A date-only string (e.g. `"2025-03-31"`) was shifted to the previous day in timezones behind UTC, and currency changes (e.g. BGN -> EUR) happened at UTC midnight instead of the start of the local day.
+- [`formatDate()`](DOCUMENTATION.md#formatDate), [`formatDatePart()`](DOCUMENTATION.md#formatDatePart), [`formatMonth()`](DOCUMENTATION.md#formatMonth), [`formatTime()`](DOCUMENTATION.md#formatTime) - a date-only string is now treated as local midnight (same as `date-fns` and `moment`). Before, it was the previous day in timezones behind UTC and e.g. `02:00` instead of `00:00` ahead of UTC.
+- [`formatDateToISO()`](DOCUMENTATION.md#formatDateToISO) - without time (default) it returns the local calendar day, consistent with [`formatDate()`](DOCUMENTATION.md#formatDate). Before, it returned the UTC day, so e.g. local midnight in timezones ahead of UTC (a date picked in a calendar) was shifted to the previous day. With `includeTime: true` the result is unchanged (UTC).
+```typescript
+formatDateToISO(new Date(2025, 2, 31)); // returns "2025-03-31" (before in UTC+ timezones: "2025-03-30")
+```
+- [`transformToInputNumericString()`](DOCUMENTATION.md#transformToInputNumericString) - `minAllowedValue`/`maxAllowedValue` were ignored when a locale specific minus sign was used (e.g. `−` in `sv-SE`), and limits with exponential notation were returned as e.g. `"1e7"` instead of `"0.0000001"`.
+- [`parseNumber()`](DOCUMENTATION.md#parseNumber) - strict mode no longer accepts hexadecimal, binary and octal literals (e.g. `"0x10"` returns `undefined`, before: `16`).
+- [`normalizeForSearching()`](DOCUMENTATION.md#normalizeForSearching) - letters without a Unicode decomposition are now normalized as well (`ł`, `đ`, `ø`, `ħ`, `ı`, `æ`, `œ`, `ß`), e.g. `"Łódź"` -> `"lodz"`, `"Straße"` -> `"strasse"`. Values normalized and stored by an older version should be normalized again.
+- [`parseNumber()`](DOCUMENTATION.md#parseNumber) - all whitespace characters are ignored, including no-break spaces (U+00A0, U+202F). Before, e.g. `"1 000,5"` pasted with a no-break space returned `1` (`fr-FR`, non-strict mode) or `undefined` (strict mode).
+- [`getDateFnsFormat()`](DOCUMENTATION.md#getDateFnsFormat), [`getMomentFormat()`](DOCUMENTATION.md#getMomentFormat), [`getDayJsFormat()`](DOCUMENTATION.md#getDayJsFormat) - no-break spaces (U+00A0, U+202F) returned by newer `Intl` versions (e.g. before AM/PM in `en-US`) are replaced with a regular space. Before, strict parsing (e.g. a date picker) rejected a typed date like `"6/5/2020, 5:05 AM"`.
+```typescript
+getMomentFormat("minutes", "en-US"); // returns "M[/]D[/]YYYY[, ]h[:]mm[ ]A" (before: "...[\u202f]A")
+```
+
+💡 Enhancements:
+- [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency) - the warning about the ambiguous numeric code `532` (XCG, ANG) is logged only once instead of on every call (also when formatting with `currency: 532`).
+
+📄 Documentation:
+- [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries), [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) and [`getStatesOfUsa()`](DOCUMENTATION.md#getStatesOfUsa) return the same array reference (intended, e.g. for React memoization), and [`findIso3166Country()`](DOCUMENTATION.md#findIso3166Country), [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country) return the same object instances - they must not be mutated.
+
+🔧 Internal:
+- Development dependencies upgraded and transitive dependencies refreshed (security audit).
+- Timezone dependent tests run in a real timezone (`America/New_York`, `Europe/Warsaw`) using a custom Jest environment, also on Windows.
+
 ## v1.21.2
 `2026-08-17`\
 \

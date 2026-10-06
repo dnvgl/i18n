@@ -106,4 +106,22 @@ describe('transformToInputNumericString', () => {
     const result = transformToInputNumericString(value, undefined, locale);
     expect(result).toBe(expected);
   });
+
+  test.each([
+    [`−50`, "sv-SE", -10, undefined, `−10`],
+    [`−5`, "sv-SE", undefined, -10, `−10`],
+    [`−50`, "lt-LT", -10, undefined, `−10`],
+  ])('clamps value %p entered with locale specific minus sign, locale: %p, min: %p, max: %p', (value, locale, min, max, expected) => {
+    const result = transformToInputNumericString(value, { minAllowedValue: min, maxAllowedValue: max }, locale);
+    expect(result).toBe(expected);
+  });
+
+  test.each([
+    ["5", undefined, 0.0000001, "0.0000001"],
+    ["-5", -0.0000001, undefined, "-0.0000001"],
+    ["9999999999999999999999", undefined, 1e21, "1000000000000000000000"],
+  ])('clamps value %p to a limit which has exponential string representation, min: %p, max: %p', (value, min, max, expected) => {
+    const result = transformToInputNumericString(value, { minAllowedValue: min, maxAllowedValue: max }, "en-US");
+    expect(result).toBe(expected);
+  });
 });

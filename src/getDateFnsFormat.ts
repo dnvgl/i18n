@@ -21,7 +21,7 @@ export function getDateFnsFormat(precision: DateFormatPrecision = "days", locale
         case "minute": return x.value.length === 1 ? "m" : "mm";
         case "second": return x.value.length === 1 ? "s" : "ss";
         case "dayPeriod": return "a";
-        case "literal": return `'${x.value}'`; // HINT: escaping
+        case "literal": return `'${x.value.replace(/[\u00a0\u202f]/g, " ")}'`; // HINT: escaping; no-break spaces would not match typed (parsed) input
         case "era": return 'G';
         case "timeZoneName": return 'XXX';
         case "weekday": return "EEE";

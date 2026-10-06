@@ -134,7 +134,7 @@ createNumberFormat({ thousandsSeparator: false }, "de");
 ```
 
 ### findIso3166Country()
-Returns specific country information. Please check [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries) to learn more about the country list.
+Returns specific country information. Please check [`getIso3166Countries()`](DOCUMENTATION.md#getIso3166Countries) to learn more about the country list. The returned object is the same instance as in the list - do not mutate it.
 
 ```typescript
 import { findIso3166Country } from '@dnvgl/i18n';
@@ -147,7 +147,7 @@ findIso3166Country("XX"); // returns undefined
 ```
 
 ### findIso4217Currency()
-Returns specific currency information. Please check [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) to learn more about the list of currencies. Please be aware that only `alpha3Code` is unique for all currencies (e.g. `numericCode` is the same for `AND` and `XCG` currencies).
+Returns specific currency information. Please check [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) to learn more about the list of currencies. Please be aware that only `alpha3Code` is unique for all currencies (e.g. `numericCode` is the same for `ANG` and `XCG` currencies). The returned object is the same instance as in the list - do not mutate it.
 
 ```typescript
 import { findIso4217Currency } from '@dnvgl/i18n';
@@ -166,7 +166,7 @@ Returns specific currency information for selected country, otherwise `undefined
 - SGS, South Georgia and the South Sandwich Islands
 
 
-Above countries has no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one.
+Above countries has no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one. The returned object is the same instance as in [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) - do not mutate it.
 
 ```typescript
 import { findIso4217CurrencyForIso3166Country } from '@dnvgl/i18n';
@@ -228,6 +228,7 @@ formatCurrency(""); // returns "", invalid currency code
 import { formatDate } from '@dnvgl/i18n';
 
 formatDate(new Date("2018-07-08"), "days", "en-US"); // returns "7/8/2018"
+formatDate("2018-07-08", "days", "en-US"); // returns "7/8/2018" (date-only string is treated as local midnight in every timezone)
 formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/2020"
 formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
 ```
@@ -245,12 +246,13 @@ formatDatePart("2018-07-08 14:15:24", "hour", "en-US"); // returns "2 PM"
 ### formatDateToISO()
 arguments:
 - value (`Date` or `string` ISO format only)
-- includeTime (`boolean`, optional, default: `false`)
+- includeTime (`boolean`, optional, default: `false`): `true` returns the date and time in UTC; `false` returns the local calendar day (same day as displayed by [`formatDate()`](DOCUMENTATION.md#formatDate))
 
 ```typescript
 import { formatDateToISO } from '@dnvgl/i18n';
 
-formatDateToISO(new Date(2020, 5, 10, 22, 15, 7), true); // returns "2020-06-10T20:15:07.000Z"
+formatDateToISO(new Date(2020, 5, 10, 22, 15, 7), true); // returns "2020-06-10T20:15:07.000Z", current timezone: UTC+2
+formatDateToISO(new Date(2020, 5, 10), false); // returns "2020-06-10" in every timezone
 formatDateToISO("2020-06-10T10:15:07.000Z", false); // returns "2020-06-10"
 ```
 
@@ -515,7 +517,8 @@ getDecimalSeparator("de"); // returns ","
 
 ### getIso3166Countries()
 Source: [`ISO 3166 countries (timestamp: 2018-09-18)`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)\
-To get `countryName` in your local culture please use [`formatCountry()`](DOCUMENTATION.md#formatCountry).
+To get `countryName` in your local culture please use [`formatCountry()`](DOCUMENTATION.md#formatCountry).\
+The function always returns the same array reference (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getIso3166Countries()].sort(...)`).
 
 ```typescript
 import { getIso3166Countries } from '@dnvgl/i18n';
@@ -531,7 +534,8 @@ getIso3166Countries().map(x => ({ ...x, translatedCountryName: formatCountry(x.a
 
 ### getIso4217Currencies()
 Sources: [`ISO 4217 countries (timestamp: 2021-10-01)`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database (timestamp: 2022-04-01)`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)\
-To get `currencyName` in your local culture please use [`formatCurrency()`](DOCUMENTATION.md#formatCurrency).
+To get `currencyName` in your local culture please use [`formatCurrency()`](DOCUMENTATION.md#formatCurrency).\
+The function returns the same array reference for the same day (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getIso4217Currencies()].sort(...)`).
 
 ```typescript
 import { getIso4217Currencies } from '@dnvgl/i18n';
@@ -570,7 +574,8 @@ import { DatePicker } from 'your_module_with_custom_date_picker';
 ```
 
 ### getStatesOfUsa()
-Source: [`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)
+Source: [`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)\
+The function always returns the same array reference (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getStatesOfUsa()].sort(...)`).
 ```typescript
 import { getStatesOfUsa } from '@dnvgl/i18n';
 
@@ -668,6 +673,8 @@ lowercaseFirstLetter("ABC"); // returns "aBC"
 import { normalizeForSearching } from '@dnvgl/i18n';
 
 normalizeForSearching("   Gdańsk  123 ", "en"); // returns "gdansk 123"
+normalizeForSearching("Łódź", "pl"); // returns "lodz"
+normalizeForSearching("Straße", "de"); // returns "strasse"
 
 const words = ["Congrès", "congres", "Assemblée", "poisson"];
 const s = "congres";
@@ -685,6 +692,7 @@ import { parseNumber } from '@dnvgl/i18n';
 parseNumber("1,623.454", true, "en-GB"); // returns 1623.454
 parseNumber("-1,62-sd3.454", false, "en-GB"); // returns -162
 parseNumber("-1,62-sd3.454", true, "en-GB"); // returns undefined
+parseNumber("0x10", true, "en-GB"); // returns undefined (only decimal notation is accepted in strict mode)
 ```
 
 ### plural()
