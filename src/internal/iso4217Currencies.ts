@@ -469,7 +469,7 @@ export const iso4217Currencies: Iso4217Currency[] = [
   },
   {
     alpha3Code: "KMF",
-    currencyName: "Comorian Franc ",
+    currencyName: "Comorian Franc",
     numericCode: 174,
     minorUnit: 0
   },
@@ -796,7 +796,8 @@ export const iso4217Currencies: Iso4217Currency[] = [
     alpha3Code: "SLL",
     currencyName: "Leone",
     numericCode: 694,
-    minorUnit: 2
+    minorUnit: 2,
+    historicalFrom: "2024-01-01"
   },
   {
     alpha3Code: "SOS",

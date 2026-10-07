@@ -1,6 +1,25 @@
 # Changelog
 Strictly follows [Semantic Versioning 2.0.0.](https://semver.org/)
 
+## v1.22.0
+`2026-10-07`\
+\
+🚀 Features:
+- `SLL` currency treated as historical: [`findIso4217Currency()`](DOCUMENTATION.md#findIso4217Currency), [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies). Sierra Leone switched to `SLE` and the old Leone (`SLL`) was moved to the ISO 4217 historic list published on `2024-01-01`, so we will use this date. [`findIso4217CurrencyForIso3166Country()`](DOCUMENTATION.md#findIso4217CurrencyForIso3166Country) is not affected (`SLE` was already returned for Sierra Leone).
+
+```typescript
+  {
+    alpha3Code: "SLL",
+    currencyName: "Leone",
+    numericCode: 694,
+    minorUnit: 2,
+    historicalFrom: "2024-01-01" // CHANGED (before: undefined)
+  },
+```
+
+📄 Documentation:
+- General documentation refresh ([`DOCUMENTATION.md`](DOCUMENTATION.md)): lists of supported codes, more detailed descriptions and corrected examples.
+
 ## v1.21.3
 `2026-10-06`\
 \

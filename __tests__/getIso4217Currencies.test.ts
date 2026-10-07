@@ -30,38 +30,38 @@ describe('getIso4217Currencies', () => {
 
   test('Netherlands Antillean Guilder (ANG) currency is returned', () => {
     const countries = getIso4217Currencies("2024-01-01");
-    expect(countries).toHaveLength(180);
+    expect(countries).toHaveLength(179);
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeDefined();
   });
 
   test('Caribbean Guilder (XCG) is returned', () => {
     const countries = getIso4217Currencies("2025-03-31");
-    expect(countries).toHaveLength(179);
+    expect(countries).toHaveLength(178);
     expect(countries.find(x => x.alpha3Code === "XCG")).toBeDefined();
     expect(countries.find(x => x.alpha3Code === "ANG")).toBeUndefined();
   });
 
   test('Zimbabwe Gold (ZWG) currency is not returned', () => {
     const countries = getIso4217Currencies("2024-06-24");
-    expect(countries).toHaveLength(180);
+    expect(countries).toHaveLength(179);
     expect(countries.find(x => x.alpha3Code === "ZWG")).toBeUndefined();
   });
 
   test('Zimbabwe Gold (ZWG) currency is returned', () => {
     const countries = getIso4217Currencies("2024-06-25");
-    expect(countries).toHaveLength(181);
+    expect(countries).toHaveLength(180);
     expect(countries.find(x => x.alpha3Code === "ZWG")).toBeDefined();
   });
 
   test('Zimbabwe Dollar (ZWL) currency is not returned', () => {
     const countries = getIso4217Currencies("2024-09-01");
-    expect(countries).toHaveLength(180);
+    expect(countries).toHaveLength(179);
     expect(countries.find(x => x.alpha3Code === "ZWL")).toBeUndefined();
   });
 
   test('Zimbabwe Dollar (ZWL) currency is returned', () => {
     const countries = getIso4217Currencies("2024-08-31");
-    expect(countries).toHaveLength(181);
+    expect(countries).toHaveLength(180);
     expect(countries.find(x => x.alpha3Code === "ZWL")).toBeDefined();
   });
 
@@ -89,6 +89,17 @@ describe('getIso4217Currencies', () => {
   test('Bulgarian Lev (BGN) currency is not returned', () => {
     const countries = getIso4217Currencies("2026-01-01");
     expect(countries.find(x => x.alpha3Code === "BGN")).toBeUndefined();
+  });
+
+  test('Leone (SLL) currency is returned', () => {
+    const countries = getIso4217Currencies("2023-12-31");
+    expect(countries.find(x => x.alpha3Code === "SLL")).toBeDefined();
+  });
+
+  test('Leone (SLL) currency is not returned', () => {
+    const countries = getIso4217Currencies("2024-01-01");
+    expect(countries.find(x => x.alpha3Code === "SLL")).toBeUndefined();
+    expect(countries.find(x => x.alpha3Code === "SLE")).toBeDefined();
   });
 
   test('no duplicates for property alpha3Code', () => {

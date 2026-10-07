@@ -7,10 +7,12 @@ Follow TypeScript definitions. Check out examples in unit tests (`__tests__` fol
 Only functions, types etc. that are directly included in `@dnvgl/i18n` module are officially supported. For example, `@dnvgl/i18n/internal` may change in the future without any release notes.
 
 ### 1.2. Locale
-Most of the functions accepts `locale` parameter which allow us to choose the correct locale for our needs:
+Most of the functions accept `locale` parameter which allows us to choose the correct locale for our needs:
 - provided: uses specific locale (examples: `'en'`, `'en-GB'`)
 - `undefined` (or omitted): uses local browser locale
 - more info: [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument)
+
+Note: spaces in the formatted values (e.g. `"1 000 000"` for `pl-PL`) are usually non-breaking spaces (`\u00a0` or `\u202f`) returned by `Intl`, not regular spaces.
 
 ## 2. More detailed documentation (alphabetically)
 
@@ -125,7 +127,7 @@ arguments (overload #1):
   - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
   - currencyDisplay (string): `"symbol" | "narrowSymbol" | "code" | "name"`; default `"symbol"` when `currency` is provided; see more info in the `Intl` documentation
   - currencySign (string): `"standard" | "accounting"`; default `"standard"` when `currency` is provided; see more info in the `Intl` documentation
-- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`)
 
 ```typescript
 import { createNumberFormat } from '@dnvgl/i18n';
@@ -165,8 +167,11 @@ Returns specific currency information for selected country, otherwise `undefined
 - PSE, Palestine, State of
 - SGS, South Georgia and the South Sandwich Islands
 
+Above countries have no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one. The returned object is the same instance as in [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) - do not mutate it.
 
-Above countries has no universal currency. Some countries have 2 currencies that can be used, but this function returns the most appropriate one. The returned object is the same instance as in [`getIso4217Currencies()`](DOCUMENTATION.md#getIso4217Currencies) - do not mutate it.
+arguments:
+- code (`Iso3166Alpha2Code`, `Iso3166Alpha3Code` or `Iso3166NumericCode`)
+- statusForTheDay (`Date` or `DateIsoString`, optional, default: today): returns the currency valid on that day (e.g. `HRK` for Croatia before `2023-01-01`); a date-only string is treated as a local calendar day; see [historical currencies](DOCUMENTATION.md#getIso4217Currencies) for the supported date range
 
 ```typescript
 import { findIso4217CurrencyForIso3166Country } from '@dnvgl/i18n';
@@ -180,7 +185,6 @@ findIso4217CurrencyForIso3166Country("pl"); // returns undefined
 findIso4217CurrencyForIso3166Country("XX"); // returns undefined
 findIso4217CurrencyForIso3166Country("HRV"); // returns { alpha3Code: "EUR", currencyName: "Euro... }
 findIso4217CurrencyForIso3166Country("HRV", "2022-05-05"); // returns { alpha3Code: "HRK", currencyName: "Kuna... }
-
 ```
 
 ### formatCountry()
@@ -224,10 +228,15 @@ formatCurrency(""); // returns "", invalid currency code
 ```
 
 ### formatDate()
+arguments:
+- value (`Date` or `DateIsoString`)
+- dateFormatType (`DateFormatPrecision`, optional, default: `"days"`): `"years"` (`"y"`), `"months"` (`"M"`), `"days"` (`"d"`), `"minutes"` (`"m"`), `"seconds"` (`"s"`)
+- locale (optional, default: browser locale)
+
 ```typescript
 import { formatDate } from '@dnvgl/i18n';
 
-formatDate(new Date("2018-07-08"), "days", "en-US"); // returns "7/8/2018"
+formatDate(new Date(2018, 6, 8), "days", "en-US"); // returns "7/8/2018" (JavaScript month index starts from 0, so 6 = July)
 formatDate("2018-07-08", "days", "en-US"); // returns "7/8/2018" (date-only string is treated as local midnight in every timezone)
 formatDate("2020-03-30T14:46:27+02:00", "days", "en-GB"); // returns "30/03/2020"
 formatDate("2018-07-08 14:15:24", "seconds", "en-US"); // returns "7/8/2018, 2:15:24 PM"
@@ -329,7 +338,7 @@ arguments (overload #1):
   - currency (string): currency ISO Alpha 3 code (e.g. `"USD"`), default `undefined`
   - currencyDisplay (string): `"symbol" | "narrowSymbol" | "code" | "name"`; default `"symbol"` when `currency` is provided; see more info in the `Intl` documentation
   - currencySign (string): `"standard" | "accounting"`; default `"standard"` when `currency` is provided; see more info in the `Intl` documentation
-- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`)
 
 arguments (overload #2):
 - value: number
@@ -401,7 +410,7 @@ Simplified [`formatNumber()`](DOCUMENTATION.md#formatNumber) function with fixed
 import { formatNumberToFixed } from '@dnvgl/i18n';
 
 formatNumberToFixed(123.454, 2, "en-US"); // returns "123.45"
-formatNumberToFixed(123.454, 1, "en-US"); // returns "123.4"
+formatNumberToFixed(123.454, 1, "en-US"); // returns "123.5"
 formatNumberToFixed(123.454, 5, "en-US"); // returns "123.45400"
 ```
 
@@ -427,7 +436,9 @@ formatString("some test {0} a {0} {1} {3} {2}", 1, "test", 5, 100); // returns "
 ```typescript
 import { formatTime } from '@dnvgl/i18n';
 
-formatTime("2018-07-08 14:15:24", "en-US"); // returns "2:15:24 PM"
+formatTime("2018-07-08 14:15:24", "seconds", "en-US"); // returns "2:15:24 PM"
+formatTime("2018-07-08 14:15:24", "minutes", "en-US"); // returns "2:15 PM"
+formatTime([14, 15, 24], "minutes", "en-GB"); // returns "14:15"
 ```
 
 ### getCountryCodeFromBic()
@@ -440,7 +451,7 @@ getCountryCodeFromBic("BNPAFRPP"); // returns "FR"
 getCountryCodeFromBic("BNPAFRP"); // returns undefined (invalid BIC length)
 getCountryCodeFromBic("BNPAXXPP"); // returns undefined ("XX" is not a valid ISO3166-1 country code)
 getCountryCodeFromBic("BNPAFrPP"); // returns undefined (country code is not uppercase)
-getCountryCodeFromBic("1234FRPP"); // returns undefined (invalid structure, institution or bank code cannot contains digits)
+getCountryCodeFromBic("1234FRPP"); // returns undefined (invalid structure, institution or bank code cannot contain digits)
 getCountryCodeFromBic("  BNPAFRPP"); // returns undefined (invalid BIC structure)
 getCountryCodeFromBic("BNPAFR"); // returns undefined (BIC is too short)
 ```
@@ -516,7 +527,13 @@ getDecimalSeparator("de"); // returns ","
 ```
 
 ### getIso3166Countries()
-Source: [`ISO 3166 countries (timestamp: 2018-09-18)`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)\
+Source: [`Wikipedia ISO 3166 countries`](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes)
+<details>
+<summary>Supported countries (<code>alpha2Code</code>, 249)</summary>
+
+AD, AE, AF, AG, AI, AL, AM, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW
+</details>
+
 To get `countryName` in your local culture please use [`formatCountry()`](DOCUMENTATION.md#formatCountry).\
 The function always returns the same array reference (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getIso3166Countries()].sort(...)`).
 
@@ -533,9 +550,20 @@ getIso3166Countries().map(x => ({ ...x, translatedCountryName: formatCountry(x.a
 ```
 
 ### getIso4217Currencies()
-Sources: [`ISO 4217 countries (timestamp: 2021-10-01)`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database (timestamp: 2022-04-01)`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)\
+Sources: [`Wikipedia ISO 4217 currencies`](https://en.wikipedia.org/wiki/ISO_4217), [`SIX - XML database`](https://www.six-group.com/en/products-services/financial-information/data-standards.html)
+<details>
+<summary>Supported currencies (<code>alpha3Code</code>, 184, including historical and newly introduced)</summary>
+
+AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHF, CHW, CLF, CLP, CNY, COP, COU, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, EUR, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HRK, HTG, HUF, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UAH, UGX, USD, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAD, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XCG, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWG, ZWL
+</details>
+
 To get `currencyName` in your local culture please use [`formatCurrency()`](DOCUMENTATION.md#formatCurrency).\
 The function returns the same array reference for the same day (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getIso4217Currencies()].sort(...)`).
+
+arguments:
+- statusForTheDay (`Date` or `DateIsoString`, optional, default: today): only currencies valid on that day are returned (historical and not yet introduced currencies are skipped); a date-only string is treated as a local calendar day
+
+Historical currencies: the list is based on the ISO 4217 list from `2022-05-27` (v1.7.0, when currency support was added). Currencies withdrawn before that date are not included, currencies withdrawn later are kept and marked with `historicalFrom`. Therefore `statusForTheDay` earlier than `2022-05-27` may not reflect the actual state from that day.
 
 ```typescript
 import { getIso4217Currencies } from '@dnvgl/i18n';
@@ -574,7 +602,13 @@ import { DatePicker } from 'your_module_with_custom_date_picker';
 ```
 
 ### getStatesOfUsa()
-Source: [`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)\
+Source: [`List of states of the United States`](https://en.wikipedia.org/wiki/List_of_states_and_territories_of_the_United_States)
+<details>
+<summary>Supported states (<code>alpha2Code</code>, 50)</summary>
+
+AK, AL, AR, AZ, CA, CO, CT, DE, FL, GA, HI, IA, ID, IL, IN, KS, KY, LA, MA, MD, ME, MI, MN, MO, MS, MT, NC, ND, NE, NH, NJ, NM, NV, NY, OH, OK, OR, PA, RI, SC, SD, TN, TX, UT, VA, VT, WA, WI, WV, WY
+</details>
+
 The function always returns the same array reference (useful e.g. for React memoization). Do not mutate it - make a copy first (e.g. `[...getStatesOfUsa()].sort(...)`).
 ```typescript
 import { getStatesOfUsa } from '@dnvgl/i18n';
@@ -593,7 +627,7 @@ getSystemLocaleName(); // returns "pl-PL", current locale: pl-PL (depends on cli
 ```typescript
 import { getThousandsSeparator } from '@dnvgl/i18n';
 
-getThousandsSeparator(); // returns " ", current locale: pl-PL (depends on client's machine)
+getThousandsSeparator(); // returns "\u00a0" (non-breaking space), current locale: pl-PL (depends on client's machine)
 getThousandsSeparator("en-GB"); // returns ","
 getThousandsSeparator("de"); // returns "."
 ```
@@ -621,6 +655,12 @@ isBrowserCompatible(); // returns false, Internet Explorer 11
 ```
 
 ### isEuropeanUnionMember()
+<details>
+<summary>European Union members (<code>alpha2Code</code>, 27)</summary>
+
+AT, BE, BG, CY, CZ, DE, DK, EE, ES, FI, FR, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK
+</details>
+
 ```typescript
 import { isEuropeanUnionMember } from '@dnvgl/i18n';
 
@@ -647,7 +687,7 @@ isValidIso3166Code(1000); // returns false
 ```
 
 ### isValidIso4217Code()
-Checks whether code has valid length and currency exists (active code only).
+Checks whether code has valid length and currency exists (historical and newly introduced currencies are also valid, e.g. `HRK`).
 ```typescript
 import { isValidIso4217Code } from '@dnvgl/i18n';
 
@@ -735,7 +775,7 @@ roundUsingHalfAwayFromZero(1.46, 1); // returns 1.5
 roundUsingHalfAwayFromZero(1.55, 1); // returns 1.6
 roundUsingHalfAwayFromZero(1.005, 2); // returns 1.01
 roundUsingHalfAwayFromZero(10.075, 2); // returns 10.08
-roundUsingHalfAwayFromZero(-23.5, 1); // returns -24
+roundUsingHalfAwayFromZero(-23.5, 0); // returns -24
 roundUsingHalfAwayFromZero(-1.005, 2); // returns -1.01
 ```
 
@@ -768,7 +808,7 @@ sort(['己', '孔', '乙'], "asc", "zh-TW"); // returns ['乙', '己', '孔']
 ```
 
 additional information:
-- `sortInplace()` mutates input array, `sort()` return always new array (new reference)
+- `sortInplace()` mutates input array, `sort()` always returns a new array (new reference)
 - ascending order: `undefined` -> `null` -> `NaN` or `Invalid Date` -> `-Infinity` -> `1` -> `100` -> `Infinity`
 - descending order: reverted ascending order
 
@@ -806,7 +846,7 @@ const result = sortBy(users, [x => x.name, x => x.age], ["asc", "desc"], "en");
 ```
 
 additional information:
-- `sortByInplace()` mutates input array, `sortBy()` return always new array (new reference)
+- `sortByInplace()` mutates input array, `sortBy()` always returns a new array (new reference)
 - source elements (before selector) cannot be `null` or `undefined`
 
 common mistakes:
@@ -825,7 +865,7 @@ arguments:
   - fractionalPart (number): default `undefined`; maximum number of fractional digits
   - forceFractionalPart (boolean): default `false`; pads the fractional part with zeros up to `fractionalPart` (requires `fractionalPart`)
   - allowOnlyHalfs (boolean): default `false`; keeps only `.5` as the fractional part (requires `fractionalPart`)
-- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`) or `Intl.Collator`
+- locale (optional, default: browser locale): BCP47 language tag/tags (`string` or `string[]`)
 
 ```typescript
 import { transformToInputNumericString } from '@dnvgl/i18n';
